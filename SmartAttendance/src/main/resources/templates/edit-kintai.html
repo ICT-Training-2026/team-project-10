@@ -2,9 +2,56 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>勤怠情報編集</title>
+
+<h1 class="title">勤怠情報編集</h1>
+<input type="button" value="Menu" class="btn" >
+<input type="button" value="Logout" class="btn" >
+
+ <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+
 </head>
 <body>
 
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>名前</th>
+            <th>日付</th>
+            <th>区分</th>
+            <th>始業</th>
+            <th>終業</th>
+            <th>労働時間</th>
+            <th>休憩時間</th>
+            <th>累積超過</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                <input type="number" placeholder="時"> :
+                <input type="number" placeholder="分">
+            </td>
+            <td>
+                <input type="number" placeholder="時"> :
+                <input type="number" placeholder="分">
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <input type="submit" value="更新" class="btn">
+    <input type="submit" value="削除" class="btn">
 </body>
 </html>
