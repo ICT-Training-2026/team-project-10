@@ -2,9 +2,31 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Smart勤怠</title>
+<h1 class="title">Smart勤怠</h1>
+ <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+
 </head>
 <body>
+  <div class="login-container">
+    <h1>Smart勤怠</h1>
+    <form>
+      <label for="id">ID</label>
+      <input type="text" id="id" placeholder="ユーザーIDは6桁です" maxlength="6" required>
 
+      <label for="password">Pass</label>
+      <input type="password" id="password" placeholder="8桁以上/半角英数字" minlength="8" pattern="^[a-zA-Z0-9]+$" required>
+
+      <button type="submit">Login</button>
+    </form>
+  </div>
 </body>
 </html>
