@@ -2,9 +2,48 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<title>新規ユーザー登録</title>
 
+<input type="button" value="Menu" class="d-btn" >
+<input type="button" value="Logout" class="d-btn" >
+ <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+</style>
+
+<body>
+    <h1>新規ユーザー登録</h1>
+    <div class="registuser-container"></div>
+    <form>
+        <label for="id">ID</label>
+        <input type="text" id="id" placeholder="ユーザーIDは6桁です" maxlength="6" required>
+
+        <label for="name">名前</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="department">部門</label>
+        <select id="department" name="department" required>
+        <option value="">選択してください</option>
+                <option value="sales">営業</option>
+                <option value="development">開発</option>
+                <option value="general_affairs">総務</option>
+            </select>
+
+        <label for="password">Pass</label>
+        <input type="password" id="password" placeholder="8桁以上/半角英数字" minlength="8" pattern="^[a-zA-Z0-9]+$" required>
+
+        <label for="role">権限</label>
+                <select id="role" name="role" required>
+                <option value="user" selected>一般ユーザー</option>
+                <option value="admin">管理者</option>
+                </select>
+      <button type="submit">登録</button>
+    </form>
+  </div>
 </body>
 </html>
