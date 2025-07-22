@@ -1,74 +1,72 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>勤怠登録確認</title>
-  <style>
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-    th, td {
-      border: 1px solid black;
-      padding: 4px;
-      text-align: center;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- ヘッダー -->
-  <div class="header"> 
-    <h1>勤怠登録確認</h1>
-    <div class="head-btn">
-      <input type="button" value="Menu">
-      <input type="button" value="Logout">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>勤怠登録確認</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th, td {
+        border: 1px solid black;
+        padding: 4px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ヘッダー -->
+    <div class="header"> 
+      <h1>勤怠登録確認</h1>
+        <input type="button" value="Menu">
+        <input type="button" value="Logout">
     </div>
-  </div>
 
-  <!-- 表格 -->
-  <table>
-    <thead>
-      <tr>
-        <th rowspan="2">区分</th>
-        <th colspan="2">始業</th>
-        <th colspan="2">終業</th>
-        <th rowspan="2">労働時間</th>
-        <th rowspan="2">休憩時間</th>
-        <th rowspan="2">累積超過</th>
-      </tr>
-      <tr>
-        <th>時</th>
-        <th>分</th>
-        <th>時</th>
-        <th>分</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>&nbsp;</td> <!-- 表示なしだが、列幅を保つために空白（&nbsp;）を入れている -->
-        <td></td> <!-- 始業：時 -->
-        <td></td> <!-- 始業：分 -->
-        <td></td> <!-- 終業：時 -->
-        <td></td> <!-- 終業：分 -->
-        <td></td> <!-- 労働時間 -->
-        <td></td> <!-- 休憩時間 -->
-        <td></td> <!-- 累積超過 -->
-      </tr>
-    </tbody>
-  </table>
+    <!-- 表-->
+    <div class="page-main">
+      <table>
+        <thead>
+          <tr>
+            <th rowspan="2">区分</th>
+            <th colspan="2">始業</th>
+            <th colspan="2">終業</th>
+            <th rowspan="2">労働時間</th>
+            <th rowspan="2">休憩時間</th>
+            <th rowspan="2">累積超過</th>
+          </tr>
+          <tr>
+            <th>時</th>
+            <th>分</th>
+            <th>時</th>
+            <th>分</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>&nbsp;</td> <!-- 表示なしだが、列幅を保つために空白（&nbsp;）を入れている -->
+            <td></td> <!-- 始業：時 -->
+            <td></td> <!-- 始業：分 -->
+            <td></td> <!-- 終業：時 -->
+            <td></td> <!-- 終業：分 -->
+            <td></td> <!-- 労働時間 -->
+            <td></td> <!-- 休憩時間 -->
+            <td></td> <!-- 累積超過 -->
+          </tr>
+        </tbody>
+      </table>
 
-  <!-- メッセージ -->
-  <div>
-    <p>まだ、登録は完了しておりません</p>
-    <p>登録内容をお確かめの上、登録ボタンを押してください</p>
-  </div>
+    <!-- メッセージ -->
+      <div>
+        <p>まだ、登録は完了しておりません</p>
+        <p>登録内容をお確かめの上、登録ボタンを押してください</p>
+      </div>
 
-  <!-- ボタン -->
-  <div>
-    <input type="submit" value="戻る" class="btn">
-    <input type="submit" value="登録" class="btn">
+    <!-- ボタン -->
+      <div id="center-btn">
+        <input type="submit" value="戻る" class="btn">
+        <input type="submit" value="登録" class="btn">
+      </div> 
   </div> 
-
-</body>
+  </body>
 </html>
