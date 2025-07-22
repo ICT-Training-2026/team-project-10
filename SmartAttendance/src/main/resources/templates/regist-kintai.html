@@ -1,76 +1,74 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>勤怠情報登録</title>
-
-<h1 class="title">勤怠情報登録</h1>
-<input type="button" value="Menu" class="btn" >
-<input type="button" value="Logout" class="btn" >
-
- <style>
-        table {
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 5px;
-        }
-    </style>
-
-</head>
-<body>
-
-    <table>
-        <tr>
-            <th>区分</th>
-            <th>始業</th>
-            <th>終業</th>
-            <th>労働時間</th>
-            <th>休憩時間</th>
-            <th>累積超過</th>
-        </tr>
-        <tr>
-            <td>
-                <select>
-            <option value="0">選択してください。</option>
-			<option value="10">10:出勤</option>
+    <head>
+        <meta charset="UTF-8">
+        <title>勤怠登録</title>  
+        <style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 4px;
+        text-align: center;
+    }
+        </style>
+        
+    </head>
+    <body>
+        <div class="header"> 
+            <h1>勤怠登録</h1>
+            <div class="head-btn">
+                <input type="button" value="Menu" class="btn">
+                <input type="button" value="Logout" class="btn">
+            </div>
+        </div>
+  <!-- 勤怠表 -->
+  <table>
+    <thead>
+      <tr>
+        <th rowspan="2">区分</th>
+        <th colspan="2">始業</th>
+        <th colspan="2">終業</th>
+        <th rowspan="2">労働時間</th>
+        <th rowspan="2">休憩時間</th>
+        <th rowspan="2">累積超過</th>
+      </tr>
+      <tr>
+        <th>時</th>
+        <th>分</th>
+        <th>時</th>
+        <th>分</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <select name="kbn">
+            <option value="10">10:出勤</option>
             <option value="20">20:振出</option>
             <option value="30">30:欠勤</option>
             <option value="80">80:年休</option>
             <option value="90">90:振休</option>
             <option value="99">99:休日</option>
-			<!-- 固定のオプション1-5
-			<option th:each="option : ${#numbers.sequence(1,5)}" 
-				th:value="${option}"
-				th:text="${option}"
-				th:selected="${option == kintaiClass}" >
-			</option> -->
-		        </select>
-            </td>
-            <td>
-                <input type="number" placeholder="時"> :
-                <input type="number" placeholder="分">
-            </td>
-            <td>
-                <input type="number" placeholder="時"> :
-                <input type="number" placeholder="分">
-            </td>
-            <td>
-                <input type="number" placeholder="時間">
-            </td>
-            <td>
-                <input type="number" placeholder="時間">
-            </td>
-            <td>
-                <input type="number" placeholder="時間">
-            </td>
-        </tr>
-    </table>
-    <!-- 
-    <div th:if="${#fields.hasErrors('kintaiClass')}" th:errors="*{kintaiClass}" class="error-msg"></div>
-     -->
-    <input type="submit" value="登録" class="btn">
+          </select>
+        </td>
+        <td><input type="number" id="start_hour" min="8" max="22"></td>
+        <td><input type="number" id="start_minute" min="0" max="59"></td>
+        <td><input type="number" id="end_hour" min="8" max="22"></td>
+        <td><input type="number" id="end_minute" min="0" max="59"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 登録ボタン -->
+  <div class="center-btn">
+    <button>登録</button>
+  </div>
 
 </body>
 </html>
