@@ -5,58 +5,101 @@
 	<meta charset="UTF-8">
 	<title>勤怠情報編集</title>
 
-	<h1 class="title">勤怠情報編集</h1>
-	<input type="button" value="Menu" class="btn">
-	<input type="button" value="Logout" class="btn">
-
 	<style>
 		table {
 			border-collapse: collapse;
+			width: 100%;
 		}
 
 		th,
 		td {
 			border: 1px solid black;
 			padding: 5px;
+			text-align: center;
 		}
 	</style>
-
 </head>
 
 <body>
+	<div class="header">
+		<h1>勤怠情報編集</h1>
+		<div class="head-btn">
+			<input type="button" value="Menu" class="btn">
+			<input type="button" value="Logout" class="btn">
+		</div>
+	</div>
+	<div class="page-main">
+		<table>
+			<thead>
+				<tr>
+					<th rowspan="2">ID</th>
+					<th rowspan="2">名前</th>
+					<th rowspan="2">日付</th>
+					<th rowspan="2">区分</th>
+					<th colspan="2">始業</th>
+					<th colspan="2">終業</th>
+					<th rowspan="2">労働時間</th>
+					<th rowspan="2">休憩時間</th>
+					<th rowspan="2">累積超過</th>
+				</tr>
+				<tr>
+					<th>時</th>
+					<th>分</th>
+					<th>時</th>
+					<th>分</th>
+				</tr>
+			</thead>
 
-	<table>
-		<tr>
-			<th>ID</th>
-			<th>名前</th>
-			<th>日付</th>
-			<th>区分</th>
-			<th>始業</th>
-			<th>終業</th>
-			<th>労働時間</th>
-			<th>休憩時間</th>
-			<th>累積超過</th>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td>
-				<input type="number" placeholder="時"> :
-				<input type="number" placeholder="分">
-			</td>
-			<td>
-				<input type="number" placeholder="時"> :
-				<input type="number" placeholder="分">
-			</td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-	</table>
-	<input type="submit" value="更新" class="btn">
-	<input type="submit" value="削除" class="btn">
+			<tbody>
+				<tr>
+					<td th:text=""></td>
+					<td th:text=""></td>
+					<td th:text=""></td>
+					<td>
+						<select name="kbn" required>
+							<option value="10">10:出勤</option>
+							<option value="20">20:振出</option>
+							<option value="30">30:欠勤</option>
+							<option value="80">80:年休</option>
+							<option value="90">90:振休</option>
+							<option value="99">99:休日</option>
+						</select>
+					</td>
+					<!-- 始業 -->
+					<td><input type="number" id="start_hour" name="start_hour" min="8" max="22" required></td>
+					<td>
+						<select id="start_minute" name="start_minute" required>
+							<option value="0">00</option>
+							<option value="15">15</option>
+							<option value="30">30</option>
+							<option value="45">45</option>
+						</select>
+					</td>
+
+					<!-- 終業 -->
+					<td><input type="number" id="end_hour" name="end_hour" min="8" max="22" required></td>
+					<td>
+						<select id="end_minute" name="end_minute" required>
+							<option value="0">00</option>
+							<option value="15">15</option>
+							<option value="30">30</option>
+							<option value="45">45</option>
+						</select>
+					</td>
+
+					<!-- 数値（小数）入力 -->
+					<td><input type="number" name="work_time" step="0.25" min="0" required></td>
+					<td><input type="number" name="break_time" step="0.25" min="0" required></td>
+					<td><input type="number" name="excess_time" step="0.25" min="0" required></td>
+				</tr>
+			</tbody>
+
+		</table>
+		<div id="center-btn">
+			<input type="submit" value="削除" class="btn">
+			<input type="submit" value="更新" class="btn">
+		</div>
+	</div>
 </body>
 
 </html>
