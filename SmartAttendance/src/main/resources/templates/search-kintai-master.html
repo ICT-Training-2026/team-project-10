@@ -1,10 +1,92 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 
+<head>
+    <meta charset="UTF-8">
+    <title>勤怠情報検索</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+	<div class="header">
+        <h1>勤怠情報検索</h1>
+        <div class="head-btn">
+            <input type="button" value="Menu" class="btn">
+            <input type="button" value="Logout" class="btn">
+        </div>
+    </div>
+    
+    <div class="page-main">
+	    <form th:action="" method="POST"  th:object="">
+	    	<input type="date">
+	    	<select>
+	            <option value="0">部門選択</option>
+	            <option value="営業">営業</option>
+	            <option value="開発">開発</option>
+	            <option value="総務">総務</option>
+	        </select>
+	    	<select>
+	    	    <option value="0">区分選択</option>
+	            <option value="10">10:出勤</option>
+	            <option value="20">20:振出</option>
+	            <option value="30">30:欠勤</option>
+	            <option value="80">80:年休</option>
+	            <option value="90">90:振休</option>
+	            <option value="99">99:休日</option>
+	        </select>
+	        <input type="text" th:field="*{emp_id}" id="id" placeholder="社員番号" minlength="6" maxlength="6" required>
+	        <input type="submit" value="検索" class="btn">
+	    </form>
+	      
+	    <table>
+	        <thead>
+		        <tr>
+		            <th rowspan="2">ID</th>
+		            <th rowspan="2">名前</th>
+		            <th rowspan="2">日付</th>
+		            <th rowspan="2">区分</th>
+		            <th colspan="2">始業</th>
+		            <th colspan="2">終業</th>
+		            <th rowspan="2">労働時間</th>
+		            <th rowspan="2">休憩時間</th>
+		            <th rowspan="2">累積超過</th>
+		        </tr>
+		        <tr>
+			        <th>時</th>
+			        <th>分</th>
+			        <th>時</th>
+			        <th>分</th>
+			    </tr>
+	        </thead>
+	        <tr>
+	            <td th:text=""></td>
+	            <td th:text=""></td>
+	            <td th:text=""></td>
+	            <td th:text=""></td>
+	            <td th:text=""></td>
+	            <td th:text=""></td>
+	            <td th:text=""></td>
+	            <td th:text=""></td>
+	            <td th:text=""></td>
+	            <td th:text=""></td>
+	            <td th:text=""></td>
+	            <td>
+	            	<input type="button" value="編集" class="btn">
+	            </td>
+	        </tr>
+	    </table>
+    </div>
 </body>
+
 </html>
