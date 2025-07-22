@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class TestController {
+public class RegistUserController {
 
 	private final RegistUserService service;
 
