@@ -1,5 +1,8 @@
 package com.example.demo.repository;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -26,13 +29,21 @@ public class LoginUserRepositoryImpl implements LoginUserRepository{
 						"	ei.emp_id = ?	AND ei.hashed_pw = ?	" +
 				")";
 		
-		String sql_getUserString = "";
+		String sql_getUser = 
+			    "SELECT * "
+			    + "FROM employees_info ei "
+			    + "WHERE ei.emp_id = ?";
 		
 		Boolean result = jdbcTemplate.queryForObject(sql_userCheck ,Boolean.class, emp_id, hashed_passNumber);
 		
 		LoginUser findUser = new LoginUser();
 		if (result) {
-			findUser.setEmp_id(emp_id);
+			List<Map<String, Object>> users = jdbcTemplate.queryForList(sql_getUser, emp_id);
+			Map<String, Object> userMap = users.get(0);
+			findUser.setEmp_id((String)userMap.get("emp_id"));
+			findUser.setDep_id((Integer)userMap.get("dep_id"));
+			findUser.setPermission((boolean)userMap.get("permission"));
+			System.out.println(findUser);
 		} else {
 			findUser.setEmp_id(emp_id);
 			findUser.setMsgflag(true);
