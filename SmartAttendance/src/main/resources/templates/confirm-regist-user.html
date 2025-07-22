@@ -1,44 +1,46 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>新規ユーザー登録確認</title>
+	<meta charset="UTF-8">
+	<title>新規ユーザー登録確認</title>
 </head>
 
 <body>
-    <div class="header">
-        <h1>新規ユーザー登録確認</h1>
-        <div class="head-btn">
-            <input type="button" value="Menu" class="btn">
-            <input type="button" value="Logout" class="btn">
-        </div>
-    </div>
+	<div class="header">
+		<h1>新規ユーザー登録確認</h1>
+		<div class="head-btn">
+			<input type="button" value="Menu" class="btn">
+			<input type="button" value="Logout" class="btn">
+		</div>
+	</div>
 
-    <div class="registuser-container">
-    <div th:action="@{complete-regist-user}" method="POST" th:object="${registUserForm}">
-        <label>ID:</label>
-        <p th:field="*{emp_id}"></p>
+	<div class="registuser-container">
+		<div th:action="@{complete-regist-user}" method="POST" th:object="${registUserForm}">
+			<label>ID:</label>
+			<p th:field="*{emp_id}"></p>
 
-        <label>名前:</label>
-        <p th:text="*{emp_name}"></p>
+			<label>名前:</label>
+			<p th:text="*{emp_name}"></p>
 
-        <label>部門:</label>
-        <p th:text="*{dep_id}"></p>
+			<label>部門:</label>
+			<p th:text="*{dep_id}"></p>
 
-        <label>Pass:</label>
-        <p th:text="*{password}"></p>
+			<label>Pass:</label>
+			<p th:text="*{password}"></p>
 
-        <label>権限:</label>
-        <p th:text="*{permission} ? '一般ユーザ' : '管理者'"></p>
-  </div>
-  
-  <form th:action="@{/complete-regist-user}" method="POST" th:object="${registUserForm}">
-	<input type="hidden" th:field="*{emp_id}">
-	<input type="hidden" th:field="*{emp_name}">
-	<input type="hidden" th:field="*{dep_id}">
-	<input type="hidden" th:field="*{password}">
-	<input type="hidden" th:field="*{permission}">
-	<input type="submit" value="登録実行" class="btn">
-  </form>
+			<label>権限:</label>
+			<p th:text="*{permission} ? '一般ユーザ' : '管理者'"></p>
+		</div>
+
+		<form th:action="@{/complete-regist-user}" method="POST" th:object="${registUserForm}">
+			<input type="hidden" th:field="*{emp_id}">
+			<input type="hidden" th:field="*{emp_name}">
+			<input type="hidden" th:field="*{dep_id}">
+			<input type="hidden" th:field="*{password}">
+			<input type="hidden" th:field="*{permission}">
+			<input type="submit" value="登録実行" class="btn">
+		</form>
 </body>
+
 </html>

@@ -9,13 +9,13 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class LoginUserServiceImpl implements LoginUserService{
-	
+public class LoginUserServiceImpl implements LoginUserService {
+
 	private final LoginUserRepository repository;
-	
+
 	public LoginUser findUser(String emp_id, String password) {
 		LoginUser result = repository.findUser(emp_id, password);
-		
+
 		return result;
 	}
 }
