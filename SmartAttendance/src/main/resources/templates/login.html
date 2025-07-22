@@ -20,8 +20,10 @@
 <body>
 	<div class="login-container">
 		<div class="header">
-			<img src="Smart_1.png" alt="ロゴ" width="90px" height="auto">
-			<h1 class="title">Smart勤怠</h1>
+			<div class="head-title">
+				<img src="Smart_1.png" alt="ロゴ" width="90px" height="auto">
+				<h1 class="title">Smart勤怠</h1>
+			</div>
 		</div>
 		<div class="page-main">
 			<form th:action="@{/user_search}" method="POST" th:object="${loginUserForm}" class="login-form">
