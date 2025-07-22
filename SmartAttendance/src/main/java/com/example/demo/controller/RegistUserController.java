@@ -43,7 +43,6 @@ public class RegistUserController {
 	public String completeRegistUser(@ModelAttribute RegistUserForm form, Model model) {
 		service.RegistUser(form);
 		return "complete";
-
 	}
 
 }
