@@ -1,1 +1,68 @@
 @charset "UTF-8";
+@import url('https://unpkg.com/ress/dist/ress.min.css');
+
+
+/* テーブルスタイル */
+table {
+    width: 100%;
+    border-collapse: collapse; /* 枠線を結合 */
+}
+
+th, td {
+border: 1px solid #ccc; /* ボーダーの設定 */
+padding: 10px; /*内側の余白 */
+}
+th {
+background-color: #cab8d9; /* ヘッダーの背景色 */
+}
+
+
+h1{
+    padding: 0px 0px 0px 20px;
+    font-size: 45px;
+}
+
+.head-btn {
+    display: flex;
+    gap:15px;
+}
+
+.btn {
+    background-color: #f19ca7;
+    border: 1px solid #e95464;
+    padding: 10px 15px;
+    font-size: 20px;
+    /* display: flex;
+    justify-content: center; */
+    height: 50px;
+    width: 100px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    height: 120px;
+    position: fixed;  /* ヘッダーを固定 */
+    top: 0;           /* 画面上部に固定 */
+    left: 0;          /* 左端に固定 */
+    right: 0;         /* 右端まで広がる */
+    padding:20px 20px 5px 5px;
+    background-color: #cab8d9;
+}
+
+.page-main{
+    margin-top: 160px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+
+#center-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:30px;
+    
+}
