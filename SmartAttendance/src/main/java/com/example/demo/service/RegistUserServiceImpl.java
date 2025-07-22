@@ -10,14 +10,14 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class RegistUserServiceImpl implements RegistUserService {
-    
-    private final RegistUserRepository repository;
 
-    public Boolean UserCheck(String emp_id) {
-        return repository.UserCheck(emp_id);
-    }
-    
-    public void RegistUser(RegistUserForm form) {
-    	repository.RegistUser(form);
-    }
+	private final RegistUserRepository repository;
+
+	public Boolean UserCheck(String emp_id) {
+		return repository.UserCheck(emp_id);
+	}
+
+	public void RegistUser(RegistUserForm form) {
+		repository.RegistUser(form);
+	}
 }

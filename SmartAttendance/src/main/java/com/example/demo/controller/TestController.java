@@ -14,38 +14,36 @@ import lombok.RequiredArgsConstructor;
 @Controller
 @RequiredArgsConstructor
 public class TestController {
-	
+
 	private final RegistUserService service;
-	
+
 	@GetMapping("/regist-user")
 	public String registUser(Model model) {
 		model.addAttribute("registUserForm", new RegistUserForm());
 		return "regist-user";
 	}
-	
+
 	@PostMapping("/confirm-regist-user")
 	public String cofirmRegistUser(@ModelAttribute RegistUserForm form, Model model) {
 		Boolean check = service.UserCheck(form.getEmp_id());
-		
+
 		model.addAttribute("registUserForm", form);
-		
+
 		if (!check) {
 			model.addAttribute("registUserForm", form);
 			return "confirm-regist-user";
-		}
-		else {
+		} else {
 			form.setMsgflag(true);
 			model.addAttribute("registUserForm", form);
-			return "regist-user"; 
+			return "regist-user";
 		}
 	}
-	
+
 	@PostMapping("complete-regist-user")
 	public String completeRegistUser(@ModelAttribute RegistUserForm form, Model model) {
 		service.RegistUser(form);
 		return "complete";
-		
+
 	}
-		
-	
+
 }

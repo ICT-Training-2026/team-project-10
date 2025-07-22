@@ -18,7 +18,7 @@ public class LoginUserRepositoryImpl implements LoginUserRepository{
 	
 	public LoginUser findUser(String emp_id, String password) {
 		HashedString hs = new HashedString();
-		String hashed_passNumber = hs.hashe_sha256(password);
+		String hashed_passNumber = hs.hash_sha256(password);
 		
 		String sql_userCheck =
 				"SELECT EXISTS (									" +

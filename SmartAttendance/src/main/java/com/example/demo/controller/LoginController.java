@@ -15,15 +15,16 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class LoginController {
 	private final LoginUserService service;
-	
+
 	@PostMapping("user_search")
 	private String userSearch(@ModelAttribute LoginUserForm form, Model model) {
 		LoginUser loginUser = service.findUser(form.getEmp_id(), form.getPassword());
-		if (!loginUser.isMsgflag()) return "main";
+		if (!loginUser.isMsgflag())
+			return "main";
 		else {
 			model.addAttribute("loginUserForm", loginUser);
 			return "login";
 		}
 	}
-	
+
 }
