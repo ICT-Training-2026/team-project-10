@@ -19,9 +19,10 @@ public class LoginController {
 	@PostMapping("user_search")
 	private String userSearch(@ModelAttribute LoginUserForm form, Model model) {
 		LoginUser loginUser = service.findUser(form.getEmp_id(), form.getPassword());
-		if (!loginUser.isMsgflag())
+		if (!loginUser.isMsgflag()) {
+			model.addAttribute("loginUser", loginUser);
 			return "main";
-		else {
+		}else {
 			model.addAttribute("loginUserForm", loginUser);
 			return "login";
 		}

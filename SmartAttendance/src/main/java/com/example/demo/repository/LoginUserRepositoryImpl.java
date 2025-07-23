@@ -42,7 +42,7 @@ public class LoginUserRepositoryImpl implements LoginUserRepository{
 			Map<String, Object> userMap = users.get(0);
 			findUser.setEmp_id((String)userMap.get("emp_id"));
 			findUser.setDep_id((Integer)userMap.get("dep_id"));
-			findUser.setPermission((boolean)userMap.get("permission"));
+			findUser.setPermission((Boolean)userMap.get("permission"));
 			System.out.println(findUser);
 		} else {
 			findUser.setEmp_id(emp_id);

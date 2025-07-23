@@ -14,11 +14,14 @@
 			<h1>メインメニュー</h1>
 		</div>
 		<div class="head-btn">
-			<form th:action="@{/Menu}" method="POST" th:object="${loginUserForm}">
-				<input type="submit" value="Menu" th:field="*{emp_id}" class="btn">
+			<form th:action="@{/menu}" method="POST" th:object="${loginUser}">
+				<input type="hidden" th:field="*{emp_id}">
+				<input type="hidden" th:field="*{dep_id}">
+				<input type="hidden" th:field="*{permission}">
+				<input type="submit" value="Menu" class="btn">
 			</form>
 
-			<form th:action="@{/logout}" method="POST">
+			<form th:action="@{/}" method="GET">
 				<input type="submit" value="Logout" class="btn">
 			</form>
 		</div>
@@ -27,30 +30,50 @@
 	<div class="page-main">
 		<div class="content-btn">
 
-			<form th:action="@{/confirm-regist-kintai}" method="POST" th:object="${loginUserForm}">
+			<form th:action="@{/confirm-regist-kintai}" method="POST" th:object="${loginUser}">
+				<input type="hidden" th:field="*{emp_id}">
+				<input type="hidden" th:field="*{dep_id}">
+				<input type="hidden" th:field="*{permission}">
 				<input type="submit" value="勤怠提出" th:field="*{emp_id}" class="main-btn">
 			</form>
 
 
-			<form th:action="@{/search-kintai}" method="POST" th:object="${loginUserForm}">
+			<form th:action="@{/search-kintai}" method="POST" th:object="${loginUser}">
+				<input type="hidden" th:field="*{emp_id}">
+				<input type="hidden" th:field="*{dep_id}">
+				<input type="hidden" th:field="*{permission}">
 				<input type="submit" value="勤怠情報検索" th:field="*{emp_id}" class="main-btn">
 			</form>
 
-			<form th:action="@{/regist-paidHoliday}" method="POST" th:object="${loginUserForm}">
+			<form th:action="@{/regist-paidHoliday}" method="POST" th:object="${loginUser}">
+				<input type="hidden" th:field="*{emp_id}">
+				<input type="hidden" th:field="*{dep_id}">
+				<input type="hidden" th:field="*{permission}">
 				<input type="submit" value="有休休暇申請" th:field="*{emp_id}" class="main-btn">
 			</form>
 
-			<form th:action="@{/regist-subHoliday}" method="POST" th:object="${loginUserForm}">
+			<form th:action="@{/regist-subHoliday}" method="POST" th:object="${loginUser}">
+				<input type="hidden" th:field="*{emp_id}">
+				<input type="hidden" th:field="*{dep_id}">
+				<input type="hidden" th:field="*{permission}">
 				<input type="submit" value="振休申請" th:field="*{emp_id}" class="main-btn">
 			</form>
 
-			<form th:action="@{/regist-user}" method="POST" th:object="${loginUserForm}">
-				<input type="submit" value="新規ユーザー登録" th:field="*{emp_id}" class="main-btn">
-			</form>
+			<th:block th:if="${loginUser.permission}">
+				<form th:action="@{/regist-user}" method="POST" th:object="${loginUser}">
+					<input type="hidden" th:field="*{emp_id}">
+					<input type="hidden" th:field="*{dep_id}">
+					<input type="hidden" th:field="*{permission}">
+					<input type="submit" value="新規ユーザー登録" class="main-btn">
+				</form>
 
-			<form th:action="@{/export}" method="POST" th:object="${loginUserForm}">
-				<input type="submit" value="エクスポート" th:field="*{emp_id}" class="main-btn">
-			</form>
+				<form th:action="@{/export}" method="POST" th:object="${loginUser}">
+					<input type="hidden" th:field="*{emp_id}">
+					<input type="hidden" th:field="*{dep_id}">
+					<input type="hidden" th:field="*{permission}">
+					<input type="submit" value="エクスポート" class="main-btn">
+				</form>
+			</th:block>
 		</div>
 	</div>
 

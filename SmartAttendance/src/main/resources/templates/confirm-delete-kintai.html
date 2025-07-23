@@ -3,11 +3,81 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>勤怠情報削除確認</title>
+	<style>
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		th,
+		td {
+			border: 1px solid black;
+			padding: 5px;
+			text-align: center;
+		}
+	</style>
 </head>
 
 <body>
+	<!-- ヘッダー -->
+	<div class="header">
+		<h1>勤怠情報削除確認</h1>
+		<input type="button" value="Menu">
+		<input type="button" value="Logout">
+	</div>
 
+	<!-- 表 -->
+	<div class="page-main">
+		<table>
+			<thead>
+				<tr>
+					<th rowspan="2">ID</th>
+					<th rowspan="2">名前</th>
+					<th rowspan="2">日付</th>
+					<th rowspan="2">区分</th>
+					<th colspan="2">始業</th>
+					<th colspan="2">終業</th>
+					<th rowspan="2">労働時間</th>
+					<th rowspan="2">休憩時間</th>
+					<th rowspan="2">累積超過</th>
+				</tr>
+				<tr>
+					<th>時</th>
+					<th>分</th>
+					<th>時</th>
+					<th>分</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>&nbsp;</td> <!-- 空白でも幅を保つ -->
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<!-- メッセージ -->
+		<div>
+			まだ、削除は完了しておりません<br>
+			削除内容をお確かめの上、[削除]ボタンを押してください
+		</div>
+
+		<!-- ボタン -->
+		<div id="center-btn">
+			<input type="submit" value="戻る" class="btn">
+			<input type="submit" value="削除" class="btn">
+		</div>
+	</div>
 </body>
 
 </html>
