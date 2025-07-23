@@ -4,21 +4,34 @@
 <head>
 	<meta charset="UTF-8">
 	<title>振休申請</title>
+	<link rel="stylesheet" href="../static/style.css">
 </head>
 
 <body>
 	<div class="header">
-		<h1>振休申請</h1>
+		<div class="head-title">
+			<img src="../static/Smart_2.png" alt="ロゴ">
+			<h1>振休申請</h1>
+		</div>
 		<div class="head-btn">
-			<input type="button" value="Menu" class="btn">
-			<input type="button" value="Logout" class="btn">
+			<input type="button" value="Menu" class="h-btn">
+			<input type="button" value="Logout" class="h-btn">
 		</div>
 	</div>
-	<h2>対象日</h2>
-	<form action="" method="POST" th:object="">
-		<input type="date" required>
-		<input type="submit" value="申請" class="btn">
-	</form>
+
+	<div class="page-main">
+		<h2>対象日</h2>
+		<form action="" method="POST" th:object="">
+			<input type="date" required>
+
+			<input type="submit" value="申請" class="btn">
+		</form>
+
+		<!-- エラーメッセージ -->
+		<div class="error-msg">
+			<!-- エラー内容 -->
+		</div>
+	</div>
 </body>
 
 </html>
