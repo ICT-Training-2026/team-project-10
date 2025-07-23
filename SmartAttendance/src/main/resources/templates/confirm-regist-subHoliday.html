@@ -4,14 +4,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title>振休申請確認</title>
+	<link rel="stylesheet" href="../static/style.css">
 </head>
 
 <body>
 	<div class="header">
-		<h1>振休申請確認</h1>
+		<div class="head-title">
+			<img src="../static/Smart_2.png" alt="ロゴ">
+			<h1>振休申請確認</h1>
+		</div>
 		<div class="head-btn">
-			<input type="button" value="Menu" class="btn">
-			<input type="button" value="Logout" class="btn">
+			<input type="button" value="Menu" class="h-btn">
+			<input type="button" value="Logout" class="h-btn">
 		</div>
 	</div>
 
@@ -19,8 +23,8 @@
 		<h2>対象日</h2>
 		<p class="input-content" th:text="*{}"></p>
 
-		<!-- メッセージ -->
-		<div>
+		<!-- 確認メッセージ -->
+		<div class="confirm-msg">
 			<p>まだ、申請は完了しておりません</p>
 			<p>申請日をお確かめの上、[申請]ボタンを押してください</p>
 		</div>
