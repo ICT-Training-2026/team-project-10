@@ -4,10 +4,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>完了</title>
+	<link rel="stylesheet" href="../static/style.css">
+
 </head>
 
 <body>
 	<div class="header">
+		<div class="head-title">
+			<img src="../static/Smart_2.png" alt="ロゴ">
+		</div>
 		<div class="head-btn">
 			<form th:action="@{/menu}" method="POST" th:object="${loginUser}">
 				<input type="hidden" th:field="*{emp_id}">

@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>勤怠情報編集</title>
+	<link rel="stylesheet" href="../static/style.css">
 
 	<style>
 		table {
@@ -22,12 +23,16 @@
 
 <body>
 	<div class="header">
-		<h1>勤怠情報編集</h1>
+		<div class="head-title">
+			<img src="../static/Smart_2.png" alt="ロゴ">
+			<h1>勤怠情報編集</h1>
+		</div>
 		<div class="head-btn">
-			<input type="button" value="Menu" class="btn">
-			<input type="button" value="Logout" class="btn">
+			<input type="button" value="Menu" class="h-btn">
+			<input type="button" value="Logout" class="h-btn">
 		</div>
 	</div>
+
 	<div class="page-main">
 		<table>
 			<thead>
@@ -93,8 +98,13 @@
 					<td><input type="number" name="excess_time" step="0.25" min="0" required></td>
 				</tr>
 			</tbody>
-
 		</table>
+
+		<!-- エラーメッセージ -->
+		<div class="error-msg">
+			<!-- エラー内容 -->
+		</div>
+
 		<div id="center-btn">
 			<input type="submit" value="削除" class="btn">
 			<input type="submit" value="更新" class="btn">
