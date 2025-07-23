@@ -10,8 +10,16 @@
 	<div class="header">
 		<h1>新規ユーザー登録</h1>
 		<div class="head-btn">
-			<input type="button" value="Menu" class="btn">
-			<input type="button" value="Logout" class="btn">
+			<form th:action="@{/menu}" method="POST" th:object="${loginUser}">
+				<input type="hidden" th:field="*{emp_id}">
+				<input type="hidden" th:field="*{dep_id}">
+				<input type="hidden" th:field="*{permission}">
+				<input type="submit" value="Menu" class="btn">
+			</form>
+
+			<form th:action="@{/}" method="GET">
+				<input type="submit" value="Logout" class="btn">
+			</form>
 		</div>
 	</div>
 
