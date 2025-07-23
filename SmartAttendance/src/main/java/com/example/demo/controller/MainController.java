@@ -11,6 +11,10 @@ import com.example.demo.form.LoginUserForm;
 
 @Controller
 public class MainController {
+	
+	String msg = null;
+	LoginUser lu = null;
+	
 	@GetMapping("/")
 	public String showLoginForm(Model model) {
 		model.addAttribute("loginUserForm", new LoginUserForm());
@@ -63,7 +67,17 @@ public class MainController {
 	public String showExport() {
 		return "export";
 	}
-
 	
+	@GetMapping("/complete")
+	public String complete(Model model) {
+		model.addAttribute("msg", msg);
+		model.addAttribute("loginUser", lu);
+		return "complete";
+	}
+
+	public void setter(String message, LoginUser loginUser) {
+		msg = message;
+		lu = loginUser;
+	}
 
 }
