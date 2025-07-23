@@ -75,6 +75,7 @@ img{
     width: 80px;
     transition: background-color 0.3s;
     cursor: pointer;
+	border-radius: 5px;
 }
 
 .btn:hover,.main-btn:hover,.h-btn:hover {
@@ -119,8 +120,8 @@ img{
     font-size: 15px;
 }
 
-/* ログインフォーム */
-.login-form ,.registUser-form{
+/* フォーム */
+.login-form,.registUser-form {
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -135,8 +136,8 @@ img{
     place-items: center;
     grid-template-columns: repeat(3,1fr);
     width: 100%;
+    padding-top: 45px;
     gap:20px;
-    
 }
 
 /* メインコンテンツボタン */
@@ -151,6 +152,43 @@ img{
     width: 30vw;
     transition:background-color 0.3s;
     cursor: pointer;
+    
 }
+
+/*「対象日」などの見出し*/
+h2 {
+	font-size: 20px;
+	padding-top: 30px;
+	margin-left: 20px;
+}
+
+
+/*有給申請フォーム*/
+.Holiday-form {
+	display: flex;
+	flex-direction: row;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+/*対象日選択*/
+.select-date {
+	width: 100%;
+}
+
+/*確認*/
+.input-content{
+	padding: 20px;
+	border: 1px solid black;
+	margin-left: 20px;
+	margin-right: 20px;
+	border-radius: 5px;
+	margin-bottom: 40px;
+	
+}
+
+
+
+
 
 
