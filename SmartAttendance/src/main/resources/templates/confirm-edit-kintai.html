@@ -2,6 +2,7 @@
 <html lang="ja">
 
 <head>
+	<link rel="stylesheet" href="style.css">
 	<meta charset="UTF-8">
 	<title>勤怠情報更新確認</title>
 	<style>
@@ -22,10 +23,14 @@
 <body>
 	<!-- ヘッダー -->
 	<div class="header">
-		<h1>勤怠情報更新確認</h1>
-		<input type="button" value="Menu" class="btn">
-		<input type="button" value="Logout" class="btn">
-	</div>
+		<div class="head-title">
+			<img src="Smart_2.png" alt="ロゴ" width="90px" height="auto">
+			<h1 class="title">勤怠情報更新確認</h1>
+		</div>
+		<div class="head-btn">
+			<input type="button" value="Menu" class="h-btn">
+			<input type="button" value="Logout" class="h-btn">
+		</div>
 	</div>
 
 
@@ -69,7 +74,7 @@
 		</table>
 
 		<!-- 確認メッセージ -->
-		<div class="message">
+		<div class="confirm-msg">
 			まだ、更新は完了しておりません<br>
 			更新内容をお確かめの上、[更新]ボタンを押してください
 		</div>
