@@ -24,15 +24,23 @@
 	<div class="header">
 		<h1>勤怠情報検索</h1>
 		<div class="head-btn">
-			<input type="button" value="Menu" class="btn">
-			<input type="button" value="Logout" class="btn">
+			<form th:action="@{/menu}" method="POST" th:object="${loginUser}">
+				<input type="hidden" th:field="*{emp_id}">
+				<input type="hidden" th:field="*{dep_id}">
+				<input type="hidden" th:field="*{permission}">
+				<input type="submit" value="Menu" class="btn">
+			</form>
+
+			<form th:action="@{/}" method="GET">
+				<input type="submit" value="Logout" class="btn">
+			</form>
 		</div>
 	</div>
 
 	<div class="page-main">
-		<form th:action="" method="POST" th:object="">
-			<input type="date">
-			<select>
+		<form th:action="@{/search-result}" method="POST" th:object="${searchConditionForm}">
+			<input type="date" th:field="*{date}">
+			<select th:field="*{shift_id}">
 				<option value="0">区分選択</option>
 				<option value="10">10:出勤</option>
 				<option value="20">20:振出</option>
@@ -64,22 +72,24 @@
 					<th>分</th>
 				</tr>
 			</thead>
-			<tr>
-				<td th:text=""></td>
-				<td th:text=""></td>
-				<td th:text=""></td>
-				<td th:text=""></td>
-				<td th:text=""></td>
-				<td th:text=""></td>
-				<td th:text=""></td>
-				<td th:text=""></td>
-				<td th:text=""></td>
-				<td th:text=""></td>
-				<td th:text=""></td>
-				<td>
-					<input type="button" value="編集" class="btn">
-				</td>
-			</tr>
+			<div th:if="${searchResult_list} != null">
+				<tr th:each="searchResult : ${searchResult_list}">
+					<td th:text="${searchResult.emp_id}"></td>
+					<td th:text="${searchResult.emp_name}"></td>
+					<td th:text="${#dates.format(searchResult.record_Date, 'yyyy-MM-dd')}"></td>
+					<td th:text="${searchResult.shift_id}"></td>
+					<td th:text="${searchResult.start_H}"></td>
+					<td th:text="${searchResult.start_M}"></td>
+					<td th:text="${searchResult.end_H}"></td>
+					<td th:text="${searchResult.end_M}"></td>
+					<td th:text="${searchResult.total_workingTime}"></td>
+					<td th:text="${searchResult.breakTime}"></td>
+					<td th:text="${searchResult.excessTime}"></td>
+					<td>
+						<input type="button" value="編集" class="btn">
+					</td>
+				</tr>
+			</div>
 		</table>
 	</div>
 </body>
