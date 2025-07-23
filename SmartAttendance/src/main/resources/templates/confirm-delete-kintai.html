@@ -2,6 +2,7 @@
 <html>
 
 <head>
+	<link rel="stylesheet" href="style.css">
 	<meta charset="UTF-8">
 	<title>勤怠情報削除確認</title>
 	<style>
@@ -22,11 +23,15 @@
 <body>
 	<!-- ヘッダー -->
 	<div class="header">
-		<h1>勤怠情報削除確認</h1>
-		<input type="button" value="Menu">
-		<input type="button" value="Logout">
+		<div class="head-title">
+			<img src="Smart_2.png" alt="ロゴ" width="90px" height="auto">
+			<h1 class="title">勤怠情報削除確認</h1>
+		</div>
+		<div class="head-btn">
+			<input type="button" value="Menu" class="h-btn">
+			<input type="button" value="Logout" class="h-btn">
+		</div>
 	</div>
-
 	<!-- 表 -->
 	<div class="page-main">
 		<table>
@@ -67,7 +72,7 @@
 		</table>
 
 		<!-- メッセージ -->
-		<div>
+		<div class="confirm-msg">
 			まだ、削除は完了しておりません<br>
 			削除内容をお確かめの上、[削除]ボタンを押してください
 		</div>
