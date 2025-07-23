@@ -4,138 +4,155 @@
 
 /* テーブルスタイル */
 table {
-	width: 100%;
-	border-collapse: collapse;
-	/* 枠線を結合 */
+    width: 100%;
+    border-collapse: collapse; /* 枠線を結合 */
 }
 
-th,
-td {
-	border: 1px solid #ccc;
-	/* ボーダーの設定 */
-	padding: 10px;
-	/*内側の余白 */
+th, td {
+border: 1px solid #ccc; /* ボーダーの設定 */
+padding: 10px; /*内側の余白 */
 }
-
 th {
-	background-color: #cab8d9;
-	/* ヘッダーの背景色 */
+background-color: #cab8d9; /* ヘッダーの背景色 */
 }
 
 /* ページ見出し */
-h1 {
-	font-size: 2.5rem;
-	margin-top: 30px;
-	margin-left: 0px;
+h1{
+    font-size: 2rem;
+    margin-top: 30px;
+    margin-left: 0px;
+    white-space: nowrap;
 }
 
-/* Menu,Logoutボタン */
+/* Menu,Logoutボタンの位置 */
 .head-btn {
-	display: flex;
-	justify-content: flex-end;
-	gap: 15px;
-	margin-top: 50px;
-	margin-right: 10px;
+    display: flex;
+    justify-content:flex-end;
+    gap:15px;
+    margin-top: 10px;
+    margin-right: 10px;
 }
+
+/* Menu,Logoutボタンのデザイン */
+.h-btn {
+    background-color: #f19ca7;
+    border: 1px solid #e95464;
+    padding: 0px 0px;
+    font-size: 15px;
+    text-align: center;
+    height: 30px;
+    width: 80px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
 
 /* ロゴとメインメニュー */
-.head-title {
-	display: flex;
-	justify-content: flex-start;
-	gap: 10px
+.head-title{
+    display: flex;
+    justify-content: flex-start;
+    gap:10px;
+}
+
+/* ロゴ */
+img{
+    margin-top: 3px;
+    margin-left: 10px;
+    width:80px;
+    height:90px;
 }
 
 
 /* 全部のボタン */
 .btn {
-	background-color: #f19ca7;
-	border: 1px solid #e95464;
-	padding: 10px 15px;
-	font-size: 20px;
-	text-align: center;
-	height: 50px;
-	width: 100px;
-	transition: background-color 0.3s;
-	cursor: pointer;
+    background-color: #f19ca7;
+    border: 1px solid #e95464;
+    padding: 10px 10px;
+    font-size: 18px;
+    text-align: center;
+    height: 40px;
+    width: 80px;
+    transition: background-color 0.3s;
+    cursor: pointer;
 }
 
-.btn:hover {
-	transform: translateY(-2px);
-	/* 上に5px移動 */
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-	/* 影を追加 */
+.btn:hover,.main-btn:hover,.h-btn:hover {
+    transform: translateY(-2px); /* 上に5px移動 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 影を追加 */ 
 }
 
 /* ヘッダー部分 */
 .header {
-	display: flex;
-	justify-content: space-between;
-	height: 120px;
-	position: fixed;
-	/* ヘッダーを固定 */
-	top: 0;
-	/* 画面上部に固定 */
-	left: 0;
-	/* 左端に固定 */
-	right: 0;
-	/* 右端まで広がる */
-	margin-bottom: 0px;
-	background-color: #cab8d9;
-	z-index: 1;
+    display: flex;
+    justify-content:space-between ; 
+    height: 100px;
+    position: fixed;  /* ヘッダーを固定 */
+    top: 0;           /* 画面上部に固定 */
+    left: 0;          /* 左端に固定 */
+    right: 0;         /* 右端まで広がる */
+    margin-bottom:0;
+    background-color: #cab8d9;
 }
 
 /* メイン部分 */
-.page-main {
-	margin-top: 160px;
+.page-main{
+    margin-top: 100px;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    align-items: center;
 }
 
 
 /* 登録・申請・戻るボタン */
 #center-btn {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-top: 30px;
-
+    display:flex;
+    justify-content: center;
+    gap:10px;
 }
 
 /* エラーメッセージ */
-.error-msg {
-	margin: 10px;
-	color: red;
-	text-align: center;
-	font-size: 20px;
+.error-msg, .confirm-msg{
+    margin:10px;
+    color: red;
+    text-align: center;
+    font-size: 15px;
 }
 
 /* ログインフォーム */
-.login-form {
-	display: flex;
-	flex-direction: column;
-	padding: 20px;
-	justify-content: space-between;
-	gap: 10px;
-	font-size: 20px;
+.login-form ,.registUser-form{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: space-between;
+    gap:10px;
+    font-size: 15px;
 }
 
 /* メインコンテンツ */
-.content-btn {
-	display: grid;
-	align-items: center;
-	grid-template-columns: repeat(3, 1fr);
-	width: 100%;
-	gap: 20px;
+.content-btn{
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(3,1fr);
+    width: 100%;
+    gap:20px;
+    
 }
 
 /* メインコンテンツボタン */
 .main-btn {
-	background-color: #f19ca7;
-	border: 1px solid #e95464;
-	padding: 10px 15px;
-	font-size: 20px;
-	text-align: center;
-	white-space: normal;
-	height: 10rem;
-	width: 15rem;
-	transition: background-color 0.3s;
-	cursor: pointer;
+    background-color: #f19ca7;
+    border: 1px solid #e95464;
+    padding: 10px 15px;
+    font-size: 25px;
+    text-align: center;
+    white-space: normal; 
+    height: 170px;
+    width: 30vw;
+    transition:background-color 0.3s;
+    cursor: pointer;
 }
+
+
+
+
