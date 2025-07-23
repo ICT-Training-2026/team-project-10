@@ -4,13 +4,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>振休申請</title>
-	<link rel="stylesheet" href="../static/style.css">
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 	<div class="header">
 		<div class="head-title">
-			<img src="../static/Smart_2.png" alt="ロゴ">
+			<img src="Smart_2.png" alt="ロゴ">
 			<h1>振休申請</h1>
 		</div>
 		<div class="head-btn">
@@ -21,8 +21,8 @@
 
 	<div class="page-main">
 		<h2>対象日</h2>
-		<form action="" method="POST" th:object="">
-			<input type="date" required>
+		<form action="" method="POST" th:object="" class="Holiday-form">
+			<input type="date" required class="select-date">
 
 			<input type="submit" value="申請" class="btn">
 		</form>
