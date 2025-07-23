@@ -16,31 +16,43 @@
 	</div>
 
 	<div class="registuser-container">
-		<div th:action="@{complete-regist-user}" method="POST" th:object="${registUserForm}">
-			<label>ID:</label>
-			<p th:field="*{emp_id}"></p>
+		<div class="page-main">
+			<div style="display: flex; gap: 20px;" th:object="${registUserForm}">
+				<div>
+					<label>ID:</label>
+					<p th:text="*{emp_id}"></p>
+				</div>
 
-			<label>名前:</label>
-			<p th:text="*{emp_name}"></p>
+				<div>
+					<label>名前:</label>
+					<p th:text="*{emp_name}"></p>
+				</div>
 
-			<label>部門:</label>
-			<p th:text="*{dep_id}"></p>
+				<div>
+					<label>部門:</label>
+					<p th:text="*{dep_id}"></p>
+				</div>
 
-			<label>Pass:</label>
-			<p th:text="*{password}"></p>
+				<div>
+					<label>Pass:</label>
+					<p th:text="*{password}"></p>
+				</div>
 
-			<label>権限:</label>
-			<p th:text="*{permission} ? '一般ユーザ' : '管理者'"></p>
+				<div>
+					<label>権限:</label>
+					<p th:text="*{permission} ? '一般ユーザ' : '管理者'"></p>
+				</div>
+			</div>
+
+			<form th:action="@{/complete-regist-user}" method="POST" th:object="${registUserForm}" class="center-btn">
+				<input type="hidden" th:field="*{emp_id}">
+				<input type="hidden" th:field="*{emp_name}">
+				<input type="hidden" th:field="*{dep_id}">
+				<input type="hidden" th:field="*{password}">
+				<input type="hidden" th:field="*{permission}">
+				<input type="submit" value="登録実行" class="class-btn">
+			</form>
 		</div>
-
-		<form th:action="@{/complete-regist-user}" method="POST" th:object="${registUserForm}">
-			<input type="hidden" th:field="*{emp_id}">
-			<input type="hidden" th:field="*{emp_name}">
-			<input type="hidden" th:field="*{dep_id}">
-			<input type="hidden" th:field="*{password}">
-			<input type="hidden" th:field="*{permission}">
-			<input type="submit" value="登録実行" class="btn">
-		</form>
 </body>
 
 </html>
