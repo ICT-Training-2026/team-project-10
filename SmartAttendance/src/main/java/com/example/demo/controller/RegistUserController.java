@@ -20,7 +20,6 @@ public class RegistUserController {
 	private final RegistUserService service;
 	private final MainController mainController;
 	
-	String msg = null;
 	LoginUser lu = null;
 
 	@PostMapping("/regist-user")
