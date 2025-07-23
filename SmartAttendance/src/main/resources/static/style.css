@@ -3,18 +3,18 @@
 
 
 /* テーブルスタイル */
-table {
-    width: 100%;
-    border-collapse: collapse; /* 枠線を結合 */
-}
+/*table {*/
+/*    width: 100%;*/
+/*    border-collapse: collapse;  枠線を結合 */
+/*}*/
 
-th, td {
-border: 1px solid #ccc; /* ボーダーの設定 */
-padding: 10px; /*内側の余白 */
-}
-th {
-background-color: #cab8d9; /* ヘッダーの背景色 */
-}
+/*th, td {*/
+/*border: 1px solid #ccc;  ボーダーの設定 */
+/*padding: 10px; 内側の余白 */
+/*}*/
+/*th {*/
+/*background-color: #cab8d9;  ヘッダーの背景色 */
+/*}*/
 
 /* ページ見出し */
 h1{
@@ -110,18 +110,21 @@ img{
     display:flex;
     justify-content: center;
     gap:10px;
+	margin-top: 30px;
+	margin-bottom: 30px;
 }
 
 /* エラーメッセージ */
 .error-msg, .confirm-msg{
-    margin:10px;
+    margin-top:20px;
     color: red;
     text-align: center;
     font-size: 15px;
+	
 }
 
 /* フォーム */
-.login-form,.registUser-form {
+.login-form,.registUser-form{
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -176,16 +179,67 @@ h2 {
 	width: 100%;
 }
 
-/*確認*/
+/*有休・振休確認*/
 .input-content{
 	padding: 20px;
-	border: 1px solid black;
+	border: 1px solid #ccc;
 	margin-left: 20px;
 	margin-right: 20px;
 	border-radius: 5px;
 	margin-bottom: 40px;
+	text-align: center;
 	
 }
+
+/*フォーム確認*/
+.confirm-form {
+	padding: 15px;
+	border: 1px solid #ccc;
+	margin-left: 20px;
+	margin-right: 20px;
+	border-radius: 5px;
+	text-align: center;
+	margin-top: 5px; /*ラベルとフォームの距離*/
+	
+}
+
+.form-line {
+	display: flex;
+	flex-direction: column;
+}
+
+label{
+	font-size: 15px;
+	margin-left: 20px;
+	padding:0;
+}
+
+/*新規ユーザー登録確認フォーム*/
+.userConfirm-form {
+	padding-top: 20px;
+}
+
+/*完了メッセージ*/
+.complete-msg {
+	text-align: center;
+}
+
+
+/*勤怠登録の表*/
+.regist-kintai {
+	width: 100%; /* 幅を100%に設定 */
+	padding: 0 20px; /* 左右に余白を追加 */
+	box-sizing: border-box; /* パディングを含めた幅の計算を行う */
+	
+}
+
+/*#registKintai-main {*/
+/*	display: flex;*/
+/*	justify-content: center;*/
+/*	align-items: center;*/
+/*	height: 100vh;  画面全体の高さを使用 */
+/*	margin-top: 120px;*/
+/*}*/
 
 
 

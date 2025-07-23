@@ -4,30 +4,30 @@
 <head>
 	<meta charset="UTF-8">
 	<title>完了</title>
-	<link rel="stylesheet" href="../static/style.css">
+	<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 	<div class="header">
 		<div class="head-title">
-			<img src="../static/Smart_2.png" alt="ロゴ">
+			<img src="Smart_2.png" alt="ロゴ">
 		</div>
 		<div class="head-btn">
 			<form th:action="@{/menu}" method="POST" th:object="${loginUser}">
 				<input type="hidden" th:field="*{emp_id}">
 				<input type="hidden" th:field="*{dep_id}">
 				<input type="hidden" th:field="*{permission}">
-				<input type="submit" value="Menu" class="btn">
+				<input type="submit" value="Menu" class="h-btn">
 			</form>
 
 			<form th:action="@{/}" method="GET">
-				<input type="submit" value="Logout" class="btn">
+				<input type="submit" value="Logout" class="h-btn">
 			</form>
 		</div>
 	</div>
 	<div class="page-main">
-		<h2><span th:if="${msg}" th:text="${msg}"></span>が完了しました</h2>
+		<h2 class="complete-msg"><span th:if="${msg}" th:text="${msg}"></span>が完了しました。</h2>
 	</div>
 </body>
 

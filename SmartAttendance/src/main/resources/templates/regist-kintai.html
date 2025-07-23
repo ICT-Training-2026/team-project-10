@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../static/style.css">
 	<meta charset="UTF-8">
 	<title>勤怠登録</title>
 	<style>
@@ -25,7 +25,7 @@
 <body>
 	<div class="header">
 		<div class="head-title">
-			<img src="Smart_2.png" alt="ロゴ" width="90px" height="auto">
+			<img src="../static/Smart_2.png" alt="ロゴ" width="90px" height="auto">
 			<h1 class="title">勤怠登録</h1>
 		</div>
 		<div class="head-btn">
@@ -36,67 +36,69 @@
 
 	<!-- 勤怠表 -->
 	<div class="page-main">
-		<table>
-			<thead>
-				<tr>
-					<th rowspan="2">区分</th>
-					<th colspan="2">始業</th>
-					<th colspan="2">終業</th>
-					<th rowspan="2">労働時間</th>
-					<th rowspan="2">休憩時間</th>
-					<th rowspan="2">累積超過</th>
-				</tr>
-				<tr>
-					<th>時</th>
-					<th>分</th>
-					<th>時</th>
-					<th>分</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
+		<div class="regist-kintai">
+			<table>
+				<thead>
+					<tr>
+						<th rowspan="2">区分</th>
+						<th colspan="2">始業</th>
+						<th colspan="2">終業</th>
+						<th rowspan="2">労働時間</th>
+						<th rowspan="2">休憩時間</th>
+						<th rowspan="2">累積超過</th>
+					</tr>
+					<tr>
+						<th>時</th>
+						<th>分</th>
+						<th>時</th>
+						<th>分</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
 
-					<!-- 区分 -->
-					<td>
-						<select name="kbn" required>
-							<option value="10">10:出勤</option>
-							<option value="20">20:振出</option>
-							<option value="30">30:欠勤</option>
-							<option value="80">80:年休</option>
-							<option value="90">90:振休</option>
-							<option value="99">99:休日</option>
-						</select>
-					</td>
+						<!-- 区分 -->
+						<td>
+							<select name="kbn" required>
+								<option value="10">10:出勤</option>
+								<option value="20">20:振出</option>
+								<option value="30">30:欠勤</option>
+								<option value="80">80:年休</option>
+								<option value="90">90:振休</option>
+								<option value="99">99:休日</option>
+							</select>
+						</td>
 
-					<!-- 始業 -->
-					<td><input type="number" id="start_hour" name="start_hour" min="8" max="22" required></td>
-					<td>
-						<select id="start_minute" name="start_minute" required>
-							<option value="0">00</option>
-							<option value="15">15</option>
-							<option value="30">30</option>
-							<option value="45">45</option>
-						</select>
-					</td>
+						<!-- 始業 -->
+						<td><input type="number" id="start_hour" name="start_hour" min="8" max="22" required></td>
+						<td>
+							<select id="start_minute" name="start_minute" required>
+								<option value="0">00</option>
+								<option value="15">15</option>
+								<option value="30">30</option>
+								<option value="45">45</option>
+							</select>
+						</td>
 
-					<!-- 終業 -->
-					<td><input type="number" id="end_hour" name="end_hour" min="8" max="22" required></td>
-					<td>
-						<select id="end_minute" name="end_minute" required>
-							<option value="0">00</option>
-							<option value="15">15</option>
-							<option value="30">30</option>
-							<option value="45">45</option>
-						</select>
-					</td>
+						<!-- 終業 -->
+						<td><input type="number" id="end_hour" name="end_hour" min="8" max="22" required></td>
+						<td>
+							<select id="end_minute" name="end_minute" required>
+								<option value="0">00</option>
+								<option value="15">15</option>
+								<option value="30">30</option>
+								<option value="45">45</option>
+							</select>
+						</td>
 
-					<!-- 数値（小数）入力 -->
-					<td><input type="number" name="work_time" step="0.01" min="0" required></td>
-					<td><input type="number" name="break_time" step="0.01" min="0" required></td>
-					<td><input type="number" name="excess_time" step="0.01" min="0" required></td>
-				</tr>
-			</tbody>
-		</table>
+						<!-- 数値（小数）入力 -->
+						<td><input type="number" name="work_time" step="0.01" min="0" required></td>
+						<td><input type="number" name="break_time" step="0.01" min="0" required></td>
+						<td><input type="number" name="excess_time" step="0.01" min="0" required></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 		<!-- 登録ボタン -->
 		<div id="center-btn">
 			<input type="submit" value="登録" class="btn">
