@@ -3,10 +3,34 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>有給休暇申請確認</title>
 </head>
 
 <body>
+	<div class="header">
+		<h1>有給休暇申請確認</h1>
+		<div class="head-btn">
+			<input type="button" value="Menu" class="btn">
+			<input type="button" value="Logout" class="btn">
+		</div>
+	</div>
+
+	<div class="page-main">
+		<h2>対象日</h2>
+		<p class="input-content" th:text="*{}"></p>
+
+		<!-- メッセージ -->
+		<div>
+			<p>まだ、申請は完了しておりません</p>
+			<p>申請日をお確かめの上、[申請]ボタンを押してください</p>
+		</div>
+
+		<!-- ボタン -->
+		<div id="center-btn">
+			<input type="submit" value="戻る" class="btn">
+			<input type="submit" value="申請" class="btn">
+		</div>
+	</div>
 
 </body>
 
