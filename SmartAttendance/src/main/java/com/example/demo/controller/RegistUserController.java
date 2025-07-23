@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.entity.LoginUser;
 import com.example.demo.form.RegistUserForm;
@@ -11,16 +12,22 @@ import com.example.demo.service.RegistUserService;
 
 import lombok.RequiredArgsConstructor;
 
+
 @Controller
 @RequiredArgsConstructor
 public class RegistUserController {
 
 	private final RegistUserService service;
+	private final MainController mainController;
+	
+	String msg = null;
+	LoginUser lu = null;
 
 	@PostMapping("/regist-user")
 	public String registUser(@ModelAttribute LoginUser loginUser, Model model) {
 		model.addAttribute("registUserForm", new RegistUserForm());
-		model.addAttribute("loginUser", loginUser);
+		mainController.setter("新規ユーザー登録", loginUser);
+		lu = loginUser;
 		return "regist-user";
 	}
 
@@ -29,23 +36,19 @@ public class RegistUserController {
 		Boolean check = service.UserCheck(form.getEmp_id());
 
 		model.addAttribute("registUserForm", form);
-		model.addAttribute("loginUser", loginUser);
+		model.addAttribute("loginUser", lu);
 
 		if (!check) {
-			model.addAttribute("registUserForm", form);
 			return "confirm-regist-user";
 		} else {
 			form.setMsgflag(true);
-			model.addAttribute("registUserForm", form);
 			return "regist-user";
 		}
 	}
 
-	@PostMapping("complete-regist-user")
-	public String completeRegistUser(@ModelAttribute RegistUserForm form, @ModelAttribute LoginUser loginUser, Model model) {
+	@PostMapping("/complete-regist-user")
+	public String completeRegistUser(@ModelAttribute RegistUserForm form, @ModelAttribute LoginUser loginUser, Model model, RedirectAttributes redirectAttributes) {
 		service.RegistUser(form);
-		model.addAttribute("loginUser", loginUser);
-		return "complete";
+		return "redirect:/complete";
 	}
-
 }
