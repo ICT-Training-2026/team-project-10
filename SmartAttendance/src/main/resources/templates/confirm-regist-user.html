@@ -11,8 +11,8 @@
 	<!-- ヘッダー -->
 	<div class="header">
 		<div class="head-title">
-			<img src="Smart_2.png" alt="ロゴ" width="90px" height="auto">
-			<h1 class="title">新規ユーザー登録</h1>
+			<img src="Smart_2.png" alt="ロゴ">
+			<h1 class="title">新規ユーザー登録確認</h1>
 		</div>
 		<div class="head-btn">
 			<form th:action="@{/menu}" method="POST" th:object="${loginUser}">
@@ -29,47 +29,49 @@
 
 	<!-- 確認内容表示 -->
 	<div class="page-main" th:object="${registUserForm}">
-		<div class="form-line">
-			<label>ID</label>
-			<p th:text="*{emp_id}"></p>
-		</div>
-		<div class="form-line">
-			<label>名前</label>
-			<p th:text="*{emp_name}"></p>
-		</div>
-		<div class="form-line">
-			<label>部門</label>
-			<p th:text="*{dep_id}"></p>
-		</div>
-		<div class="form-line">
-			<label>Pass</label>
-			<p th:text="*{password}"></p>
-		</div>
-		<div class="form-line">
-			<label>権限</label>
-			<p th:text="*{permission} ? '一般ユーザー' : '管理者'"></p>
-		</div>
+		<div class="userConfirm-form">
+			<div class="form-line">
+				<label>ID</label>
+				<p th:text="*{emp_id}" class="confirm-form"></p>
+			</div>
+			<div class="form-line">
+				<label>名前</label>
+				<p th:text="*{emp_name}" class="confirm-form"></p>
+			</div>
+			<div class="form-line">
+				<label>部門</label>
+				<p th:text="*{dep_id}" class="confirm-form"></p>
+			</div>
+			<div class="form-line">
+				<label>Pass</label>
+				<p th:text="*{password}" class="confirm-form"></p>
+			</div>
+			<div class="form-line">
+				<label>権限</label>
+				<p th:text="*{permission} ? '一般ユーザー' : '管理者'" class="confirm-form"></p>
+			</div>
 
-		<!-- 注意メッセージ -->
-		<div class="confirm-msg">
-			まだ、登録は完了しておりません<br>
-			申請日をお確かめの上、「登録」ボタンを押してください
-		</div>
+			<!-- 注意メッセージ -->
+			<div class="confirm-msg">
+				まだ、登録は完了しておりません。<br>
+				申請日をお確かめの上、「登録」ボタンを押してください
+			</div>
 
-		<!-- ボタン -->
-		<div class="center-btn">
-			<form th:action="@{/regist-user}" method="POST">
-				<input type="submit" value="戻る" class="btn">
-			</form>
+			<!-- ボタン -->
+			<div id="center-btn">
+				<form th:action="@{/regist-user}" method="POST">
+					<input type="submit" value="戻る" class="btn">
+				</form>
 
-			<form th:action="@{/complete-regist-user}" method="POST" th:object="${registUserForm}">
-				<input type="hidden" th:field="*{emp_id}">
-				<input type="hidden" th:field="*{emp_name}">
-				<input type="hidden" th:field="*{dep_id}">
-				<input type="hidden" th:field="*{password}">
-				<input type="hidden" th:field="*{permission}">
-				<input type="submit" value="登録" class="btn">
-			</form>
+				<form th:action="@{/complete-regist-user}" method="POST" th:object="${registUserForm}">
+					<input type="hidden" th:field="*{emp_id}">
+					<input type="hidden" th:field="*{emp_name}">
+					<input type="hidden" th:field="*{dep_id}">
+					<input type="hidden" th:field="*{password}">
+					<input type="hidden" th:field="*{permission}">
+					<input type="submit" value="登録" class="btn">
+				</form>
+			</div>
 		</div>
 	</div>
 </body>
