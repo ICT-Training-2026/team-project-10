@@ -217,7 +217,7 @@ public class SearchKintaiRepositoryImpl implements SearchKintaiRepository {
 			list = jdbcTemplate.queryForList(sql_depIdAndShiftId, form.getDep_id(), form.getShift_id());
 		} else if (form.getEmp_id() != "" && form.getDate().equals("") && form.getDep_id() == 0 && form.getShift_id() == 0) {
 			// emp_idのみが指定されている場合
-			list = jdbcTemplate.queryForList(sql_onlyEmpId, emp_id);
+			list = jdbcTemplate.queryForList(sql_onlyEmpId, form.getEmp_id());
 		} else if (form.getEmp_id() == "" && !form.getDate().equals("") && form.getDep_id() == 0 && form.getShift_id() == 0) {
 			// record_dateのみが指定されている場合
 			list = jdbcTemplate.queryForList(sql_master_onlyDate, form.getDate());
