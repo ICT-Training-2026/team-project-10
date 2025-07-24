@@ -4,43 +4,35 @@
 <head>
 	<meta charset="UTF-8">
 	<title>勤怠情報検索</title>
+	<link rel="stylesheet" href="style.css">
 
-	<style>
-		table {
-			border-collapse: collapse;
-			width: 100%;
-		}
 
-		th,
-		td {
-			border: 1px solid black;
-			padding: 5px;
-			text-align: center;
-		}
-	</style>
 </head>
 
 <body>
 	<div class="header">
-		<h1>勤怠情報検索</h1>
+		<div class="head-title">
+			<img src="Smart_2.png" alt="ロゴ">
+			<h1>勤怠情報検索</h1>
+		</div>
 		<div class="head-btn">
 			<form th:action="@{/menu}" method="POST" th:object="${loginUser}">
 				<input type="hidden" th:field="*{emp_id}">
 				<input type="hidden" th:field="*{dep_id}">
 				<input type="hidden" th:field="*{permission}">
-				<input type="submit" value="Menu" class="btn">
+				<input type="submit" value="Menu" class="h-btn">
 			</form>
 
 			<form th:action="@{/}" method="GET">
-				<input type="submit" value="Logout" class="btn">
+				<input type="submit" value="Logout" class="h-btn">
 			</form>
 		</div>
 	</div>
 
 	<div class="page-main">
-		<form th:action="@{/search-result}" method="POST" th:object="${searchConditionForm}">
-			<input type="date" th:field="*{date}">
-			<select th:field="*{shift_id}">
+		<form th:action="@{/search-result}" method="POST" th:object="${searchConditionForm}" class="search-form">
+			<input type="date" th:field="*{date}" class="search-term">
+			<select th:field="*{shift_id}" class="search-term">
 				<option value="0">区分選択</option>
 				<option value="10">10:出勤</option>
 				<option value="20">20:振出</option>
@@ -52,7 +44,7 @@
 			<input type="submit" value="検索" class="btn">
 		</form>
 
-		<table>
+		<table class="regist-kintai">
 			<thead>
 				<tr>
 					<th rowspan="2">ID</th>

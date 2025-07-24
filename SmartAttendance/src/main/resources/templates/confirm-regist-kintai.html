@@ -2,34 +2,28 @@
 <html>
 
 <head>
+	<link rel="stylesheet" href="style.css">
 	<meta charset="UTF-8">
 	<title>勤怠登録確認</title>
-	<style>
-		table {
-			border-collapse: collapse;
-			width: 100%;
-		}
-
-		th,
-		td {
-			border: 1px solid black;
-			padding: 4px;
-			text-align: center;
-		}
-	</style>
+	
 </head>
 
 <body>
 	<!-- ヘッダー -->
 	<div class="header">
-		<h1>勤怠登録確認</h1>
-		<input type="button" value="Menu">
-		<input type="button" value="Logout">
+		<div class="head-title">
+			<img src="Smart_2.png" alt="ロゴ" width="90px" height="auto">
+			<h1 class="title">勤怠登録確認</h1>
+		</div>
+		<div class="head-btn">
+			<input type="button" value="Menu" class="h-btn">
+			<input type="button" value="Logout" class="h-btn">
+		</div>
 	</div>
 
 	<!-- 表-->
-	<div class="page-main">
-		<table>
+	<div class="page-main" id="table-margin">
+		<table class="regist-kintai">
 			<thead>
 				<tr>
 					<th rowspan="2">区分</th>
@@ -61,15 +55,15 @@
 		</table>
 
 		<!-- メッセージ -->
-		<div>
-			<p>まだ、登録は完了しておりません</p>
-			<p>登録内容をお確かめの上、登録ボタンを押してください</p>
+		<div class="confirm-msg">
+			<p>まだ、登録は完了しておりません。<br>
+				登録内容をお確かめの上、登録ボタンを押してください。</p>
 		</div>
 
 		<!-- ボタン -->
 		<div id="center-btn">
-			<input type="submit" value="戻る" class="btn">
 			<input type="submit" value="登録" class="btn">
+			<input type="submit" value="戻る" class="btn" id="return-btn">
 		</div>
 	</div>
 </body>

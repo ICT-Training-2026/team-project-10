@@ -2,35 +2,27 @@
 <html>
 
 <head>
+	<link rel="stylesheet" href="style.css">
 	<meta charset="UTF-8">
 	<title>勤怠登録</title>
-	<style>
-		table {
-			border-collapse: collapse;
-			width: 100%;
-		}
 
-		th,
-		td {
-			border: 1px solid black;
-			padding: 4px;
-			text-align: center;
-		}
-	</style>
-
-	<!-- ヘッダー -->
 </head>
 
 <body>
 	<div class="header">
-		<h1>勤怠登録</h1>
-		<input type="button" value="Menu" class="btn">
-		<input type="button" value="Logout" class="btn">
+		<div class="head-title">
+			<img src="Smart_2.png" alt="ロゴ" width="90px" height="auto">
+			<h1 class="title">勤怠登録</h1>
+		</div>
+		<div class="head-btn">
+			<input type="button" value="Menu" class="h-btn">
+			<input type="button" value="Logout" class="h-btn">
+		</div>
 	</div>
 
 	<!-- 勤怠表 -->
-	<div class="page-main">
-		<table>
+	<div class="page-main" id="table-margin">
+		<table class="regist-kintai">
 			<thead>
 				<tr>
 					<th rowspan="2">区分</th>
@@ -85,9 +77,9 @@
 					</td>
 
 					<!-- 数値（小数）入力 -->
-					<td><input type="number" name="work_time" step="0.01" required></td>
-					<td><input type="number" name="break_time" step="0.01" required></td>
-					<td><input type="number" name="excess_time" step="0.01" required></td>
+					<td><input type="number" name="work_time" step="0.01" min="0" required></td>
+					<td><input type="number" name="break_time" step="0.01" min="0" required></td>
+					<td><input type="number" name="excess_time" step="0.01" min="0" required></td>
 				</tr>
 			</tbody>
 		</table>

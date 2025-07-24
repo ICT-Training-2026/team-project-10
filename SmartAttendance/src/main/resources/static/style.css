@@ -3,18 +3,18 @@
 
 
 /* テーブルスタイル */
-table {
-    width: 100%;
-    border-collapse: collapse; /* 枠線を結合 */
-}
+/*table {*/
+/*    width: 100%;*/
+/*    border-collapse: collapse;  枠線を結合 */
+/*}*/
 
-th, td {
-border: 1px solid #ccc; /* ボーダーの設定 */
-padding: 10px; /*内側の余白 */
-}
-th {
-background-color: #cab8d9; /* ヘッダーの背景色 */
-}
+/*th, td {*/
+/*border: 1px solid #ccc;  ボーダーの設定 */
+/*padding: 10px; 内側の余白 */
+/*}*/
+/*th {*/
+/*background-color: #cab8d9;  ヘッダーの背景色 */
+/*}*/
 
 /* ページ見出し */
 h1{
@@ -68,13 +68,14 @@ img{
 .btn {
     background-color: #f19ca7;
     border: 1px solid #e95464;
-    padding: 10px 10px;
+    padding: 0;
     font-size: 18px;
     text-align: center;
     height: 40px;
     width: 80px;
     transition: background-color 0.3s;
     cursor: pointer;
+	border-radius: 5px;
 }
 
 .btn:hover,.main-btn:hover,.h-btn:hover {
@@ -100,27 +101,40 @@ img{
     margin-top: 100px;
     margin-left: 2vw;
     margin-right: 2vw;
-    align-items: center;
+	align-content: center;
 }
 
 
 /* 登録・申請・戻るボタン */
 #center-btn {
-    display:flex;
-    justify-content: center;
-    gap:10px;
+	display: grid;
+	place-items: center;
+    gap:25px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	align-items: center;
+}
+
+/*戻るボタンのデザイン*/
+#return-btn {
+	background-color: #d3d3d3;
+	border: 1px solid #808080;
+	font-size: 15px;
+	height: 30px;
+	width: 60px;
+	text-align: center;
+	padding: 0;
 }
 
 /* エラーメッセージ */
 .error-msg, .confirm-msg{
-    margin:10px;
+    margin-top:20px;
     color: red;
     text-align: center;
-    font-size: 15px;
 }
 
-/* ログインフォーム */
-.login-form ,.registUser-form{
+/* フォーム */
+.login-form,.registUser-form{
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -135,8 +149,8 @@ img{
     place-items: center;
     grid-template-columns: repeat(3,1fr);
     width: 100%;
+    padding-top: 45px;
     gap:20px;
-    
 }
 
 /* メインコンテンツボタン */
@@ -151,6 +165,123 @@ img{
     width: 30vw;
     transition:background-color 0.3s;
     cursor: pointer;
+	border-radius: 5px;
+    
+}
+
+/*「対象日」などの見出し*/
+h2 {
+	font-size: 20px;
+	padding-top: 30px;
+	margin-left: 20px;
+}
+
+
+/*有給申請フォーム*/
+.Holiday-form {
+	display: flex;
+	flex-direction: row;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+/*対象日選択*/
+.select-date {
+	width: 100%;
+}
+
+/*有休・振休確認*/
+.input-content{
+	padding: 20px;
+	border: 1px solid #ccc;
+	margin-left: 20px;
+	margin-right: 20px;
+	border-radius: 5px;
+	margin-bottom: 40px;
+	text-align: center;
+	
+}
+
+/*フォーム確認*/
+.confirm-form {
+	padding: 15px;
+	border: 1px solid #ccc;
+	margin-left: 20px;
+	margin-right: 20px;
+	border-radius: 5px;
+	text-align: center;
+	margin-top: 5px; /*ラベルとフォームの距離*/
+	
+}
+
+.form-line {
+	display: flex;
+	flex-direction: column;
+}
+
+label{
+	font-size: 15px;
+	margin-left: 20px;
+	padding:0;
+}
+
+/*新規ユーザー登録確認フォーム*/
+.userConfirm-form {
+	padding-top: 20px;
+}
+
+/*完了メッセージ*/
+.complete-msg {
+	text-align: center;
+}
+
+
+/* テーブルのクラス名 */
+.regist-kintai {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr,th,td,input{
+    width: 8vw;
+    text-align: center;
+    align-items: center;
+	font-size: 15px;
+}
+
+select {
+	width: 9vw;
+	text-align: center;
+	align-items: center;
+	font-size: 15px;
+	
+}
+
+th,td {
+	border: 1px solid black;
+	padding: 4px;
+}
+
+th {
+	background-color: #cab8d9;
+}
+
+#table-margin {
+	margin-top: 140px;
+}
+
+/*検索条件フォーム*/
+.search-form {
+	margin-top: 20px;
+	margin-bottom: 40px;
+	display: flex;
+	justify-content: center;
+	gap:20px;
+}
+
+/*検索条件ボックス*/
+.search-term {
+	width: 20vw;
 }
 
 
