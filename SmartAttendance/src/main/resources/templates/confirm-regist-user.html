@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>新規ユーザー登録確認</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../static/style.css">
 </head>
 
 <body>
@@ -60,7 +60,7 @@
 			<!-- ボタン -->
 			<div id="center-btn">
 				<form th:action="@{/regist-user}" method="POST">
-					<input type="submit" value="戻る" class="btn">
+					<input type="submit" value="戻る" class="btn" id="return-btn">
 				</form>
 
 				<form th:action="@{/complete-regist-user}" method="POST" th:object="${registUserForm}">
