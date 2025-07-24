@@ -4,49 +4,39 @@
 <head>
 	<meta charset="UTF-8">
 	<title>勤怠情報検索</title>
-
-	<style>
-		table {
-			border-collapse: collapse;
-			width: 100%;
-		}
-
-		th,
-		td {
-			border: 1px solid black;
-			padding: 5px;
-			text-align: center;
-		}
-	</style>
+	<link rel="stylesheet" href="../static/style.css">
 </head>
 
 <body>
 	<div class="header">
+		<div class="head-title">
+		<img src="Smart_2.png" alt="ロゴ">
 		<h1>勤怠情報検索</h1>
+		</div>
 		<div class="head-btn">
 			<form th:action="@{/menu}" method="POST" th:object="${loginUser}">
 				<input type="hidden" th:field="*{emp_id}">
 				<input type="hidden" th:field="*{dep_id}">
 				<input type="hidden" th:field="*{permission}">
-				<input type="submit" value="Menu" class="btn">
+				<input type="submit" value="Menu" class="h-btn">
 			</form>
 
 			<form th:action="@{/}" method="GET">
-				<input type="submit" value="Logout" class="btn">
+				<input type="submit" value="Logout" class="h-btn">
 			</form>
 		</div>
 	</div>
 
 	<div class="page-main">
-		<form th:action="@{/search-master-result}" method="POST" th:object="${searchConditionMasterForm}">
-			<input type="date" th:field="*{date}">
-			<select th:field="*{dep_id}">
+		<form th:action="@{/search-master-result}" method="POST" th:object="${searchConditionMasterForm}" class="search-form">
+			<input type="date" th:field="*{date}" class="search-term">
+			<select th:field="*{dep_id}" class="search-term">
 				<option value="0">部門選択</option>
 				<option value="10">営業</option>
 				<option value="20">開発</option>
 				<option value="30">総務</option>
 			</select>
-			<select th:field="*{shift_id}">
+			<select th:field="*{shift_id}" class="search-term">
 				<option value="0">区分選択</option>
 				<option value="10">10:出勤</option>
 				<option value="20">20:振出</option>
@@ -55,11 +45,11 @@
 				<option value="90">90:振休</option>
 				<option value="99">99:休日</option>
 			</select>
-			<input type="text" th:field="*{emp_id}" id="id" placeholder="社員番号" minlength="6" maxlength="6">
+			<input type="text" th:field="*{emp_id}" id="id" placeholder="社員番号" minlength="6" maxlength="6" class="search-term">
 			<input type="submit" value="検索" class="btn">
 		</form>
 
-		<table>
+		<table class="regist-kintai">
 			<thead>
 				<tr>
 					<th rowspan="2">ID</th>
