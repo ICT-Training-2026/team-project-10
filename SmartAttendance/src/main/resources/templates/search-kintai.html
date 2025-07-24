@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>勤怠情報検索</title>
+	<link rel="stylesheet" href="style.css">
 
 	<style>
 		table {
@@ -22,17 +23,20 @@
 
 <body>
 	<div class="header">
-		<h1>勤怠情報検索</h1>
+		<div class="head-title">
+			<img src="Smart_2.png" alt="ロゴ">
+			<h1>勤怠情報検索</h1>
+		</div>
 		<div class="head-btn">
 			<form th:action="@{/menu}" method="POST" th:object="${loginUser}">
 				<input type="hidden" th:field="*{emp_id}">
 				<input type="hidden" th:field="*{dep_id}">
 				<input type="hidden" th:field="*{permission}">
-				<input type="submit" value="Menu" class="btn">
+				<input type="submit" value="Menu" class="h-btn">
 			</form>
 
 			<form th:action="@{/}" method="GET">
-				<input type="submit" value="Logout" class="btn">
+				<input type="submit" value="Logout" class="h-btn">
 			</form>
 		</div>
 	</div>
