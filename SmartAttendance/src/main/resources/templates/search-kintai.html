@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>勤怠情報検索</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../static/style.css">
 
 
 </head>
@@ -78,7 +78,7 @@
 					<td th:text="${searchResult.breakTime}"></td>
 					<td th:text="${searchResult.excessTime}"></td>
 					<td>
-						<input type="button" value="編集" class="btn">
+						<input type="button" value="編集" class="btn" id="edit-btn">
 					</td>
 				</tr>
 			</div>
