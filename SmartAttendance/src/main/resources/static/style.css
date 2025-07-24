@@ -263,7 +263,7 @@ label{
     border-collapse: collapse;
 }
 
-tr,th,td,input{
+#edit-btn,tr,th,td,input{
     width: 8vw;
     text-align: center;
     align-items: center;
