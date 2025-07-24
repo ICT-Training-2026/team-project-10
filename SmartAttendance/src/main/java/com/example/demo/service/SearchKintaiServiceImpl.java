@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.SearchResult;
 import com.example.demo.form.SearchConditionForm;
+import com.example.demo.form.SearchConditionMasterForm;
 import com.example.demo.repository.SearchKintaiRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -22,5 +23,13 @@ public class SearchKintaiServiceImpl implements SearchKintaiService {
 			List<SearchResult> result = repository.search(emp_id, form);
 			return result;
 		}
-	} 
+	}
+	
+	public List<SearchResult> search(String emp_id, SearchConditionMasterForm form) {
+		if (form.getDate() == "" && form.getShift_id() == 0 && form.getEmp_id() == "" && form.getDep_id() == 0) return null;
+		else {
+			List<SearchResult> result = repository.search(emp_id, form);
+			return result;
+		}
+	}
 }
