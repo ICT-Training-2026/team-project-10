@@ -15,13 +15,22 @@
 			<h1 class="title">勤怠登録</h1>
 		</div>
 		<div class="head-btn">
-			<input type="button" value="Menu" class="h-btn">
-			<input type="button" value="Logout" class="h-btn">
+			<form th:action="@{/menu}" method="POST" th:object="${loginUser}">
+				<input type="hidden" th:field="*{emp_id}">
+				<input type="hidden" th:field="*{dep_id}">
+				<input type="hidden" th:field="*{permission}">
+				<input type="submit" value="Menu" class="h-btn">
+			</form>
+
+			<form th:action="@{/}" method="GET">
+				<input type="submit" value="Logout" class="h-btn">
+			</form>
 		</div>
 	</div>
 
 	<!-- 勤怠表 -->
 	<div class="page-main" id="table-margin">
+		<form th:action="@{/confirm-regist-kintai}" th:object="${registKintaiForm}" method="post">
 		<table class="regist-kintai">
 			<thead>
 				<tr>
@@ -44,7 +53,7 @@
 
 					<!-- 区分 -->
 					<td>
-						<select name="kbn" required>
+						<select name="kbn" th:field="*{shift_ID}" required>
 							<option value="10">10:出勤</option>
 							<option value="20">20:振出</option>
 							<option value="30">30:欠勤</option>
@@ -55,9 +64,9 @@
 					</td>
 
 					<!-- 始業 -->
-					<td><input type="number" id="start_hour" name="start_hour" min="8" max="22" required></td>
+					<td><input type="number" id="start_hour" name="start_hour" th:field="*{start_H}" min="8" max="22" required></td>
 					<td>
-						<select id="start_minute" name="start_minute" required>
+						<select id="start_minute" name="start_minute" th:field="*{start_M}" required>
 							<option value="0">00</option>
 							<option value="15">15</option>
 							<option value="30">30</option>
@@ -66,9 +75,9 @@
 					</td>
 
 					<!-- 終業 -->
-					<td><input type="number" id="end_hour" name="end_hour" min="8" max="22" required></td>
+					<td><input type="number" id="end_hour" name="end_hour" th:field="*{end_H}" min="8" max="22" required></td>
 					<td>
-						<select id="end_minute" name="end_minute" required>
+						<select id="end_minute" name="end_minute" th:field="*{end_M}" required>
 							<option value="0">00</option>
 							<option value="15">15</option>
 							<option value="30">30</option>
@@ -77,9 +86,9 @@
 					</td>
 
 					<!-- 数値（小数）入力 -->
-					<td><input type="number" name="work_time" step="0.01" min="0" required></td>
-					<td><input type="number" name="break_time" step="0.01" min="0" required></td>
-					<td><input type="number" name="excess_time" step="0.01" min="0" required></td>
+					<td><input type="number" name="work_time" th:field="*{total_workingTime}" step="0.01" min="0" required></td>
+					<td><input type="number" name="break_time" th:field="*{breakTime}" step="0.01" min="0" required></td>
+					<td><input type="number" name="excess_time" th:field="*{excessTime}" step="0.01" min="0" required></td>
 				</tr>
 			</tbody>
 		</table>
@@ -87,6 +96,7 @@
 		<div id="center-btn">
 			<input type="submit" value="登録" class="btn">
 		</div>
+		</form>
 	</div>
 </body>
 

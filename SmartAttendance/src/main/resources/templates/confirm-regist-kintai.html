@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="style.css">
 	<meta charset="UTF-8">
 	<title>勤怠登録確認</title>
-	
+
 </head>
 
 <body>
@@ -16,54 +16,99 @@
 			<h1 class="title">勤怠登録確認</h1>
 		</div>
 		<div class="head-btn">
-			<input type="button" value="Menu" class="h-btn">
-			<input type="button" value="Logout" class="h-btn">
+			<form th:action="@{/menu}" method="POST" th:object="${loginUser}">
+				<input type="hidden" th:field="*{emp_id}">
+				<input type="hidden" th:field="*{dep_id}">
+				<input type="hidden" th:field="*{permission}">
+				<input type="submit" value="Menu" class="h-btn">
+			</form>
+
+			<form th:action="@{/}" method="GET">
+				<input type="submit" value="Logout" class="h-btn">
+			</form>
 		</div>
 	</div>
 
 	<!-- 表-->
 	<div class="page-main" id="table-margin">
-		<table class="regist-kintai">
-			<thead>
-				<tr>
-					<th rowspan="2">区分</th>
-					<th colspan="2">始業</th>
-					<th colspan="2">終業</th>
-					<th rowspan="2">労働時間</th>
-					<th rowspan="2">休憩時間</th>
-					<th rowspan="2">累積超過</th>
-				</tr>
-				<tr>
-					<th>時</th>
-					<th>分</th>
-					<th>時</th>
-					<th>分</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>&nbsp;</td> <!-- 表示なしだが、列幅を保つために空白（&nbsp;）を入れている -->
-					<td></td> <!-- 始業：時 -->
-					<td></td> <!-- 始業：分 -->
-					<td></td> <!-- 終業：時 -->
-					<td></td> <!-- 終業：分 -->
-					<td></td> <!-- 労働時間 -->
-					<td></td> <!-- 休憩時間 -->
-					<td></td> <!-- 累積超過 -->
-				</tr>
-			</tbody>
-		</table>
+		<form th:action="@{/complete-regist-kintai}" method="post" th:object="${registKintaiForm}">
+			<table class="regist-kintai">
+				<thead>
+					<tr>
+						<th rowspan="2">区分</th>
+						<th colspan="2">始業</th>
+						<th colspan="2">終業</th>
+						<th rowspan="2">労働時間</th>
+						<th rowspan="2">休憩時間</th>
+						<th rowspan="2">累積超過</th>
+					</tr>
 
-		<!-- メッセージ -->
-		<div class="confirm-msg">
-			<p>まだ、登録は完了しておりません。<br>
-				登録内容をお確かめの上、登録ボタンを押してください。</p>
-		</div>
+					<tr>
+						<th>時</th>
+						<th>分</th>
+						<th>時</th>
+						<th>分</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<p th:text="*{shift_ID}"></p> <!--区分-->
+						</td>
 
-		<!-- ボタン -->
+
+						<td>
+							<p th:text="*{start_H}"></p>　<!-- 始業 -->
+						</td>
+
+						<td>
+							<p th:text="*{start_M}"></p>
+						</td>
+
+
+						<td>
+							<p th:text="*{end_H}"></p>　<!-- 終業 -->
+						</td>
+						<td>
+							<p th:text="*{end_M}"></p>
+						</td>
+
+
+						<td>
+							<p th:text="*{total_workingTime}"></p>　<!--労働時間-->
+						</td>
+
+						<td>
+							<p th:text="*{breakTime}"></p>　<!--休憩時間-->
+						</td>
+						<td>
+							<p th:text="*{excessTime}"></p>　<!--累積超過-->
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="confirm-msg">
+				<p>まだ、登録は完了しておりません。<br>
+					登録内容をお確かめの上、登録ボタンを押してください。</p>
+			</div>
+
+			<div id="center-btn"><!-- ボタン -->
+				<input type="hidden" th:field="*{shift_ID}">
+				<input type="hidden" th:field="*{start_H}">
+				<input type="hidden" th:field="*{start_M}">
+				<input type="hidden" th:field="*{end_H}">
+				<input type="hidden" th:field="*{end_M}">
+				<input type="hidden" th:field="*{total_workingTime}">
+				<input type="hidden" th:field="*{breakTime}">
+				<input type="hidden" th:field="*{excessTime}">
+				<input type="submit" value="登録" class="btn">
+			</div>
+		</form>
 		<div id="center-btn">
-			<input type="submit" value="登録" class="btn">
-			<input type="submit" value="戻る" class="btn" id="return-btn">
+			<form th:action="@{/Modoru-regist-kintai}" method="post" th:object="${registKintaiForm}">
+				<input type="submit" value="戻る" class="btn" id="return-btn">
+			</form>
 		</div>
 	</div>
 </body>
