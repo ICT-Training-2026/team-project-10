@@ -270,4 +270,18 @@ th {
 	margin-top: 140px;
 }
 
+/*検索条件フォーム*/
+.search-form {
+	margin-top: 20px;
+	margin-bottom: 40px;
+	display: flex;
+	justify-content: center;
+	gap:20px;
+}
+
+/*検索条件ボックス*/
+.search-term {
+	width: 20vw;
+}
+
 

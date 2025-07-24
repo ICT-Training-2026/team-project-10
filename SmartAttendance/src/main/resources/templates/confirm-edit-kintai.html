@@ -5,26 +5,14 @@
 	<link rel="stylesheet" href="style.css">
 	<meta charset="UTF-8">
 	<title>勤怠情報更新確認</title>
-	<style>
-		table {
-			border-collapse: collapse;
-			width: 100%;
-		}
 
-		th,
-		td {
-			border: 1px solid black;
-			padding: 5px;
-			text-align: center;
-		}
-	</style>
 </head>
 
 <body>
 	<!-- ヘッダー -->
 	<div class="header">
 		<div class="head-title">
-			<img src="Smart_2.png" alt="ロゴ" width="90px" height="auto">
+			<img src="Smart_2.png" alt="ロゴ">
 			<h1 class="title">勤怠情報更新確認</h1>
 		</div>
 		<div class="head-btn">
@@ -35,8 +23,8 @@
 
 
 	<!-- 表 -->
-	<div class="page-main">
-		<table>
+	<div class="page-main"  id="table-margin">
+		<table class="regist-kintai">
 			<thead>
 				<tr>
 					<th rowspan="2">ID</th>
@@ -75,14 +63,14 @@
 
 		<!-- 確認メッセージ -->
 		<div class="confirm-msg">
-			まだ、更新は完了しておりません<br>
-			更新内容をお確かめの上、[更新]ボタンを押してください
+			まだ、更新は完了しておりません。<br>
+			更新内容をお確かめの上、[更新]ボタンを押してください。
 		</div>
 
 		<!-- ボタン -->
 		<div id="center-btn">
-			<input type="submit" value="戻る" class="btn">
 			<input type="submit" value="更新" class="btn">
+			<input type="submit" value="戻る" class="btn" id="return-btn">
 		</div>
 	</div>
 </body>
