@@ -135,12 +135,33 @@ img{
 
 /* フォーム */
 .login-form,.registUser-form{
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    justify-content: space-between;
-    gap:10px;
-    font-size: 15px;
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-right: 4vw;
+	margin-left: 4vw;
+	align-items: center;
+	gap: 10px;
+}
+
+.input-line,.select-line {
+	padding: 5px;
+	border: 1px solid #ccc;
+/*	margin-left: 5vw;*/
+/*	margin-right: 5vw;*/
+	border-radius: 5px;
+	text-align: center;
+	align-items: center;
+	margin-top: 5px;
+}
+
+.select-line {
+	width: 77vw;
+}
+
+.input-line {
+	width: 75vw;
 }
 
 /* メインコンテンツ */
