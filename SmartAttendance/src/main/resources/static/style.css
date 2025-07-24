@@ -68,7 +68,7 @@ img{
 .btn {
     background-color: #f19ca7;
     border: 1px solid #e95464;
-    padding: 10px 10px;
+    padding: 0;
     font-size: 18px;
     text-align: center;
     height: 40px;
@@ -101,17 +101,29 @@ img{
     margin-top: 100px;
     margin-left: 2vw;
     margin-right: 2vw;
-    align-items: center;
+	align-content: center;
 }
 
 
 /* 登録・申請・戻るボタン */
 #center-btn {
-    display:flex;
-    justify-content: center;
-    gap:10px;
+	display: grid;
+	place-items: center;
+    gap:25px;
 	margin-top: 30px;
 	margin-bottom: 30px;
+	align-items: center;
+}
+
+/*戻るボタンのデザイン*/
+#return-btn {
+	background-color: #d3d3d3;
+	border: 1px solid #808080;
+	font-size: 15px;
+	height: 30px;
+	width: 60px;
+	text-align: center;
+	padding: 0;
 }
 
 /* エラーメッセージ */
@@ -119,8 +131,6 @@ img{
     margin-top:20px;
     color: red;
     text-align: center;
-    font-size: 15px;
-	
 }
 
 /* フォーム */
@@ -155,6 +165,7 @@ img{
     width: 30vw;
     transition:background-color 0.3s;
     cursor: pointer;
+	border-radius: 5px;
     
 }
 
@@ -225,24 +236,38 @@ label{
 }
 
 
-/*勤怠登録の表*/
+/* テーブルのクラス名 */
 .regist-kintai {
-	width: 100%; /* 幅を100%に設定 */
-	padding: 0 20px; /* 左右に余白を追加 */
-	box-sizing: border-box; /* パディングを含めた幅の計算を行う */
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr,th,td,input{
+    width: 8vw;
+    text-align: center;
+    align-items: center;
+	font-size: 15px;
+}
+
+select {
+	width: 9vw;
+	text-align: center;
+	align-items: center;
+	font-size: 15px;
 	
 }
 
-/*#registKintai-main {*/
-/*	display: flex;*/
-/*	justify-content: center;*/
-/*	align-items: center;*/
-/*	height: 100vh;  画面全体の高さを使用 */
-/*	margin-top: 120px;*/
-/*}*/
+th,td {
+	border: 1px solid black;
+	padding: 4px;
+}
 
+th {
+	background-color: #cab8d9;
+}
 
-
-
+#table-margin {
+	margin-top: 140px;
+}
 
 
