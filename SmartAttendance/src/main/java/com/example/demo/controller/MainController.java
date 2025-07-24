@@ -62,11 +62,11 @@ public class MainController {
 		return "regist-subHoliday";
 	}
 
-	/*エクスポート*/
-	@PostMapping("/export")
-	public String showExport() {
-		return "export";
-	}
+//	/*エクスポート*/
+//	@PostMapping("/export")
+//	public String showExport() {
+//		return "export";
+//	}
 	
 	@GetMapping("/complete")
 	public String complete(Model model) {
