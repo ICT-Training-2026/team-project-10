@@ -92,6 +92,11 @@
 				</tr>
 			</tbody>
 		</table>
+		
+		<div th:if="${msg} != null" class="error-msg">
+			<p th:text="${msg}"></p>
+		</div>
+		
 		<!-- 登録ボタン -->
 		<div id="center-btn">
 			<input type="submit" value="登録" class="btn">

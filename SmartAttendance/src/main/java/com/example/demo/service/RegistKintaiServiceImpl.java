@@ -16,11 +16,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class RegistKintaiServiceImpl implements RegistKintaiService {
 	
-	
 	LocalDate localDate = LocalDate.now();
 	Date today = Date.valueOf(localDate);
 	
 	private final RegistKintaiRepository repository;
+	
 	@Override
 	public void insert(RegistKintaiForm form,LoginUser loginUser) {
 		RegistKintaiEntity entity = new RegistKintaiEntity();
@@ -35,6 +35,10 @@ public class RegistKintaiServiceImpl implements RegistKintaiService {
 		entity.setBreakTime(form.getBreakTime());
 		entity.setExcessTime(form.getExcessTime());
 		repository.add(entity);
+	}
+	
+	public Boolean kintaiCheck(String emp_id) {
+		return repository.kintaiCheck(emp_id, today);
 	}
 
 }
