@@ -59,7 +59,7 @@
 				<input type="submit" value="振休申請" th:field="*{emp_id}" class="main-btn">
 			</form>
 
-			<th:block th:if="${loginUser.permission}">
+			<th:block th:if="${loginUser.dep_id == 30}">
 				<form th:action="@{/regist-user}" method="POST" th:object="${loginUser}">
 					<input type="hidden" th:field="*{emp_id}">
 					<input type="hidden" th:field="*{dep_id}">
