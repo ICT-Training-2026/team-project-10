@@ -5,5 +5,5 @@ import com.example.demo.form.RegistKintaiForm;
 
 public interface RegistKintaiService {
 	public void insert(RegistKintaiForm form,LoginUser loginUser) ;
-
+	public Boolean kintaiCheck(String emp_id);
 }

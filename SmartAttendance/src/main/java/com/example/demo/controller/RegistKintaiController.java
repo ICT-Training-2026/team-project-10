@@ -43,16 +43,23 @@ public class RegistKintaiController {
 		model.addAttribute("registKintaiForm", new RegistKintaiForm());
 		mainController.setter("勤怠登録", loginUser);
 		lu = loginUser;
-		System.out.println(lu);
 		return "regist-kintai";
 	}
 
 	/*登録実行*/
 	@PostMapping("/confirm-regist-kintai")
 	public String showConfirmRegistKintai(@ModelAttribute RegistKintaiForm form, Model model) {
-		model.addAttribute("registKintaiForm", form);
-		model.addAttribute("loginUser", lu);
-		return "confirm-regist-kintai";
+		System.out.println(form);
+		if (service.kintaiCheck(lu.getEmp_id())) {
+			model.addAttribute("registKintaiForm", form);
+			model.addAttribute("loginUser", lu);
+			model.addAttribute("msg", "すでに登録されています。修正する場合は検索から編集を行ってください。");
+			return "regist-kintai";
+		} else {
+			model.addAttribute("registKintaiForm", form);
+			model.addAttribute("loginUser", lu);
+			return "confirm-regist-kintai";
+		}
 	}
 
 	/*確認ページから戻る*/
@@ -68,7 +75,6 @@ public class RegistKintaiController {
 		service.insert(form, lu);
 		model.addAttribute("loginUser", lu);
 		return "redirect:/complete";
-
 	}
 
 }
