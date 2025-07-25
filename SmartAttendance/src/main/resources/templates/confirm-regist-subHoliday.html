@@ -14,26 +14,38 @@
 			<h1>振休申請確認</h1>
 		</div>
 		<div class="head-btn">
-			<input type="button" value="Menu" class="h-btn">
-			<input type="button" value="Logout" class="h-btn">
+			<form th:action="@{/menu}" method="POST" th:object="${loginUser}">
+				<input type="hidden" th:field="*{emp_id}">
+				<input type="hidden" th:field="*{dep_id}">
+				<input type="hidden" th:field="*{permission}">
+				<input type="submit" value="Menu" class="btn">
+			</form>
+
+			<form th:action="@{/}" method="GET">
+				<input type="submit" value="Logout" class="h-btn">
+			</form>
 		</div>
 	</div>
 
-	<div class="page-main">
+	<class="page-main">
 		<h2>対象日</h2>
-		<p class="input-content" th:text="*{}"></p>
-
-		<!-- 確認メッセージ -->
-		<div class="confirm-msg">
-			<p>まだ、申請は完了しておりません</p>
-			<p>申請日をお確かめの上、[申請]ボタンを押してください</p>
-		</div>
-
-		<!-- ボタン -->
-		<div id="center-btn">
+		<form th:action="@{/complete-regist-subHoliday}" method="post"th:object="${subHolidayForm}">
+			<p class="input-content" th:text="*{record_date}"></p>
+			<!-- 確認メッセージ -->
+			<div class="confirm-msg">
+				<p>まだ、申請は完了しておりません</p>
+				<p>申請日をお確かめの上、[申請]ボタンを押してください</p>
+			</div>
+			<div id="center-btn">
+				<input type="hidden" th:field="*{record_date}">
+				<input type="hidden" th:field="*{subHolidaysLeft}">
+				<input type="submit" value="申請" class="btn">
+			</div>
+		</form>
+		<form th:action="@{/Modoru-regist-subHoliday}" method="post" th:object="${subHolidayForm}">
 			<input type="submit" value="戻る" class="btn">
-			<input type="submit" value="申請" class="btn">
-		</div>
+			<input type="hidden" th:field="*{subHolidaysLeft}">
+		</form>
 	</div>
 </body>
 
