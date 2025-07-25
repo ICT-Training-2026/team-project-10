@@ -263,7 +263,8 @@ label{
     border-collapse: collapse;
 }
 
-#edit-btn,tr,th,td,input{
+#edit-btn,
+tr,th,td,input{
     width: 8vw;
     text-align: center;
     align-items: center;
@@ -271,7 +272,7 @@ label{
 }
 
 select {
-	width: 9vw;
+	width: 8vw;
 	text-align: center;
 	align-items: center;
 	font-size: 15px;

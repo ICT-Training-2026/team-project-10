@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>勤怠情報編集</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../static/style.css">
 
 	<!--	<style>-->
 	<!--		table {-->
@@ -48,7 +48,7 @@
 		</div>
 	</div>
 
-	<div class="page-main">
+	<div class="page-main" id="table-margin">
 		<table class="regist-kintai">
 			<thead>
 				<tr>
@@ -69,20 +69,18 @@
 					<th>分</th>
 				</tr>
 			</thead>
-
-			<tbody>
+			<tbody >
 				<form id="kintaiForm" th:action="@{/update-kintai}" method="POST" th:object="${editKintaiForm}">
 					<input type="hidden" id="operation" name="operation" value="">
 					<input type="hidden" th:field="*{emp_id}">
 					<input type="hidden" th:field="*{emp_name}">
 					<input type="hidden" th:field="*{record_date}">
-
 					<table class="regist-kintai">
 						<tbody>
 							<tr>
-								<td th:text="*{emp_id}"></td>
-								<td th:text="*{emp_name}"></td>
-								<td th:text="*{record_date}"></td>
+								<td th:text="*{emp_id}" class="td-text"></td>
+								<td th:text="*{emp_name}" class="td-text"></td>
+								<td th:text="*{record_date}" class="td-text"></td>
 								<td>
 									<select th:field="*{shift_ID}" required>
 										<option value="10">10:出勤</option>
@@ -118,7 +116,6 @@
 							</tr>
 						</tbody>
 					</table>
-
 					<!-- エラーメッセージ -->
 					<div class="error-msg">
 						
