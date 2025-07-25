@@ -30,10 +30,6 @@ public class RegistKintaiRepositoryImpl implements RegistKintaiRepository {
 				"	ai.emp_id = ? and ai.record_date = ?						" +
 				")";
 		Boolean result = jdbcTemplate.queryForObject(sql_kintaiCheck, Boolean.class, emp_id, record_date);
-
-		System.out.println(emp_id);
-		System.out.println(record_date);
-		System.out.println(result);
 		return result;
 	}
 

@@ -14,14 +14,22 @@
 			<h1>有給休暇申請確認</h1>
 		</div>
 		<div class="head-btn">
-			<input type="button" value="Menu" class="h-btn">
-			<input type="button" value="Logout" class="h-btn">
+			<form th:action="@{/menu}" method="POST" th:object="${loginUser}">
+				<input type="hidden" th:field="*{emp_id}">
+				<input type="hidden" th:field="*{dep_id}">
+				<input type="hidden" th:field="*{permission}">
+				<input type="submit" value="Menu" class="h-btn">
+			</form>
+
+			<form th:action="@{/}" method="GET">
+				<input type="submit" value="Logout" class="h-btn">
+			</form>
 		</div>
 	</div>
 
 	<div class="page-main">
 		<h2>対象日</h2>
-		<p class="input-content" th:text="*{}"></p>
+		<p class="input-content" th:text="${registPaidHolidayForm.date}"></p>
 
 		<!-- 確認メッセージ -->
 		<div class="confirm-msg">
@@ -31,8 +39,17 @@
 
 		<!-- ボタン -->
 		<div id="center-btn">
-			<input type="submit" value="戻る" class="btn">
-			<input type="submit" value="申請" class="btn">
+			<form th:action="@{/complete-regist-paidHoliday}" method="POST" th:field="${registPaidHolidayForm}">
+				<input type="hidden" th:field="${registPaidHolidayForm.date}">
+				<input type="submit" value="申請" class="btn">
+			</form>
+		</div>
+
+		<div id="center-btn">
+			<form th:action="@{/return-regist-paidHoliday}" method="POST" th:field="${registPaidHolidayForm}">
+				<input type="hidden" th:field="${registPaidHolidayForm.date}">
+				<input type="submit" value="戻る" class="btn">
+			</form>
 		</div>
 	</div>
 </body>
