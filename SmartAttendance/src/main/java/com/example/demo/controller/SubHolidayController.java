@@ -39,6 +39,10 @@ public class SubHolidayController {
 	public String showConfirmRegistSubHoliday(@ModelAttribute SubHolidayForm form, Model model) {
 		model.addAttribute("subHolidayForm", form);
 		model.addAttribute("loginUser", lu);
+		if (service.kintaiCheck(lu.getEmp_id(), form.getRecord_date())) {
+			model.addAttribute("msg", "すでに勤怠登録されています。");
+			return "regist-subHoliday";
+		}
 		if (form.getSubHolidaysLeft() == 0) {
 			model.addAttribute("msg", "残振休数がありません。");
 			return "regist-subHoliday";

@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.sql.Date;
+
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.LoginUser;
@@ -29,6 +31,10 @@ public class SubHolidayServiceImpl implements SubHolidayService{
 		ptoinfo.setEmp_id(loginUser.getEmp_id());
 		ptoinfo.setSubHolidaysLeft(form.getSubHolidaysLeft()-1);
 		repository.addPtoInfo(ptoinfo);
+	}
+	
+	public Boolean kintaiCheck(String emp_id, Date date) {
+		return repository.kintaiCheck(emp_id, date);
 	}
 
 }
