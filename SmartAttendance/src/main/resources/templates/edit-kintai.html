@@ -4,21 +4,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>勤怠情報編集</title>
-	<link rel="stylesheet" href="../static/style.css">
+	<link rel="stylesheet" href="style.css">
 
-	<!--	<style>-->
-	<!--		table {-->
-	<!--			border-collapse: collapse;-->
-	<!--			width: 100%;-->
-	<!--		}-->
-
-	<!--		th,-->
-	<!--		td {-->
-	<!--			border: 1px solid black;-->
-	<!--			padding: 5px;-->
-	<!--			text-align: center;-->
-	<!--		}-->
-	<!--	</style>-->
 	<script>
 		function submitForm(action, operation) {
 			var form = document.getElementById('kintaiForm');
@@ -69,65 +56,64 @@
 					<th>分</th>
 				</tr>
 			</thead>
-			<tbody >
+			<tbody>
 				<form id="kintaiForm" th:action="@{/update-kintai}" method="POST" th:object="${editKintaiForm}">
 					<input type="hidden" id="operation" name="operation" value="">
 					<input type="hidden" th:field="*{emp_id}">
 					<input type="hidden" th:field="*{emp_name}">
 					<input type="hidden" th:field="*{record_date}">
-					<table class="regist-kintai">
-						<tbody>
-							<tr>
-								<td th:text="*{emp_id}" class="td-text"></td>
-								<td th:text="*{emp_name}" class="td-text"></td>
-								<td th:text="*{record_date}" class="td-text"></td>
-								<td>
-									<select th:field="*{shift_ID}" required>
-										<option value="10">10:出勤</option>
-										<option value="20">20:振出</option>
-										<option value="30">30:欠勤</option>
-										<option value="80">80:年休</option>
-										<option value="90">90:振休</option>
-										<option value="99">99:休日</option>
-									</select>
-								</td>
-								<td><input type="number" th:field="*{start_H}" min="8" max="22" required></td>
-								<td>
-									<select th:field="*{start_M}" required>
-										<option value="0">00</option>
-										<option value="15">15</option>
-										<option value="30">30</option>
-										<option value="45">45</option>
-									</select>
-								</td>
-								<td><input type="number" th:field="*{end_H}" min="8" max="22" required></td>
-								<td>
-									<select th:field="*{end_M}" required>
-										<option value="0">00</option>
-										<option value="15">15</option>
-										<option value="30">30</option>
-										<option value="45">45</option>
-									</select>
-								</td>
-								<td><input type="number" th:field="*{total_workingTime}" step="0.25" min="0" required>
-								</td>
-								<td><input type="number" th:field="*{breakTime}" step="0.25" min="0" required></td>
-								<td><input type="number" th:field="*{excessTime}" step="0.25" min="0" required></td>
-							</tr>
-						</tbody>
-					</table>
+
+					<tr>
+						<td th:text="*{emp_id}" class="td-text"></td>
+						<td th:text="*{emp_name}" class="td-text"></td>
+						<td th:text="*{record_date}" class="td-text"></td>
+						<td>
+							<select th:field="*{shift_ID}" required>
+								<option value="10">10:出勤</option>
+								<option value="20">20:振出</option>
+								<option value="30">30:欠勤</option>
+								<option value="80">80:年休</option>
+								<option value="90">90:振休</option>
+								<option value="99">99:休日</option>
+							</select>
+						</td>
+						<td><input type="number" th:field="*{start_H}" min="8" max="22" required></td>
+						<td>
+							<select th:field="*{start_M}" required>
+								<option value="0">00</option>
+								<option value="15">15</option>
+								<option value="30">30</option>
+								<option value="45">45</option>
+							</select>
+						</td>
+						<td><input type="number" th:field="*{end_H}" min="8" max="22" required></td>
+						<td>
+							<select th:field="*{end_M}" required>
+								<option value="0">00</option>
+								<option value="15">15</option>
+								<option value="30">30</option>
+								<option value="45">45</option>
+							</select>
+						</td>
+						<td><input type="number" th:field="*{total_workingTime}" step="0.25" min="0" required>
+						</td>
+						<td><input type="number" th:field="*{breakTime}" step="0.25" min="0" required></td>
+						<td><input type="number" th:field="*{excessTime}" step="0.25" min="0" required></td>
+					</tr>
+
 					<!-- エラーメッセージ -->
 					<div class="error-msg">
-						
+
 					</div>
 
-					<div id="center-btn">
-						<input type="button" value="削除" class="btn" onclick="submitForm('/delete-kintai', 'delete')">
-						<input type="button" value="更新" class="btn" onclick="submitForm('/update-kintai', 'update')">
-					</div>
+
 				</form>
 			</tbody>
 		</table>
+		<div id="center-btn">
+			<input type="button" value="削除" class="btn" onclick="submitForm('/delete-kintai', 'delete')">
+			<input type="button" value="更新" class="btn" onclick="submitForm('/update-kintai', 'update')">
+		</div>
 	</div>
 </body>
 
