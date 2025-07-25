@@ -1,5 +1,7 @@
 package com.example.demo.repository;
 
+import java.sql.Date;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -29,5 +31,15 @@ public class SubHolidayRepositoryImpl implements SubHolidayRepository{
 		jdbcTemplate.update(sql,ptoinfo.getSubHolidaysLeft(),ptoinfo.getEmp_id());
 	}
 	
-
+	public Boolean kintaiCheck(String emp_id, Date date) {
+		String sql_kintaiCheck = "SELECT EXISTS (									" +
+				"SELECT 1								" +
+				"FROM									" +
+				"	attendance_info ai					" +
+				"WHERE									" +
+				"	ai.emp_id = ? and ai.record_date = ?						" +
+				")";
+		Boolean result = jdbcTemplate.queryForObject(sql_kintaiCheck, Boolean.class, emp_id, date);
+		return result;
+	}
 }
