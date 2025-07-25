@@ -50,11 +50,11 @@ public class MainController {
 //		return "search-kintai";
 //	}
 
-	/*有給休暇申請*/
-	@PostMapping("/regist-paidHoliday")
-	public String showRegistPaidHoliday(@ModelAttribute LoginUserForm form) {
-		return "regist-paidHoliday";
-	}
+//	/*有給休暇申請*/
+//	@PostMapping("/regist-paidHoliday")
+//	public String showRegistPaidHoliday(@ModelAttribute LoginUserForm form) {
+//		return "regist-paidHoliday";
+//	}
 
 	/*振休申請*/
 	@PostMapping("/regist-subHoliday")
