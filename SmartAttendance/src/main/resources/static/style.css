@@ -2,20 +2,6 @@
 @import url('https://necolas.github.io/normalize.css/8.0.1/normalize.css');
 
 
-/* テーブルスタイル */
-/*table {*/
-/*    width: 100%;*/
-/*    border-collapse: collapse;  枠線を結合 */
-/*}*/
-
-/*th, td {*/
-/*border: 1px solid #ccc;  ボーダーの設定 */
-/*padding: 10px; 内側の余白 */
-/*}*/
-/*th {*/
-/*background-color: #cab8d9;  ヘッダーの背景色 */
-/*}*/
-
 /* ページ見出し */
 h1{
     font-size: 2rem;
