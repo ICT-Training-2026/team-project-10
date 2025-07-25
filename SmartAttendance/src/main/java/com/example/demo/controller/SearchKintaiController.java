@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.entity.LoginUser;
 import com.example.demo.entity.SearchResult;
+import com.example.demo.form.EditKintaiForm;
 import com.example.demo.form.SearchConditionForm;
 import com.example.demo.form.SearchConditionMasterForm;
 import com.example.demo.service.SearchKintaiService;
@@ -26,6 +27,7 @@ public class SearchKintaiController {
 	public String searchKintai(@ModelAttribute LoginUser loginUser, Model model) {
 		lu = loginUser;
 		model.addAttribute("loginUser", loginUser);
+		model.addAttribute("editKintaiForm", new EditKintaiForm());
 		if (lu.isPermission()) {
 			model.addAttribute("searchConditionMasterForm", new SearchConditionMasterForm());
 			return "search-kintai-master";
@@ -41,6 +43,8 @@ public class SearchKintaiController {
 		model.addAttribute("loginUser", lu);
 		model.addAttribute("searchConditionForm", form);
 		model.addAttribute("searchResult_list", result);
+		model.addAttribute("editKintaiForm", new EditKintaiForm());
+		System.out.println(result);
 		return "search-kintai";
 	}
 	
@@ -50,6 +54,7 @@ public class SearchKintaiController {
 		model.addAttribute("loginUser", lu);
 		model.addAttribute("searchConditionMasterForm", form);
 		model.addAttribute("searchResult_list", result);
+		model.addAttribute("editKintaiForm", new EditKintaiForm());
 		return "search-kintai-master";
 	}
 }

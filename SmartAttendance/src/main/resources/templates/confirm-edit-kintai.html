@@ -23,7 +23,8 @@
 
 
 	<!-- 表 -->
-	<div class="page-main"  id="table-margin">
+	<div class="page-main" id="table-margin">
+
 		<table class="regist-kintai">
 			<thead>
 				<tr>
@@ -45,32 +46,81 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td>&nbsp;</td> <!-- 空白でも幅を保つ -->
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+				<tr th:object="${editKintaiForm}">
+					<td>
+						<p th:text="*{emp_id}"></p>
+					</td>
+					<td>
+						<p th:text="*{emp_name}"></p>
+					</td>
+					<td>
+						<p th:text="*{record_date}"></p>
+					</td>
+					<td>
+						<p th:text="*{shift_ID}"></p>
+					</td>
+					<td>
+						<p th:text="*{start_H}"></p>
+					</td>
+					<td>
+						<p th:text="*{start_M}"></p>
+					</td>
+					<td>
+						<p th:text="*{end_H}"></p>
+					</td>
+					<td>
+						<p th:text="*{end_M}"></p>
+					</td>
+					<td>
+						<p th:text="*{total_workingTime}"></p>
+					</td>
+					<td>
+						<p th:text="*{breakTime}"></p>
+					</td>
+					<td>
+						<p th:text="*{excessTime}"></p>
+					</td>
 				</tr>
 			</tbody>
 		</table>
-
 		<!-- 確認メッセージ -->
 		<div class="confirm-msg">
 			まだ、更新は完了しておりません。<br>
 			更新内容をお確かめの上、[更新]ボタンを押してください。
 		</div>
+		<form th:action="@{/complete-update-kintai}" method="POST" th:object="${editKintaiForm}">
+			<div id="center-btn">
+				<input type="hidden" th:field="*{emp_id}">
+				<input type="hidden" th:field="*{emp_name}">
+				<input type="hidden" th:field="*{record_date}">
+				<input type="hidden" th:field="*{shift_ID}">
+				<input type="hidden" th:field="*{start_H}">
+				<input type="hidden" th:field="*{start_M}">
+				<input type="hidden" th:field="*{end_H}">
+				<input type="hidden" th:field="*{end_M}">
+				<input type="hidden" th:field="*{total_workingTime}">
+				<input type="hidden" th:field="*{breakTime}">
+				<input type="hidden" th:field="*{excessTime}">
+				<input type="submit" value="更新" class="btn">
+			</div>
+		</form>
 
 		<!-- ボタン -->
 		<div id="center-btn">
-			<input type="submit" value="更新" class="btn">
-			<input type="submit" value="戻る" class="btn" id="return-btn">
+			<form th:action="@{/edit-kintai}" method="POST" th:object="${editKintaiForm}">
+				<input type="hidden" th:field="*{emp_id}">
+				<input type="hidden" th:field="*{emp_name}">
+				<input type="hidden" th:field="*{record_date}">
+				<input type="hidden" th:field="*{shift_ID}">
+				<input type="hidden" th:field="*{start_H}">
+				<input type="hidden" th:field="*{start_M}">
+				<input type="hidden" th:field="*{end_H}">
+				<input type="hidden" th:field="*{end_M}">
+				<input type="hidden" th:field="*{total_workingTime}">
+				<input type="hidden" th:field="*{breakTime}">
+				<input type="hidden" th:field="*{excessTime}">
+				<input type="submit" value="戻る" class="btn" id="return-btn">
+			</form>
 		</div>
 	</div>
 </body>
