@@ -60,7 +60,7 @@ public class SearchKintaiRepositoryImpl implements SearchKintaiRepository {
 			+ "FROM attendance_info ai "
 			+ "INNER JOIN employees_info ei ON ai.emp_id = ei.emp_id "
 			+ "INNER JOIN department_info di ON ei.dep_id = di.dep_id "
-			+ "WHERE ai.emp_id = ? AND ai.record_date = ? AND ai.shift_ID = ?" 
+			+ "WHERE ai.emp_id = ? AND ai.record_date = ? AND ai.shift_ID = ? " 
 			+ "ORDER BY ai.record_date DESC";
 
 	private String sql_noDate = "SELECT ai.emp_id, ei.emp_name, di.dep_id, ai.record_date, ai.shift_ID, "
