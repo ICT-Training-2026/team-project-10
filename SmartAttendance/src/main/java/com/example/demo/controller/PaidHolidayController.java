@@ -36,7 +36,7 @@ public class PaidHolidayController {
 		model.addAttribute("remaining", remainingDays);
 		model.addAttribute("registPaidHolidayForm", form);
 		model.addAttribute("loginUser", lu);
-		if (service.remainingDaysCheck(lu.getEmp_id()) < 0) {
+		if (service.remainingDaysCheck(lu.getEmp_id()) <= 0) {
 			model.addAttribute("msg", "有休残日数がありません。");
 			return "regist-paidHoliday";
 		} else {
