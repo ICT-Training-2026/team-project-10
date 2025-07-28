@@ -43,7 +43,7 @@ public class RegistKintaiController {
 				model.addAttribute("msg", "始業・終業時刻が不適切です。");
 				return "regist-kintai";
 			} 
-			if (form.getTotal_workingTime() >= 4.00) {
+			if (form.getTotal_workingTime() >= 4.00 && form.getBreakTime() < 1) {
 				model.addAttribute("msg", "最低一時間以上の休憩時間を入力してください。");
 				return "regist-kintai";
 			}
