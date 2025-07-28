@@ -33,9 +33,9 @@ public class EditKintaiController {
 	}
 
 	@PostMapping({ "/delete-kintai", "/update-kintai" })
-	public String processKintai(@ModelAttribute("editKintaiForm") EditKintaiForm editKintaiForm, @RequestParam("operation") String operation, Model model) {
+	public String processKintai(@ModelAttribute("editKintaiForm") EditKintaiForm editKintaiForm, @RequestParam("operation") String operation, @ModelAttribute LoginUser loginUser, Model model) {
 		model.addAttribute("editKintaiForm", editKintaiForm);
-		model.addAttribute("loginUser", lu);
+		model.addAttribute("loginUser", loginUser);
 		if ("delete".equals(operation)) {
 			System.out.println("削除");
 			mainController.setter("勤怠情報削除", lu);

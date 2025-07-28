@@ -17,7 +17,7 @@
 		</div>
 		<div class="head-btn">
 			<form th:action="@{/menu}" method="POST" th:object="${loginUser}">
-				<input type="hidden" th:field="*{emp_id}">
+				<input type="hidden" th:field="*{login_emp_id}">
 				<input type="hidden" th:field="*{dep_id}">
 				<input type="hidden" th:field="*{permission}">
 				<input type="submit" value="Menu" class="h-btn">
@@ -81,15 +81,22 @@
 						<form th:action="@{/edit-kintai}" method="POST">
 							<input type="hidden" th:name="emp_id" th:value="${searchResult.emp_id}">
 							<input type="hidden" th:name="emp_name" th:value="${searchResult.emp_name}">
-							<input type="hidden" th:name="record_date" th:value="${#dates.format(searchResult.record_Date, 'yyyy-MM-dd')}">
+							<input type="hidden" th:name="record_date"
+								th:value="${#dates.format(searchResult.record_Date, 'yyyy-MM-dd')}">
 							<input type="hidden" th:name="shift_ID" th:value="${searchResult.shift_id}">
 							<input type="hidden" th:name="start_H" th:value="${searchResult.start_H}">
 							<input type="hidden" th:name="start_M" th:value="${searchResult.start_M}">
 							<input type="hidden" th:name="end_H" th:value="${searchResult.end_H}">
 							<input type="hidden" th:name="end_M" th:value="${searchResult.end_M}">
-							<input type="hidden" th:name="total_workingTime" th:value="${searchResult.total_workingTime}">
+							<input type="hidden" th:name="total_workingTime"
+								th:value="${searchResult.total_workingTime}">
 							<input type="hidden" th:name="breakTime" th:value="${searchResult.breakTime}">
 							<input type="hidden" th:name="excessTime" th:value="${searchResult.excessTime}">
+							<div th:object="${loginUser}">
+								<input type="hidden" th:name="login_emp_id" th:value="${loginUser.login_emp_id}">
+								<input type="hidden" th:name="dep_id" th:value="${loginUser.dep_id}">
+								<input type="hidden" th:name="permission" th:value="${loginUser.permission}">
+							</div>
 							<input type="submit" value="編集" class="btn" id="edit-btn">
 						</form>
 					</td>
