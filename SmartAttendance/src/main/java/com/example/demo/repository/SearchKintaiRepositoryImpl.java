@@ -44,105 +44,120 @@ public class SearchKintaiRepositoryImpl implements SearchKintaiRepository {
 			+ "FROM attendance_info ai "
 			+ "INNER JOIN employees_info ei ON ai.emp_id = ei.emp_id "
 			+ "INNER JOIN department_info di ON ei.dep_id = di.dep_id "
-			+ "WHERE ai.emp_id = ? AND ai.record_date = ? AND di.dep_id = ? AND ai.shift_ID = ?";
+			+ "WHERE ai.emp_id = ? AND ai.record_date = ? AND di.dep_id = ? AND ai.shift_ID = ? "
+			+ "ORDER BY ai.record_date DESC";
 
 	private String sql_noShiftId = "SELECT ai.emp_id, ei.emp_name, di.dep_id, ai.record_date, ai.shift_ID, "
 			+ "ai.start_H, ai.start_M, ai.end_H, ai.end_M, ai.total_workingTime, ai.breakTime, ai.excessTime "
 			+ "FROM attendance_info ai "
 			+ "INNER JOIN employees_info ei ON ai.emp_id = ei.emp_id "
 			+ "INNER JOIN department_info di ON ei.dep_id = di.dep_id "
-			+ "WHERE ai.emp_id = ? AND ai.record_date = ? AND di.dep_id = ?";
+			+ "WHERE ai.emp_id = ? AND ai.record_date = ? AND di.dep_id = ? "
+			+ "ORDER BY ai.record_date DESC";
 
 	private String sql_noDepId = "SELECT ai.emp_id, ei.emp_name, di.dep_id, ai.record_date, ai.shift_ID, "
 			+ "ai.start_H, ai.start_M, ai.end_H, ai.end_M, ai.total_workingTime, ai.breakTime, ai.excessTime "
 			+ "FROM attendance_info ai "
 			+ "INNER JOIN employees_info ei ON ai.emp_id = ei.emp_id "
 			+ "INNER JOIN department_info di ON ei.dep_id = di.dep_id "
-			+ "WHERE ai.emp_id = ? AND ai.record_date = ? AND ai.shift_ID = ?";
+			+ "WHERE ai.emp_id = ? AND ai.record_date = ? AND ai.shift_ID = ?" 
+			+ "ORDER BY ai.record_date DESC";
 
 	private String sql_noDate = "SELECT ai.emp_id, ei.emp_name, di.dep_id, ai.record_date, ai.shift_ID, "
 			+ "ai.start_H, ai.start_M, ai.end_H, ai.end_M, ai.total_workingTime, ai.breakTime, ai.excessTime "
 			+ "FROM attendance_info ai "
 			+ "INNER JOIN employees_info ei ON ai.emp_id = ei.emp_id "
 			+ "INNER JOIN department_info di ON ei.dep_id = di.dep_id "
-			+ "WHERE ai.emp_id = ? AND di.dep_id = ? AND ai.shift_ID = ?";
+			+ "WHERE ai.emp_id = ? AND di.dep_id = ? AND ai.shift_ID = ? "
+			+ "ORDER BY ai.record_date DESC";
 
 	private String sql_noEmpId = "SELECT ai.emp_id, ei.emp_name, di.dep_id, ai.record_date, ai.shift_ID, "
 			+ "ai.start_H, ai.start_M, ai.end_H, ai.end_M, ai.total_workingTime, ai.breakTime, ai.excessTime "
 			+ "FROM attendance_info ai "
 			+ "INNER JOIN employees_info ei ON ai.emp_id = ei.emp_id "
 			+ "INNER JOIN department_info di ON ei.dep_id = di.dep_id "
-			+ "WHERE ai.record_date = ? AND di.dep_id = ? AND ai.shift_ID = ?";
+			+ "WHERE ai.record_date = ? AND di.dep_id = ? AND ai.shift_ID = ? "
+			+ "ORDER BY ai.record_date DESC";
 
 	private String sql_empIdAndDate = "SELECT ai.emp_id, ei.emp_name, di.dep_id, ai.record_date, ai.shift_ID, "
 			+ "ai.start_H, ai.start_M, ai.end_H, ai.end_M, ai.total_workingTime, ai.breakTime, ai.excessTime "
 			+ "FROM attendance_info ai "
 			+ "INNER JOIN employees_info ei ON ai.emp_id = ei.emp_id "
 			+ "INNER JOIN department_info di ON ei.dep_id = di.dep_id "
-			+ "WHERE ai.emp_id = ? AND ai.record_date = ?";
+			+ "WHERE ai.emp_id = ? AND ai.record_date = ? "
+			+ "ORDER BY ai.record_date DESC";
 
 	private String sql_empIdAndDepId = "SELECT ai.emp_id, ei.emp_name, di.dep_id, ai.record_date, ai.shift_ID, "
 			+ "ai.start_H, ai.start_M, ai.end_H, ai.end_M, ai.total_workingTime, ai.breakTime, ai.excessTime "
 			+ "FROM attendance_info ai "
 			+ "INNER JOIN employees_info ei ON ai.emp_id = ei.emp_id "
 			+ "INNER JOIN department_info di ON ei.dep_id = di.dep_id "
-			+ "WHERE ai.emp_id = ? AND di.dep_id = ?";
+			+ "WHERE ai.emp_id = ? AND di.dep_id = ? "
+			+ "ORDER BY ai.record_date DESC";
 
 	private String sql_empIdAndShiftId = "SELECT ai.emp_id, ei.emp_name, di.dep_id, ai.record_date, ai.shift_ID, "
 			+ "ai.start_H, ai.start_M, ai.end_H, ai.end_M, ai.total_workingTime, ai.breakTime, ai.excessTime "
 			+ "FROM attendance_info ai "
 			+ "INNER JOIN employees_info ei ON ai.emp_id = ei.emp_id "
 			+ "INNER JOIN department_info di ON ei.dep_id = di.dep_id "
-			+ "WHERE ai.emp_id = ? AND ai.shift_ID = ?";
+			+ "WHERE ai.emp_id = ? AND ai.shift_ID = ? "
+			+ "ORDER BY ai.record_date DESC";
 
 	private String sql_dateAndDepId = "SELECT ai.emp_id, ei.emp_name, di.dep_id, ai.record_date, ai.shift_ID, "
 			+ "ai.start_H, ai.start_M, ai.end_H, ai.end_M, ai.total_workingTime, ai.breakTime, ai.excessTime "
 			+ "FROM attendance_info ai "
 			+ "INNER JOIN employees_info ei ON ai.emp_id = ei.emp_id "
 			+ "INNER JOIN department_info di ON ei.dep_id = di.dep_id "
-			+ "WHERE ai.record_date = ? AND di.dep_id = ?";
+			+ "WHERE ai.record_date = ? AND di.dep_id = ? "
+			+ "ORDER BY ai.record_date DESC";
 
 	private String sql_dateAndShiftId = "SELECT ai.emp_id, ei.emp_name, di.dep_id, ai.record_date, ai.shift_ID, "
 			+ "ai.start_H, ai.start_M, ai.end_H, ai.end_M, ai.total_workingTime, ai.breakTime, ai.excessTime "
 			+ "FROM attendance_info ai "
 			+ "INNER JOIN employees_info ei ON ai.emp_id = ei.emp_id "
 			+ "INNER JOIN department_info di ON ei.dep_id = di.dep_id "
-			+ "WHERE ai.record_date = ? AND ai.shift_ID = ?";
+			+ "WHERE ai.record_date = ? AND ai.shift_ID = ? "
+			+ "ORDER BY ai.record_date DESC";
 
 	private String sql_depIdAndShiftId = "SELECT ai.emp_id, ei.emp_name, di.dep_id, ai.record_date, ai.shift_ID, "
 			+ "ai.start_H, ai.start_M, ai.end_H, ai.end_M, ai.total_workingTime, ai.breakTime, ai.excessTime "
 			+ "FROM attendance_info ai "
 			+ "INNER JOIN employees_info ei ON ai.emp_id = ei.emp_id "
 			+ "INNER JOIN department_info di ON ei.dep_id = di.dep_id "
-			+ "WHERE di.dep_id = ? AND ai.shift_ID = ?";
+			+ "WHERE di.dep_id = ? AND ai.shift_ID = ? "
+			+ "ORDER BY ai.record_date DESC";
 
 	private String sql_onlyEmpId = "SELECT ai.emp_id, ei.emp_name, di.dep_id, ai.record_date, ai.shift_ID, "
 			+ "ai.start_H, ai.start_M, ai.end_H, ai.end_M, ai.total_workingTime, ai.breakTime, ai.excessTime "
 			+ "FROM attendance_info ai "
 			+ "INNER JOIN employees_info ei ON ai.emp_id = ei.emp_id "
 			+ "INNER JOIN department_info di ON ei.dep_id = di.dep_id "
-			+ "WHERE ai.emp_id = ?";
+			+ "WHERE ai.emp_id = ? "
+			+ "ORDER BY ai.record_date DESC";
 
 	private String sql_master_onlyDate = "SELECT ai.emp_id, ei.emp_name, di.dep_id, ai.record_date, ai.shift_ID, "
 			+ "ai.start_H, ai.start_M, ai.end_H, ai.end_M, ai.total_workingTime, ai.breakTime, ai.excessTime "
 			+ "FROM attendance_info ai "
 			+ "INNER JOIN employees_info ei ON ai.emp_id = ei.emp_id "
 			+ "INNER JOIN department_info di ON ei.dep_id = di.dep_id "
-			+ "WHERE ai.record_date = ?";
+			+ "WHERE ai.record_date = ? "
+			+ "ORDER BY ai.record_date DESC";
 
 	private String sql_onlyDepId = "SELECT ai.emp_id, ei.emp_name, di.dep_id, ai.record_date, ai.shift_ID, "
 			+ "ai.start_H, ai.start_M, ai.end_H, ai.end_M, ai.total_workingTime, ai.breakTime, ai.excessTime "
 			+ "FROM attendance_info ai "
 			+ "INNER JOIN employees_info ei ON ai.emp_id = ei.emp_id "
 			+ "INNER JOIN department_info di ON ei.dep_id = di.dep_id "
-			+ "WHERE di.dep_id = ?";
+			+ "WHERE di.dep_id = ? "
+			+ "ORDER BY ai.record_date DESC";
 
 	private String sql_master_onlyShiftId = "SELECT ai.emp_id, ei.emp_name, di.dep_id, ai.record_date, ai.shift_ID, "
 			+ "ai.start_H, ai.start_M, ai.end_H, ai.end_M, ai.total_workingTime, ai.breakTime, ai.excessTime "
 			+ "FROM attendance_info ai "
 			+ "INNER JOIN employees_info ei ON ai.emp_id = ei.emp_id "
 			+ "INNER JOIN department_info di ON ei.dep_id = di.dep_id "
-			+ "WHERE ai.shift_ID = ?";
+			+ "WHERE ai.shift_ID = ? "
+			+ "ORDER BY ai.record_date DESC";
 
 	private String sql_noConditions = "SELECT ai.emp_id, ei.emp_name, di.dep_id, ai.record_date, ai.shift_ID, "
 			+ "ai.start_H, ai.start_M, ai.end_H, ai.end_M, ai.total_workingTime, ai.breakTime, ai.excessTime "
