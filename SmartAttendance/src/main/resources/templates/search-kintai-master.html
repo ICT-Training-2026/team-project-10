@@ -10,8 +10,8 @@
 <body>
 	<div class="header">
 		<div class="head-title">
-		<img src="Smart_2.png" alt="ロゴ">
-		<h1>勤怠情報検索</h1>
+			<img src="Smart_2.png" alt="ロゴ">
+			<h1>勤怠情報検索</h1>
 		</div>
 		<div class="head-btn">
 			<form th:action="@{/menu}" method="POST" th:object="${loginUser}">
@@ -28,7 +28,8 @@
 	</div>
 
 	<div class="page-main">
-		<form th:action="@{/search-master-result}" method="POST" th:object="${searchConditionMasterForm}" class="search-form">
+		<form th:action="@{/search-master-result}" method="POST" th:object="${searchConditionMasterForm}"
+			class="search-form">
 			<input type="date" th:field="*{date}" class="search-term">
 			<select th:field="*{dep_id}" class="search-term">
 				<option value="0">部門選択</option>
@@ -45,7 +46,8 @@
 				<option value="90">90:振休</option>
 				<option value="99">99:休日</option>
 			</select>
-			<input type="text" th:field="*{emp_id}" id="id" placeholder="社員番号" minlength="6" maxlength="6" class="search-term">
+			<input type="text" th:field="*{emp_id}" id="id" placeholder="社員番号" minlength="6" maxlength="6"
+				class="search-term">
 			<input type="submit" value="検索" class="btn">
 		</form>
 
@@ -83,7 +85,22 @@
 					<td th:text="${searchResult.breakTime}"></td>
 					<td th:text="${searchResult.excessTime}"></td>
 					<td>
-						<input type="button" value="編集" class="btn" id="edit-btn">
+						<form th:action="@{/edit-kintai}" method="POST">
+							<input type="hidden" th:name="emp_id" th:value="${searchResult.emp_id}">
+							<input type="hidden" th:name="emp_name" th:value="${searchResult.emp_name}">
+							<input type="hidden" th:name="record_date"
+								th:value="${#dates.format(searchResult.record_Date, 'yyyy-MM-dd')}">
+							<input type="hidden" th:name="shift_ID" th:value="${searchResult.shift_id}">
+							<input type="hidden" th:name="start_H" th:value="${searchResult.start_H}">
+							<input type="hidden" th:name="start_M" th:value="${searchResult.start_M}">
+							<input type="hidden" th:name="end_H" th:value="${searchResult.end_H}">
+							<input type="hidden" th:name="end_M" th:value="${searchResult.end_M}">
+							<input type="hidden" th:name="total_workingTime"
+								th:value="${searchResult.total_workingTime}">
+							<input type="hidden" th:name="breakTime" th:value="${searchResult.breakTime}">
+							<input type="hidden" th:name="excessTime" th:value="${searchResult.excessTime}">
+							<input type="submit" value="編集" class="btn" id="edit-btn">
+						</form>
 					</td>
 				</tr>
 			</div>
