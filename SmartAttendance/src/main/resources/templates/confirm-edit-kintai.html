@@ -119,6 +119,9 @@
 				<input type="hidden" th:field="*{total_workingTime}">
 				<input type="hidden" th:field="*{breakTime}">
 				<input type="hidden" th:field="*{excessTime}">
+				<input type="hidden" th:field="${loginUser.emp_id}">
+				<input type="hidden" th:field="${loginUser.dep_id}">
+				<input type="hidden" th:field="${loginUser.permission}">
 				<input type="submit" value="戻る" class="btn" id="return-btn">
 			</form>
 		</div>

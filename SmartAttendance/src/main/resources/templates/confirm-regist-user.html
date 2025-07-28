@@ -59,7 +59,10 @@
 
 			<!-- ボタン -->
 			<div id="center-btn">
-				<form th:action="@{/regist-user}" method="POST">
+				<form th:action="@{/regist-user}" method="POST" th:object="${loginUser}">
+					<input type="hidden" th:field="*{emp_id}">
+					<input type="hidden" th:field="*{dep_id}">
+					<input type="hidden" th:field="*{permission}">
 					<input type="submit" value="戻る" class="btn" id="return-btn">
 				</form>
 
