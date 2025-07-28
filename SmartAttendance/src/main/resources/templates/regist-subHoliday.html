@@ -10,36 +10,37 @@
 <body>
 	<div class="header">
 		<div class="head-title">
-			<img src="Smart_2.png" alt="ロゴ" width="90px" height="auto">
-			<h1 class="title">振休申請</h1>
+			<img src="Smart_2.png" alt="ロゴ">
+			<h1>振休申請</h1>
 		</div>
 		<div class="head-btn">
 			<form th:action="@{/menu}" method="POST" th:object="${loginUser}">
 				<input type="hidden" th:field="*{emp_id}">
 				<input type="hidden" th:field="*{dep_id}">
 				<input type="hidden" th:field="*{permission}">
-				<input type="submit" value="Menu" class="btn">
+				<input type="submit" value="Menu" class="h-btn">
 			</form>
-
 			<form th:action="@{/}" method="GET">
 				<input type="submit" value="Logout" class="h-btn">
 			</form>
 		</div>
+	</div>
 
-		<div class="page-main">
-			<h2>対象日</h2>
-			<form action="confirm-regist-subHoliday" method="POST" th:object="${subHolidayForm}" class="Holiday-form">
-				<input type="date" th:field="*{record_date}" required class="select-date" th:attr="min=${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}">
-				<input type="hidden" th:field="*{subHolidaysLeft}">
+	<div class="page-main">
+		<h2>対象日</h2>
+		<form action="@{/confirm-regist-subHoliday}" method="POST" th:object="${subHolidayForm}" class="Holiday-form">
+			<input type="date" th:field="*{record_date}" required class="select-date"
+				th:attr="min=${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}">
+			<input type="hidden" th:field="*{subHolidaysLeft}">
 
-				<input type="submit" value="申請" class="btn">
-			</form>
+			<input type="submit" value="申請" class="btn">
+		</form>
 
-			<!-- エラーメッセージ -->
-			<div th:if="${msg} != null" class="error-msg">
-				<p th:text="${msg}"></p>
-			</div>
+		<!-- エラーメッセージ -->
+		<div th:if="${msg} != null" class="error-msg">
+			<p th:text="${msg}"></p>
 		</div>
+	</div>
 </body>
 
 </html>
