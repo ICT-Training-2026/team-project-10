@@ -39,7 +39,7 @@ public class SearchKintaiController {
 	
 	@PostMapping("/search-result")
 	public String searchResult(@ModelAttribute SearchConditionForm form, Model model) {
-		List<SearchResult> result = service.search(lu.getEmp_id(), form);
+		List<SearchResult> result = service.search(lu.getLogin_emp_id(), form);
 		model.addAttribute("loginUser", lu);
 		model.addAttribute("searchConditionForm", form);
 		model.addAttribute("searchResult_list", result);
@@ -50,7 +50,7 @@ public class SearchKintaiController {
 	
 	@PostMapping("/search-master-result")
 	public String searchMasterResult(@ModelAttribute SearchConditionMasterForm form, Model model) {
-		List<SearchResult> result = service.search(lu.getEmp_id(), form);
+		List<SearchResult> result = service.search(lu.getLogin_emp_id(), form);
 		model.addAttribute("loginUser", lu);
 		model.addAttribute("searchConditionMasterForm", form);
 		model.addAttribute("searchResult_list", result);

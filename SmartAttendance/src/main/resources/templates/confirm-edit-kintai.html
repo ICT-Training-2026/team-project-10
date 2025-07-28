@@ -16,8 +16,16 @@
 			<h1 class="title">勤怠情報更新確認</h1>
 		</div>
 		<div class="head-btn">
-			<input type="button" value="Menu" class="h-btn">
-			<input type="button" value="Logout" class="h-btn">
+			<form th:action="@{/menu}" method="POST" th:object="${loginUser}">
+				<input type="hidden" th:field="*{login_emp_id}">
+				<input type="hidden" th:field="*{dep_id}">
+				<input type="hidden" th:field="*{permission}">
+				<input type="submit" value="Menu" class="h-btn">
+			</form>
+
+			<form th:action="@{/}" method="GET">
+				<input type="submit" value="Logout" class="h-btn">
+			</form>
 		</div>
 	</div>
 
@@ -90,7 +98,7 @@
 		</div>
 		<form th:action="@{/complete-update-kintai}" method="POST" th:object="${editKintaiForm}">
 			<div id="center-btn">
-				<input type="hidden" th:field="*{emp_id}">
+				<input type="hidden" th:field="${editKintaiForm.emp_id}">
 				<input type="hidden" th:field="*{emp_name}">
 				<input type="hidden" th:field="*{record_date}">
 				<input type="hidden" th:field="*{shift_ID}">
@@ -107,21 +115,23 @@
 
 		<!-- ボタン -->
 		<div id="center-btn">
-			<form th:action="@{/edit-kintai}" method="POST" th:object="${editKintaiForm}">
-				<input type="hidden" th:field="*{emp_id}">
-				<input type="hidden" th:field="*{emp_name}">
-				<input type="hidden" th:field="*{record_date}">
-				<input type="hidden" th:field="*{shift_ID}">
-				<input type="hidden" th:field="*{start_H}">
-				<input type="hidden" th:field="*{start_M}">
-				<input type="hidden" th:field="*{end_H}">
-				<input type="hidden" th:field="*{end_M}">
-				<input type="hidden" th:field="*{total_workingTime}">
-				<input type="hidden" th:field="*{breakTime}">
-				<input type="hidden" th:field="*{excessTime}">
-				<input type="hidden" th:field="${loginUser.emp_id}">
-				<input type="hidden" th:field="${loginUser.dep_id}">
-				<input type="hidden" th:field="${loginUser.permission}">
+			<form th:action="@{/edit-kintai}" method="POST">
+				<input type="hidden" th:field="${editKintaiForm.emp_id}">
+				<input type="hidden" th:field="${editKintaiForm.emp_name}">
+				<input type="hidden" th:field="${editKintaiForm.record_date}">
+				<input type="hidden" th:field="${editKintaiForm.shift_ID}">
+				<input type="hidden" th:field="${editKintaiForm.start_H}">
+				<input type="hidden" th:field="${editKintaiForm.start_M}">
+				<input type="hidden" th:field="${editKintaiForm.end_H}">
+				<input type="hidden" th:field="${editKintaiForm.end_M}">
+				<input type="hidden" th:field="${editKintaiForm.total_workingTime}">
+				<input type="hidden" th:field="${editKintaiForm.breakTime}">
+				<input type="hidden" th:field="${editKintaiForm.excessTime}">
+				<div th:object="${loginUser}">
+					<input type="hidden" th:name="login_emp_id" th:value="${loginUser.login_emp_id}">
+					<input type="hidden" th:name="dep_id" th:value="${loginUser.dep_id}">
+					<input type="hidden" th:name="permission" th:value="${loginUser.permission}">
+				</div>
 				<input type="submit" value="戻る" class="btn" id="return-btn">
 			</form>
 		</div>

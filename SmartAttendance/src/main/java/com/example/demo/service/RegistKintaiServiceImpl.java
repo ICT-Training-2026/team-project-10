@@ -24,7 +24,7 @@ public class RegistKintaiServiceImpl implements RegistKintaiService {
 	@Override
 	public void insert(RegistKintaiForm form,LoginUser loginUser) {
 		RegistKintaiEntity entity = new RegistKintaiEntity();
-		entity.setEmp_id(loginUser.getEmp_id());
+		entity.setEmp_id(loginUser.getLogin_emp_id());
 		entity.setRecord_date(today);
 		entity.setShift_ID(form.getShift_ID());
 		entity.setStart_H(form.getStart_H());

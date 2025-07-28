@@ -23,12 +23,12 @@ public class SubHolidayServiceImpl implements SubHolidayService{
 	@Override
 	public void insert(SubHolidayForm form,LoginUser loginUser) {
 		SubHoliday entity = new SubHoliday();
-		entity.setEmp_id(loginUser.getEmp_id());
+		entity.setEmp_id(loginUser.getLogin_emp_id());
 		entity.setRecord_date(form.getRecord_date());
 		repository.addAttendanceInfo(entity);
 		
 		PtoInfo ptoinfo = new PtoInfo();
-		ptoinfo.setEmp_id(loginUser.getEmp_id());
+		ptoinfo.setEmp_id(loginUser.getLogin_emp_id());
 		ptoinfo.setSubHolidaysLeft(form.getSubHolidaysLeft()-1);
 		repository.addPtoInfo(ptoinfo);
 	}
