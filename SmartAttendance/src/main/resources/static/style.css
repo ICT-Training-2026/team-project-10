@@ -267,6 +267,7 @@ select {
 
 th,td {
 	border: 1px solid black;
+	height: 30px;
 	padding: 4px;
 }
 
@@ -277,6 +278,8 @@ th {
 #table-margin {
 	margin-top: 140px;
 }
+
+
 
 /*検索条件フォーム*/
 .search-form {

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../static/style.css">
 	<meta charset="UTF-8">
 	<title>勤怠登録確認</title>
 
@@ -58,7 +58,7 @@
 
 
 						<td>
-							<p th:text="*{start_H}"></p>　<!-- 始業 -->
+							<p th:text="*{start_H}"></p> <!-- 始業 -->
 						</td>
 
 						<td>
@@ -67,7 +67,7 @@
 
 
 						<td>
-							<p th:text="*{end_H}"></p>　<!-- 終業 -->
+							<p th:text="*{end_H}"></p> <!-- 終業 -->
 						</td>
 						<td>
 							<p th:text="*{end_M}"></p>
@@ -75,14 +75,14 @@
 
 
 						<td>
-							<p th:text="*{total_workingTime}"></p>　<!--労働時間-->
+							<p th:text="*{total_workingTime}"></p> <!--労働時間-->
 						</td>
 
 						<td>
-							<p th:text="*{breakTime}"></p>　<!--休憩時間-->
+							<p th:text="*{breakTime}"></p> <!--休憩時間-->
 						</td>
 						<td>
-							<p th:text="*{excessTime}"></p>　<!--累積超過-->
+							<p th:text="*{excessTime}"></p> <!--累積超過-->
 						</td>
 					</tr>
 				</tbody>
@@ -107,7 +107,15 @@
 		</form>
 		<div id="center-btn">
 			<form th:action="@{/Modoru-regist-kintai}" method="post" th:object="${registKintaiForm}">
-				<input type="submit" value="戻る" class="btn" id="return-btn">
+				<input type="hidden" th:field="*{shift_ID}">
+				<input type="hidden" th:field="*{start_H}">
+				<input type="hidden" th:field="*{start_M}">
+				<input type="hidden" th:field="*{end_H}">
+				<input type="hidden" th:field="*{end_M}">
+				<input type="hidden" th:field="*{total_workingTime}">
+				<input type="hidden" th:field="*{breakTime}">
+				<input type="hidden" th:field="*{excessTime}"> <input type="submit" value="戻る" class="btn"
+					id="return-btn">
 			</form>
 		</div>
 	</div>
