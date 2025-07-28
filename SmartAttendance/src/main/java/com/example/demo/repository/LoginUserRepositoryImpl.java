@@ -40,11 +40,11 @@ public class LoginUserRepositoryImpl implements LoginUserRepository{
 		if (result) {
 			List<Map<String, Object>> users = jdbcTemplate.queryForList(sql_getUser, emp_id);
 			Map<String, Object> userMap = users.get(0);
-			findUser.setEmp_id((String)userMap.get("emp_id"));
+			findUser.setLogin_emp_id((String)userMap.get("emp_id"));
 			findUser.setDep_id((Integer)userMap.get("dep_id"));
 			findUser.setPermission((Boolean)userMap.get("permission"));
 		} else {
-			findUser.setEmp_id(emp_id);
+			findUser.setLogin_emp_id(emp_id);
 			findUser.setMsgflag(true);
 		}
 		

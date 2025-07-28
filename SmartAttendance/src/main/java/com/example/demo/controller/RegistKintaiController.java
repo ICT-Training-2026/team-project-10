@@ -32,7 +32,7 @@ public class RegistKintaiController {
 	public String showConfirmRegistKintai(@ModelAttribute RegistKintaiForm form, Model model) {
 		model.addAttribute("registKintaiForm", form);
 		model.addAttribute("loginUser", lu);
-		if (service.kintaiCheck(lu.getEmp_id())) {
+		if (service.kintaiCheck(lu.getLogin_emp_id())) {
 			model.addAttribute("msg", "すでに登録されています。修正する場合は検索から編集を行ってください。");
 			return "regist-kintai";
 		} else {

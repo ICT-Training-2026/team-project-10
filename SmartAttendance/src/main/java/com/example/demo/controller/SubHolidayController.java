@@ -27,7 +27,7 @@ public class SubHolidayController {
 	public String registKintai(@ModelAttribute LoginUser loginUser, SubHolidayForm form, Model model) {
 		mainController.setter("振休申請", loginUser);
 		lu = loginUser;
-		int hCount = service.getSubHoliday(lu.getEmp_id());
+		int hCount = service.getSubHoliday(lu.getLogin_emp_id());
 		form.setSubHolidaysLeft(hCount); // SubHolidayFormに設定
 		
 		model.addAttribute("remaining", form.getSubHolidaysLeft());
@@ -41,7 +41,7 @@ public class SubHolidayController {
 		model.addAttribute("subHolidayForm", form);
 		model.addAttribute("loginUser", lu);
 		System.out.println(form.getSubHolidaysLeft());
-		if (service.kintaiCheck(lu.getEmp_id(), form.getRecord_date())) {
+		if (service.kintaiCheck(lu.getLogin_emp_id(), form.getRecord_date())) {
 			model.addAttribute("msg", "すでに勤怠登録されています。");
 			return "regist-subHoliday";
 		}

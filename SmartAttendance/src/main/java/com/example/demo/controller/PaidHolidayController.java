@@ -23,7 +23,7 @@ public class PaidHolidayController {
 	public String registPaidHoliday(@ModelAttribute LoginUser loginUser, Model model) {
 		lu= loginUser;
 		mainController.setter("有給申請", lu);
-		int remainingDays = service.remainingDays(lu.getEmp_id());
+		int remainingDays = service.remainingDays(lu.getLogin_emp_id());
 		model.addAttribute("remaining", remainingDays);
 		model.addAttribute("registPaidHolidayForm", new RegistPaidHolidayForm());
 		model.addAttribute("loginUser", lu);
@@ -32,15 +32,15 @@ public class PaidHolidayController {
 	
 	@PostMapping("/confirm-regist-paidHoliday")
 	public String confirmRegistPaidHoliday(@ModelAttribute RegistPaidHolidayForm form, Model model) {
-		int remainingDays = service.remainingDays(lu.getEmp_id());
+		int remainingDays = service.remainingDays(lu.getLogin_emp_id());
 		model.addAttribute("remaining", remainingDays);
 		model.addAttribute("registPaidHolidayForm", form);
 		model.addAttribute("loginUser", lu);
-		if (service.remainingDaysCheck(lu.getEmp_id()) <= 0) {
+		if (service.remainingDaysCheck(lu.getLogin_emp_id()) <= 0) {
 			model.addAttribute("msg", "有休残日数がありません。");
 			return "regist-paidHoliday";
 		} else {
-			if (service.kintaiCheck(lu.getEmp_id(), form.getDate())) {
+			if (service.kintaiCheck(lu.getLogin_emp_id(), form.getDate())) {
 				model.addAttribute("msg", "すでに勤怠登録されています。");
 				return "regist-paidHoliday";
 			} else {
@@ -51,7 +51,7 @@ public class PaidHolidayController {
 	
 	@PostMapping("/return-regist-paidHoliday") 
 	public String returnRegistPaidHoliday(@ModelAttribute RegistPaidHolidayForm form, Model model) {
-		int remainingDays = service.remainingDays(lu.getEmp_id());
+		int remainingDays = service.remainingDays(lu.getLogin_emp_id());
 		model.addAttribute("remaining", remainingDays);
 		model.addAttribute("registPaidHolidayForm", form);
 		model.addAttribute("loginUser", lu);
@@ -60,7 +60,7 @@ public class PaidHolidayController {
 	
 	@PostMapping("/complete-regist-paidHoliday")
 	public String completeRegistPaidHoliday(@ModelAttribute RegistPaidHolidayForm form, Model model) {
-		service.insertKintai(lu.getEmp_id(), form.getDate());
+		service.insertKintai(lu.getLogin_emp_id(), form.getDate());
 		model.addAttribute("loginUser", lu);
 		return "redirect:/complete";
 	}

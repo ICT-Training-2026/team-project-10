@@ -26,6 +26,7 @@ public class EditKintaiController {
 		lu = loginUser;
 		
 		System.out.println(lu);
+		System.out.println(editKintaiForm);
 		model.addAttribute("editKintaiForm", editKintaiForm);
 		model.addAttribute("loginUser", loginUser);
 		return "edit-kintai";
