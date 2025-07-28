@@ -86,7 +86,7 @@
 					</td>
 
 					<!-- 数値（小数）入力 -->
-					<td><input type="number" name="work_time" th:field="*{total_workingTime}" min="0" required></td>
+					<td><input type="number" name="work_time" th:field="*{total_workingTime}" step="0.25" min="0" required></td>
 					<td><input type="number" name="break_time" th:field="*{breakTime}" min="0" required></td>
 					<td><input type="number" name="excess_time" th:field="*{excessTime}" min="0" required></td>
 				</tr>
