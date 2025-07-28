@@ -25,4 +25,9 @@ public class RegistPaidHolidayServiceImpl implements RegistPaidHolidayService{
 	public Boolean kintaiCheck(String emp_id, Date date) {
 		return repository.kintaiCheck(emp_id, date);
 	}
+	
+	public int remainingDays(String emp_id) {
+		int result = repository.remainingDays(emp_id);
+		return result;
+	}
 }

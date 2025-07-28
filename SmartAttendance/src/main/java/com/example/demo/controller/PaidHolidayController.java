@@ -23,14 +23,17 @@ public class PaidHolidayController {
 	public String registPaidHoliday(@ModelAttribute LoginUser loginUser, Model model) {
 		lu= loginUser;
 		mainController.setter("有給申請", lu);
+		int remainingDays = service.remainingDays(lu.getEmp_id());
+		model.addAttribute("remaining", remainingDays);
 		model.addAttribute("registPaidHolidayForm", new RegistPaidHolidayForm());
-		System.out.println(lu.getEmp_id());
 		model.addAttribute("loginUser", lu);
 		return "regist-paidHoliday";
 	}
 	
 	@PostMapping("/confirm-regist-paidHoliday")
 	public String confirmRegistPaidHoliday(@ModelAttribute RegistPaidHolidayForm form, Model model) {
+		int remainingDays = service.remainingDays(lu.getEmp_id());
+		model.addAttribute("remaining", remainingDays);
 		model.addAttribute("registPaidHolidayForm", form);
 		model.addAttribute("loginUser", lu);
 		if (service.remainingDaysCheck(lu.getEmp_id()) < 0) {
@@ -48,6 +51,8 @@ public class PaidHolidayController {
 	
 	@PostMapping("/return-regist-paidHoliday") 
 	public String returnRegistPaidHoliday(@ModelAttribute RegistPaidHolidayForm form, Model model) {
+		int remainingDays = service.remainingDays(lu.getEmp_id());
+		model.addAttribute("remaining", remainingDays);
 		model.addAttribute("registPaidHolidayForm", form);
 		model.addAttribute("loginUser", lu);
 		return "regist-paidHoliday";

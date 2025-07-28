@@ -28,6 +28,11 @@
 	</div>
 
 	<div class="page-main">
+		<p>
+			残り残有休日数
+		</p>
+		<p th:text="${remaining}"></p>
+
 		<h2>対象日</h2>
 		<form th:action="@{/confirm-regist-paidHoliday}" method="POST" th:object="${registPaidHolidayForm}"
 			class="Holiday-form">
