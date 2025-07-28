@@ -33,8 +33,7 @@
 
 		<!-- 確認メッセージ -->
 		<div class="confirm-msg">
-			<p>まだ、申請は完了しておりません</p>
-			<p>申請日をお確かめの上、[申請]ボタンを押してください</p>
+			<p>まだ、申請は完了しておりません。<br>申請日をお確かめの上、[申請]ボタンを押してください。</p>
 		</div>
 
 		<!-- ボタン -->
@@ -48,9 +47,10 @@
 		<div id="center-btn">
 			<form th:action="@{/return-regist-paidHoliday}" method="POST" th:field="${registPaidHolidayForm}">
 				<input type="hidden" th:field="${registPaidHolidayForm.date}">
-				<input type="submit" value="戻る" class="btn">
+				<input type="submit" value="戻る" id="return-btn">
 			</form>
 		</div>
+		
 	</div>
 </body>
 
