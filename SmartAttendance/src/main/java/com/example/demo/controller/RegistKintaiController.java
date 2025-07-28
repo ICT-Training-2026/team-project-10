@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 public class RegistKintaiController {
 	private final RegistKintaiService service;
 	private final MainController mainController;
-
+	
 	LoginUser lu = new LoginUser();
 
 	@PostMapping("/regist-kintai")
@@ -30,15 +30,28 @@ public class RegistKintaiController {
 	/*登録実行*/
 	@PostMapping("/confirm-regist-kintai")
 	public String showConfirmRegistKintai(@ModelAttribute RegistKintaiForm form, Model model) {
-		System.out.println(form);
+		model.addAttribute("registKintaiForm", form);
+		model.addAttribute("loginUser", lu);
 		if (service.kintaiCheck(lu.getEmp_id())) {
-			model.addAttribute("registKintaiForm", form);
-			model.addAttribute("loginUser", lu);
 			model.addAttribute("msg", "すでに登録されています。修正する場合は検索から編集を行ってください。");
 			return "regist-kintai";
 		} else {
-			model.addAttribute("registKintaiForm", form);
-			model.addAttribute("loginUser", lu);
+			if (form.getStart_H() > form.getEnd_H()) {
+				model.addAttribute("msg", "始業・終業時刻が不適切です。");
+				return "regist-kintai";
+			} else if(form.getStart_H() >= form.getEnd_H() && form.getStart_M() >= form.getEnd_M()) {
+				model.addAttribute("msg", "始業・終業時刻が不適切です。");
+				return "regist-kintai";
+			} 
+			if (form.getTotal_workingTime() >= 4.00) {
+				model.addAttribute("msg", "最低一時間以上の休憩時間を入力してください。");
+				return "regist-kintai";
+			}
+			if (form.getTotal_workingTime() <= 0) {
+				model.addAttribute("msg", "実労働時間が入力されていません。");
+				return "regist-kintai";
+			}
+			
 			return "confirm-regist-kintai";
 		}
 	}
