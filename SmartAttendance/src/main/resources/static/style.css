@@ -193,8 +193,8 @@ img {
 .main-btn {
 	background-color: #f19ca7;
 	border: 2px solid #e95464;
-	padding: 20px 20px;
-	font-size: 20px;
+	padding: 80px 20px 0px 20px;
+	font-size: 23px;
 	text-align: center;
 	white-space: normal;
 	height: 170px;
@@ -202,10 +202,9 @@ img {
 	transition: background-color 0.3s;
 	cursor: pointer;
 	border-radius: 5px;
-	background-size: 70px 70px;
+	background-size: 100px 100px;
 	background-repeat: no-repeat;
 	background-position: center 5px;
-	line-height: 1.5;
 	display: flex;
 	align-items: flex-end;
 	justify-content: center;
@@ -367,5 +366,4 @@ th {
 	display: flex;
 	flex-direction: row;
 	justify-content: end;
-
 }
