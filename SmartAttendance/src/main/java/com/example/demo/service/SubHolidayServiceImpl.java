@@ -36,5 +36,4 @@ public class SubHolidayServiceImpl implements SubHolidayService{
 	public Boolean kintaiCheck(String emp_id, Date date) {
 		return repository.kintaiCheck(emp_id, date);
 	}
-
 }
