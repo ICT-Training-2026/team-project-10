@@ -22,104 +22,107 @@
 	<!-- 表 -->
 	<div class="page-main" id="table-margin">
 
-			<table class="regist-kintai">
-				<thead>
-					<tr>
-						<th rowspan="2">ID</th>
-						<th rowspan="2">名前</th>
-						<th rowspan="2">日付</th>
-						<th rowspan="2">区分</th>
-						<th colspan="2">始業</th>
-						<th colspan="2">終業</th>
-						<th rowspan="2">労働時間</th>
-						<th rowspan="2">休憩時間</th>
-						<th rowspan="2">累積超過</th>
-					</tr>
-					<tr>
-						<th>時</th>
-						<th>分</th>
-						<th>時</th>
-						<th>分</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:object="${editKintaiForm}">
-						<td>
-							<p th:text="*{emp_id}"></p>
-						</td>
-						<td>
-							<p th:text="*{emp_name}"></p>
-						</td>
-						<td>
-							<p th:text="*{record_date}"></p>
-						</td>
-						<td>
-							<p th:text="*{shift_ID}"></p>
-						</td>
-						<td>
-							<p th:text="*{start_H}"></p>
-						</td>
-						<td>
-							<p th:text="*{start_M}"></p>
-						</td>
-						<td>
-							<p th:text="*{end_H}"></p>
-						</td>
-						<td>
-							<p th:text="*{end_M}"></p>
-						</td>
-						<td>
-							<p th:text="*{total_workingTime}"></p>
-						</td>
-						<td>
-							<p th:text="*{breakTime}"></p>
-						</td>
-						<td>
-							<p th:text="*{excessTime}"></p>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			<!-- 確認メッセージ -->
-			<div class="confirm-msg">
-				まだ、削除は完了しておりません。<br>
-				削除内容をお確かめの上、[削除]ボタンを押してください。
-			</div>
-			<form th:action="@{/complete-delete-kintai}" method="POST" th:object="${editKintaiForm}">
-				<div id="center-btn">
-					<input type="hidden" th:field="*{emp_id}">
-					<input type="hidden" th:field="*{emp_name}">
-					<input type="hidden" th:field="*{record_date}">
-					<input type="hidden" th:field="*{shift_ID}">
-					<input type="hidden" th:field="*{start_H}">
-					<input type="hidden" th:field="*{start_M}">
-					<input type="hidden" th:field="*{end_H}">
-					<input type="hidden" th:field="*{end_M}">
-					<input type="hidden" th:field="*{total_workingTime}">
-					<input type="hidden" th:field="*{breakTime}">
-					<input type="hidden" th:field="*{excessTime}">
-					<input type="submit" value="削除" class="btn">
-				</div>
-			</form>
-
-			<!-- ボタン -->
-			<div id="center-btn">
-				<form th:action="@{/edit-kintai}" method="POST" th:object="${editKintaiForm}">
-					<input type="hidden" th:field="*{emp_id}">
-					<input type="hidden" th:field="*{emp_name}">
-					<input type="hidden" th:field="*{record_date}">
-					<input type="hidden" th:field="*{shift_ID}">
-					<input type="hidden" th:field="*{start_H}">
-					<input type="hidden" th:field="*{start_M}">
-					<input type="hidden" th:field="*{end_H}">
-					<input type="hidden" th:field="*{end_M}">
-					<input type="hidden" th:field="*{total_workingTime}">
-					<input type="hidden" th:field="*{breakTime}">
-					<input type="hidden" th:field="*{excessTime}">
-					<input type="submit" value="戻る" class="btn" id="return-btn">
-				</form>
-			</div>
+		<table class="regist-kintai">
+			<thead>
+				<tr>
+					<th rowspan="2">ID</th>
+					<th rowspan="2">名前</th>
+					<th rowspan="2">日付</th>
+					<th rowspan="2">区分</th>
+					<th colspan="2">始業</th>
+					<th colspan="2">終業</th>
+					<th rowspan="2">労働時間</th>
+					<th rowspan="2">休憩時間</th>
+					<th rowspan="2">累積超過</th>
+				</tr>
+				<tr>
+					<th>時</th>
+					<th>分</th>
+					<th>時</th>
+					<th>分</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:object="${editKintaiForm}">
+					<td>
+						<p th:text="*{emp_id}"></p>
+					</td>
+					<td>
+						<p th:text="*{emp_name}"></p>
+					</td>
+					<td>
+						<p th:text="*{record_date}"></p>
+					</td>
+					<td>
+						<p th:text="*{shift_ID}"></p>
+					</td>
+					<td>
+						<p th:text="*{start_H}"></p>
+					</td>
+					<td>
+						<p th:text="*{start_M}"></p>
+					</td>
+					<td>
+						<p th:text="*{end_H}"></p>
+					</td>
+					<td>
+						<p th:text="*{end_M}"></p>
+					</td>
+					<td>
+						<p th:text="*{total_workingTime}"></p>
+					</td>
+					<td>
+						<p th:text="*{breakTime}"></p>
+					</td>
+					<td>
+						<p th:text="*{excessTime}"></p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- 確認メッセージ -->
+		<div class="confirm-msg">
+			まだ、削除は完了しておりません。<br>
+			削除内容をお確かめの上、[削除]ボタンを押してください。
 		</div>
+		<form th:action="@{/complete-delete-kintai}" method="POST" th:object="${editKintaiForm}">
+			<div id="center-btn">
+				<input type="hidden" th:field="*{emp_id}">
+				<input type="hidden" th:field="*{emp_name}">
+				<input type="hidden" th:field="*{record_date}">
+				<input type="hidden" th:field="*{shift_ID}">
+				<input type="hidden" th:field="*{start_H}">
+				<input type="hidden" th:field="*{start_M}">
+				<input type="hidden" th:field="*{end_H}">
+				<input type="hidden" th:field="*{end_M}">
+				<input type="hidden" th:field="*{total_workingTime}">
+				<input type="hidden" th:field="*{breakTime}">
+				<input type="hidden" th:field="*{excessTime}">
+				<input type="submit" value="削除" class="btn">
+			</div>
+		</form>
+
+		<!-- ボタン -->
+		<div id="center-btn">
+			<form th:action="@{/edit-kintai}" method="POST" th:object="${editKintaiForm}">
+				<input type="hidden" th:field="*{emp_id}">
+				<input type="hidden" th:field="*{emp_name}">
+				<input type="hidden" th:field="*{record_date}">
+				<input type="hidden" th:field="*{shift_ID}">
+				<input type="hidden" th:field="*{start_H}">
+				<input type="hidden" th:field="*{start_M}">
+				<input type="hidden" th:field="*{end_H}">
+				<input type="hidden" th:field="*{end_M}">
+				<input type="hidden" th:field="*{total_workingTime}">
+				<input type="hidden" th:field="*{breakTime}">
+				<input type="hidden" th:field="*{excessTime}">
+				<input type="hidden" th:field="${loginUser.emp_id}">
+				<input type="hidden" th:field="${loginUser.dep_id}">
+				<input type="hidden" th:field="${loginUser.permission}">
+				<input type="submit" value="戻る" class="btn" id="return-btn">
+			</form>
+		</div>
+	</div>
 </body>
 
 </html>
