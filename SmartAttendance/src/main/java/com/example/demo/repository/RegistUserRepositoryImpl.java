@@ -30,6 +30,10 @@ public class RegistUserRepositoryImpl implements RegistUserRepository {
 		String sql_userRegiString = "INSERT INTO employees_info "
 				+ "(emp_id, emp_name, dep_id, hashed_pw, permission) "
 				+ "VALUES (?,?,?,?,?)";
+		
+		String sql_insertPtoTable = "INSERT INTO pto_info "
+				+ "(emp_id, paidHolidays_left, subHolidays_left) "
+				+ "VALUES (?, 20, 0)";
 
 		HashedString hs = new HashedString();
 		String hashed_pw = hs.hash_sha256(form.getPassword());
@@ -40,5 +44,7 @@ public class RegistUserRepositoryImpl implements RegistUserRepository {
 				form.getDep_id(),
 				hashed_pw,
 				form.isPermission());
+		
+		jdbcTemplate.update(sql_insertPtoTable, form.getEmp_id());
 	}
 }
