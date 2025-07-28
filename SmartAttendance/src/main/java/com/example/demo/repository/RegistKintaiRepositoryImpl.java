@@ -13,12 +13,18 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class RegistKintaiRepositoryImpl implements RegistKintaiRepository {
 	private final JdbcTemplate jdbcTemplate;
+	
+	String sql_addSubHoliday = "update pto_info set subHolidays_left = subHolidays_left + 1 where emp_id = ?";	
+
 
 	public void add(RegistKintaiEntity entity) {
 		String sql = "INSERT INTO attendance_info (emp_id,record_date,shift_ID,start_H,start_M,end_H,end_M,total_workingTime,breakTime,excessTime) VALUES(?,?,?,?,?,?,?,?,?,?)";
 		jdbcTemplate.update(sql, entity.getEmp_id(), entity.getRecord_date(), entity.getShift_ID(), entity.getStart_H(),
 				entity.getStart_M(), entity.getEnd_H(), entity.getEnd_M(), entity.getTotal_workingTime(),
 				entity.getBreakTime(), entity.getExcessTime());
+		if (entity.getShift_ID() == 20) {
+			jdbcTemplate.update(sql_addSubHoliday, entity.getEmp_id());
+		}
 	}
 
 	public Boolean kintaiCheck(String emp_id, Date record_date) {
