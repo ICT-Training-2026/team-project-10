@@ -10,7 +10,7 @@
 <body>
 	<div class="header">
 		<div class="head-title">
-			<img src="Smart_2.png" alt="ロゴ" width="80px" height="auto">
+			<img src="Smart_2.png" alt="ロゴ">
 			<h1>メインメニュー</h1>
 		</div>
 		<div class="head-btn">
@@ -29,34 +29,34 @@
 
 	<div class="page-main">
 		<div class="content-btn">
-
 			<form th:action="@{/regist-kintai}" method="POST" th:object="${loginUser}">
 				<input type="hidden" th:field="*{emp_id}">
 				<input type="hidden" th:field="*{dep_id}">
 				<input type="hidden" th:field="*{permission}">
-				<input type="submit" value="勤怠提出" th:field="*{emp_id}" class="main-btn">
+				<input type="submit" value="勤怠提出" th:field="*{emp_id}" class="main-btn" id="logo-clock">
 			</form>
+			
 
 
 			<form th:action="@{/search-kintai}" method="POST" th:object="${loginUser}">
 				<input type="hidden" th:field="*{emp_id}">
 				<input type="hidden" th:field="*{dep_id}">
 				<input type="hidden" th:field="*{permission}">
-				<input type="submit" value="勤怠情報検索" th:field="*{emp_id}" class="main-btn">
+				<input type="submit" value="勤怠情報検索" th:field="*{emp_id}" class="main-btn" id="logo-search">
 			</form>
 
 			<form th:action="@{/regist-paidHoliday}" method="POST" th:object="${loginUser}">
 				<input type="hidden" th:field="*{emp_id}">
 				<input type="hidden" th:field="*{dep_id}">
 				<input type="hidden" th:field="*{permission}">
-				<input type="submit" value="有休休暇申請" th:field="*{emp_id}" class="main-btn">
+				<input type="submit" value="有給休暇申請" th:field="*{emp_id}" class="main-btn" id="logo-yukyu">
 			</form>
 
 			<form th:action="@{/regist-subHoliday}" method="POST" th:object="${loginUser}">
 				<input type="hidden" th:field="*{emp_id}">
 				<input type="hidden" th:field="*{dep_id}">
 				<input type="hidden" th:field="*{permission}">
-				<input type="submit" value="振休申請" th:field="*{emp_id}" class="main-btn">
+				<input type="submit" value="振休申請" th:field="*{emp_id}" class="main-btn" id="logo-furikyu">
 			</form>
 
 			<th:block th:if="${loginUser.dep_id == 30}">
@@ -64,14 +64,14 @@
 					<input type="hidden" th:field="*{emp_id}">
 					<input type="hidden" th:field="*{dep_id}">
 					<input type="hidden" th:field="*{permission}">
-					<input type="submit" value="新規ユーザー登録" class="main-btn">
+					<input type="submit" value="新規ユーザー登録" class="main-btn" id="logo-user">
 				</form>
 
 				<form th:action="@{/export}" method="POST" th:object="${loginUser}">
 					<input type="hidden" th:field="*{emp_id}">
 					<input type="hidden" th:field="*{dep_id}">
 					<input type="hidden" th:field="*{permission}">
-					<input type="submit" value="エクスポート" class="main-btn">
+					<input type="submit" value="エクスポート" class="main-btn" id="logo-export">
 				</form>
 			</th:block>
 		</div>

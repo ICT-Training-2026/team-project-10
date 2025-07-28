@@ -8,7 +8,6 @@ h1{
     margin-top: 30px;
     margin-left: 0px;
     white-space: nowrap;
-
 }
 
 /* Menu,Logoutボタンの位置 */
@@ -23,7 +22,7 @@ h1{
 /* Menu,Logoutボタンのデザイン */
 .h-btn {
     background-color: #f19ca7;
-    border: 1px solid #e95464;
+    border: 2px solid #e95464;
     padding: 0px 0px;
     font-size: 15px;
     text-align: center;
@@ -50,11 +49,18 @@ img{
     height:90px;
 }
 
+#logo {
+	width: 10vw;
+	height: 10vw;
+	padding: 0;
+	
+}
+
 
 /* 全部のボタン */
 .btn {
     background-color: #f19ca7;
-    border: 1px solid #e95464;
+    border: 2px solid #e95464;
     padding: 0;
     font-size: 18px;
     text-align: center;
@@ -175,9 +181,9 @@ img{
 /* メインコンテンツボタン */
 .main-btn {
     background-color: #f19ca7;
-    border: 1px solid #e95464;
-    padding: 10px 15px;
-    font-size: 25px;
+    border: 2px solid #e95464;
+    padding: 20px 20px;
+    font-size: 20px;
     text-align: center;
     white-space: normal; 
     height: 170px;
@@ -185,8 +191,38 @@ img{
     transition:background-color 0.3s;
     cursor: pointer;
 	border-radius: 5px;
-    
+	background-size: 70px 70px; 
+	background-repeat: no-repeat;
+	background-position: center 5px;
+	line-height: 2;                   /* 行の高さを調整してテキストの位置を下に寄せる */
+	}
+
+#logo-clock {
+	background-image: url('clock.png');
 }
+
+#logo-search {
+	background-image: url('search.png'); /* アイコン画像のパス */
+}
+
+#logo-yukyu {
+	background-image: url('yukyu.png');
+}
+
+#logo-furikyu {
+	background-image: url('furikyu.png');
+}
+
+#logo-user {
+	background-image: url('user.png');
+}
+
+#logo-export {
+	background-image: url('export.png');
+}
+
+
+
 
 /*「対象日」などの見出し*/
 h2 {
@@ -307,4 +343,9 @@ th {
 	width: 20vw;
 }
 
+.remaining-days {
+	display: flex;
+	flex-direction: row;
+	justify-content: end;
 
+}
