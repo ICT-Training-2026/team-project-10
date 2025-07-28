@@ -43,8 +43,8 @@
 		</form>
 		<div id="center-btn2">
 			<form th:action="@{/Modoru-regist-subHoliday}" method="post" th:object="${subHolidayForm}">
-				<input type="submit" value="戻る" class="btn" id="return-btn">
 				<input type="hidden" th:field="*{subHolidaysLeft}">
+				<input type="submit" value="戻る" class="btn" id="return-btn">
 			</form>
 		</div>
 	</div>

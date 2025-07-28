@@ -31,7 +31,7 @@
 		<p>
 			残り振休日数
 		</p>
-		<p th:text="${remaining}"></p>
+		<p th:text="${subHolidayForm.subHolidaysLeft}"></p>
 
 		<h2>対象日</h2>
 		<form th:action="@{/confirm-regist-subHoliday}" method="POST" th:object="${subHolidayForm}"
