@@ -41,7 +41,12 @@
 			</div>
 			<div class="form-line">
 				<label>部門</label>
-				<p th:text="*{dep_id}" class="confirm-form"></p>
+				<p th:switch="*{dep_id}">
+					<span th:case="'10'">営業</span>
+					<span th:case="'20'">開発</span>
+					<span th:case="'30'">総務</span>
+					<span th:case="*">未設定</span> <!-- 予期しない値のとき -->
+				</p>
 			</div>
 			<div class="form-line">
 				<label>Pass</label>
@@ -49,7 +54,7 @@
 			</div>
 			<div class="form-line">
 				<label>権限</label>
-				<p th:text="*{permission} ? '一般ユーザー' : '管理者'" class="confirm-form"></p>
+				<p th:text="*{permission} ? '管理者' : '一般ユーザ'" class="confirm-form"></p>
 			</div>
 
 			<!-- 注意メッセージ -->
@@ -60,13 +65,6 @@
 
 			<!-- ボタン -->
 			<div id="center-btn">
-				<form th:action="@{/regist-user}" method="POST" th:object="${loginUser}">
-					<input type="hidden" th:field="*{login_emp_id}">
-					<input type="hidden" th:field="*{dep_id}">
-					<input type="hidden" th:field="*{permission}">
-					<input type="submit" value="戻る" class="btn" id="return-btn">
-				</form>
-
 				<form th:action="@{/complete-regist-user}" method="POST" th:object="${registUserForm}">
 					<input type="hidden" th:field="*{emp_id}">
 					<input type="hidden" th:field="*{emp_name}">
@@ -74,6 +72,18 @@
 					<input type="hidden" th:field="*{password}">
 					<input type="hidden" th:field="*{permission}">
 					<input type="submit" value="登録" class="btn">
+				</form>
+
+				<form th:action="@{/return-regist-user}" method="POST" th:object="${loginUser}">
+					<input type="hidden" th:field="*{login_emp_id}">
+					<input type="hidden" th:field="*{dep_id}">
+					<input type="hidden" th:field="*{permission}">
+					<input type="hidden" th:field="${registUserForm.emp_id}">
+					<input type="hidden" th:field="${registUserForm.emp_name}">
+					<input type="hidden" th:field="${registUserForm.dep_id}">
+					<input type="hidden" th:field="${registUserForm.password}">
+					<input type="hidden" th:field="${registUserForm.permission}">
+					<input type="submit" value="戻る" class="btn" id="return-btn">
 				</form>
 			</div>
 		</div>
