@@ -23,7 +23,10 @@ public class LoginController {
 			model.addAttribute("loginUser", loginUser);
 			return "main";
 		}else {
-			model.addAttribute("loginUserForm", loginUser);
+			LoginUserForm retryForm = new LoginUserForm();
+			retryForm.setEmp_id(form.getEmp_id());
+			retryForm.setMsgflag(true);
+			model.addAttribute("loginUserForm", retryForm);
 			return "login";
 		}
 	}
