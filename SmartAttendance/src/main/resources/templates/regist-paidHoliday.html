@@ -7,6 +7,23 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		const dateInput = document.querySelector("input[type='date']");
+		if (dateInput) {
+			dateInput.addEventListener("change", function () {
+				let val = this.value;
+				let date = new Date(val);
+				let week = date.getDay();
+				if (week == 0 || week == 6) {
+					alert("その日は選択できません｡");
+					this.value = "";
+				}
+			});
+		}
+	});
+</script>
+
 <body>
 	<div class="header">
 		<div class="head-title">
@@ -38,7 +55,7 @@
 		<h2>対象日</h2>
 		<form th:action="@{/confirm-regist-paidHoliday}" method="POST" th:object="${registPaidHolidayForm}"
 			class="Holiday-form">
-			<input type="date" th:field="*{date}" required class="select-date"
+			<input type="date" id="date" th:field="*{date}" required class="select-date"
 				th:attr="min=${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}">
 			<input type="submit" value="申請" class="btn">
 		</form>
