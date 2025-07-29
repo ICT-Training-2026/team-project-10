@@ -9,6 +9,22 @@
 </head>
 
 <body>
+	<script>
+		window.onload = function () {
+			const params = new URLSearchParams(window.location.search);
+			const from = params.get('from');
+			const file = params.get('file');
+
+			if (from === 'export' && file) {
+				const a = document.createElement("a");
+				a.href = "/download?file=" + encodeURIComponent(file);
+				a.download = file;
+				document.body.appendChild(a);
+				a.click();
+				document.body.removeChild(a);
+			}
+		};
+	</script>
 	<div class="header">
 		<div class="head-title">
 			<img src="Smart_2.png" alt="ロゴ">
