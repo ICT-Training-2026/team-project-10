@@ -41,7 +41,7 @@
 			</div>
 			<div class="form-line">
 				<label>部門</label>
-				<p th:switch="*{dep_id}">
+				<p th:switch="*{dep_id}" class="confirm-form">
 					<span th:case="'10'">営業</span>
 					<span th:case="'20'">開発</span>
 					<span th:case="'30'">総務</span>
