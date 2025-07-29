@@ -8,7 +8,15 @@
 
 	<script>
 		function submitForm(action, operation) {
-			var form = document.getElementById('kintaiForm');
+			const form = document.getElementById('kintaiForm');
+
+			// 入力チェック（HTML5のバリデーション）
+			if (!form.checkValidity()) {
+				form.reportValidity();
+				return;
+			}
+
+			// アクションと操作を設定して送信
 			form.action = action;
 			document.getElementById('operation').value = operation;
 			form.submit();
@@ -29,7 +37,6 @@
 				<input type="hidden" th:field="*{permission}">
 				<input type="submit" value="Menu" class="h-btn">
 			</form>
-
 			<form th:action="@{/}" method="GET">
 				<input type="submit" value="Logout" class="h-btn">
 			</form>
@@ -37,33 +44,33 @@
 	</div>
 
 	<div class="page-main" id="table-margin">
-		<table class="regist-kintai">
-			<thead>
-				<tr>
-					<th rowspan="2">ID</th>
-					<th rowspan="2">名前</th>
-					<th rowspan="2">日付</th>
-					<th rowspan="2">区分</th>
-					<th colspan="2">始業</th>
-					<th colspan="2">終業</th>
-					<th rowspan="2">労働時間</th>
-					<th rowspan="2">休憩時間</th>
-					<th rowspan="2">累積超過</th>
-				</tr>
-				<tr>
-					<th>時</th>
-					<th>分</th>
-					<th>時</th>
-					<th>分</th>
-				</tr>
-			</thead>
-			<tbody>
-				<form id="kintaiForm" th:action="@{/update-kintai}" method="POST" th:object="${editKintaiForm}">
-					<input type="hidden" id="operation" name="operation" value="">
-					<input type="hidden" th:field="*{emp_id}">
-					<input type="hidden" th:field="*{emp_name}">
-					<input type="hidden" th:field="*{record_date}">
+		<form id="kintaiForm" th:action="@{/update-kintai}" method="POST" th:object="${editKintaiForm}">
+			<input type="hidden" id="operation" name="operation" value="">
+			<input type="hidden" th:field="*{emp_id}">
+			<input type="hidden" th:field="*{emp_name}">
+			<input type="hidden" th:field="*{record_date}">
 
+			<table class="regist-kintai">
+				<thead>
+					<tr>
+						<th rowspan="2">ID</th>
+						<th rowspan="2">名前</th>
+						<th rowspan="2">日付</th>
+						<th rowspan="2">区分</th>
+						<th colspan="2">始業</th>
+						<th colspan="2">終業</th>
+						<th rowspan="2">労働時間</th>
+						<th rowspan="2">休憩時間</th>
+						<th rowspan="2">累積超過</th>
+					</tr>
+					<tr>
+						<th>時</th>
+						<th>分</th>
+						<th>時</th>
+						<th>分</th>
+					</tr>
+				</thead>
+				<tbody>
 					<tr>
 						<td th:text="*{emp_id}" class="td-text"></td>
 						<td th:text="*{emp_name}" class="td-text"></td>
@@ -96,29 +103,29 @@
 								<option value="45">45</option>
 							</select>
 						</td>
-						<td><input type="number" th:field="*{total_workingTime}" step="0.25" min="0" required>
-						</td>
+						<td><input type="number" th:field="*{total_workingTime}" step="0.25" min="0" required></td>
 						<td><input type="number" th:field="*{breakTime}" min="0" required></td>
 						<td><input type="number" th:field="*{excessTime}" min="0" required></td>
 					</tr>
+				</tbody>
+			</table>
 
-					<!-- エラーメッセージ -->
-					<div class="error-msg">
+			<!-- エラーメッセージ領域 -->
+			<div class="error-msg" th:if="${#fields.hasErrors()}">
+				<p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
+			</div>
 
-					</div>
-					<div th:object="${loginUser}">
-						<input type="hidden" th:name="login_emp_id" th:value="${loginUser.login_emp_id}">
-						<input type="hidden" th:name="dep_id" th:value="${loginUser.dep_id}">
-						<input type="hidden" th:name="permission" th:value="${loginUser.permission}">
-					</div>
+			<!-- ログインユーザー情報 -->
+			<div th:object="${loginUser}">
+				<input type="hidden" th:name="login_emp_id" th:value="${loginUser.login_emp_id}">
+				<input type="hidden" th:name="dep_id" th:value="${loginUser.dep_id}">
+				<input type="hidden" th:name="permission" th:value="${loginUser.permission}">
+			</div>
+		</form>
 
-				</form>
-			</tbody>
-		</table>
 		<div id="center-btn">
 			<input type="button" value="更新" class="btn" onclick="submitForm('/update-kintai', 'update')">
-			<input type="button" value="削除" class="btn" onclick="submitForm('/delete-kintai', 'delete')"
-				id="return-btn">
+			<input type="button" value="削除" class="btn" onclick="submitForm('/delete-kintai', 'delete')" id="return-btn">
 		</div>
 	</div>
 </body>
