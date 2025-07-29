@@ -32,7 +32,7 @@
 			<div class="registUser-form">
 				<div class="form-line">
 					<label for="id">ID</label>
-					<input type="text" th:field="*{emp_id}" id="id" placeholder="ユーザーIDは6桁です" minlength="6"
+					<input type="text" pattern="[A-Za-z0-9]*" inputmode="latin" th:field="*{emp_id}" id="id" placeholder="ユーザーIDは6桁です" minlength="6"
 						maxlength="6" required class="input-line">
 				</div>
 				<div class="form-line">
