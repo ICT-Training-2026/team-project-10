@@ -76,7 +76,17 @@
 					<td th:text="${searchResult.emp_id}"></td>
 					<td th:text="${searchResult.emp_name}"></td>
 					<td th:text="${#dates.format(searchResult.record_Date, 'yyyy-MM-dd')}"></td>
-					<td th:text="${searchResult.shift_id}"></td>
+					<td>
+						<span th:switch="${searchResult.shift_id}">
+							<span th:case="10">10:出勤</span>
+							<span th:case="20">20:振出</span>
+							<span th:case="30">30:欠勤</span>
+							<span th:case="80">80:年休</span>
+							<span th:case="90">90:振休</span>
+							<span th:case="99">99:休日</span>
+							<span th:case="*">未設定</span>
+						</span>
+					</td>
 					<td th:text="${searchResult.start_H}"></td>
 					<td th:text="${searchResult.start_M}"></td>
 					<td th:text="${searchResult.end_H}"></td>

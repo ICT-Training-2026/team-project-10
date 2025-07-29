@@ -29,6 +29,14 @@ public class RegistUserController {
 		lu = loginUser;
 		return "regist-user";
 	}
+	
+	@PostMapping("/return-regist-user")
+	public String returnRegistUser(@ModelAttribute RegistUserForm form, Model model) {
+		System.out.println(form);
+		model.addAttribute("loginUser", lu);
+		model.addAttribute("registUserForm", form);
+		return "regist-user";
+	}
 
 	@PostMapping("/confirm-regist-user")
 	public String cofirmRegistUser(@ModelAttribute RegistUserForm form, @ModelAttribute LoginUser loginUser, Model model) {

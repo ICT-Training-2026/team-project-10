@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 
 <head>
 	<meta charset="UTF-8">
 	<title>勤怠情報検索</title>
 	<link rel="stylesheet" href="style.css">
-
-
 </head>
 
 <body>
@@ -56,6 +54,7 @@
 					<th rowspan="2">労働時間</th>
 					<th rowspan="2">休憩時間</th>
 					<th rowspan="2">累積超過</th>
+					<th rowspan="2">操作</th>
 				</tr>
 				<tr>
 					<th>時</th>
@@ -64,12 +63,22 @@
 					<th>分</th>
 				</tr>
 			</thead>
-			<div th:if="${searchResult_list} != null">
+			<tbody th:if="${searchResult_list} != null">
 				<tr th:each="searchResult : ${searchResult_list}">
 					<td th:text="${searchResult.emp_id}"></td>
 					<td th:text="${searchResult.emp_name}"></td>
 					<td th:text="${#dates.format(searchResult.record_Date, 'yyyy-MM-dd')}"></td>
-					<td th:text="${searchResult.shift_id}"></td>
+					<td>
+						<span th:switch="${searchResult.shift_id}">
+							<span th:case="10">10:出勤</span>
+							<span th:case="20">20:振出</span>
+							<span th:case="30">30:欠勤</span>
+							<span th:case="80">80:年休</span>
+							<span th:case="90">90:振休</span>
+							<span th:case="99">99:休日</span>
+							<span th:case="*">未設定</span>
+						</span>
+					</td>
 					<td th:text="${searchResult.start_H}"></td>
 					<td th:text="${searchResult.start_M}"></td>
 					<td th:text="${searchResult.end_H}"></td>
@@ -101,7 +110,7 @@
 						</form>
 					</td>
 				</tr>
-			</div>
+			</tbody>
 		</table>
 	</div>
 </body>
