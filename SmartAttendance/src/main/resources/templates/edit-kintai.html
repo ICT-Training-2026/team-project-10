@@ -9,13 +9,6 @@
 	<script>
 		function submitForm(action, operation) {
 			const form = document.getElementById('kintaiForm');
-
-			// 入力チェック（HTML5のバリデーション）
-			if (!form.checkValidity()) {
-				form.reportValidity();
-				return;
-			}
-
 			// アクションと操作を設定して送信
 			form.action = action;
 			document.getElementById('operation').value = operation;
@@ -111,8 +104,8 @@
 			</table>
 
 			<!-- エラーメッセージ領域 -->
-			<div class="error-msg" th:if="${#fields.hasErrors()}">
-				<p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
+			<div class="error-msg" th:if="${msg}">
+				<p th:text="${msg}"></p>
 			</div>
 
 			<!-- ログインユーザー情報 -->

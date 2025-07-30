@@ -1,7 +1,5 @@
 package com.example.demo.form;
 
-import java.math.BigDecimal;
-
 import lombok.Data;
 
 @Data
@@ -14,7 +12,7 @@ public class EditKintaiForm {
 	private int start_M;
 	private int end_H;
 	private int end_M;
-	private BigDecimal total_workingTime;
+	private double total_workingTime;
 	private int breakTime;
 	private int excessTime;
 }
