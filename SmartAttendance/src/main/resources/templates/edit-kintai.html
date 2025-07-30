@@ -103,10 +103,10 @@
 								<option value="45">45</option>
 							</select>
 						</td>
-						<td><input type="number" th:field="*{total_workingTime}" step="0.25" min="0" required></td>
-						<td><input type="number" name="break_time" th:field="*{breakTime}" min="0" required
+						<td><input type="number" th:field="*{total_workingTime}" step="0.25" min="0" max="24" required></td>
+						<td><input type="number" name="break_time" th:field="*{breakTime}" min="0" max="9" required
 								oninput="this.value = this.value.replace(/\.0$/, '')"></td>
-						<td><input type="number" name="excess_time" th:field="*{excessTime}" min="0" required
+						<td><input type="number" name="excess_time" th:field="*{excessTime}" min="0" max="9" required
 								oninput="this.value = this.value.replace(/\.0$/, '')"></td>
 					</tr>
 				</tbody>
