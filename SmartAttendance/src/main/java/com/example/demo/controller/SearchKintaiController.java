@@ -28,7 +28,7 @@ public class SearchKintaiController {
 		lu = loginUser;
 		model.addAttribute("loginUser", loginUser);
 		model.addAttribute("editKintaiForm", new EditKintaiForm());
-		if (lu.isPermission()) {
+		if (lu.isLogin_permission()) {
 			model.addAttribute("searchConditionMasterForm", new SearchConditionMasterForm());
 			return "search-kintai-master";
 		} else {
