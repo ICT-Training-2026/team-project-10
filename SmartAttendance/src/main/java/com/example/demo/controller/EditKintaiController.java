@@ -79,8 +79,8 @@ public class EditKintaiController {
 	public String completeDeleteKintai(@ModelAttribute EditKintaiForm form, Model model) {
 		if (form.getStart_H() <= 0 && form.getEnd_H() <= 0) {
 			service.checkRecordDate(form);
-			service.deleteKintai(form);
 		}
+		service.deleteKintai(form);
 		return "redirect:/complete";
 	}
 }
