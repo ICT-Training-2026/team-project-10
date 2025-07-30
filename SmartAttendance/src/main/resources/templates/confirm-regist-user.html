@@ -17,8 +17,8 @@
 		<div class="head-btn">
 			<form th:action="@{/menu}" method="POST" th:object="${loginUser}">
 				<input type="hidden" th:field="*{login_emp_id}">
-				<input type="hidden" th:field="*{dep_id}">
-				<input type="hidden" th:field="*{permission}">
+				<input type="hidden" th:field="*{login_dep_id}">
+				<input type="hidden" th:field="*{login_permission}">
 				<input type="submit" value="Menu" class="h-btn">
 			</form>
 
@@ -42,9 +42,9 @@
 			<div class="form-line">
 				<label>部門</label>
 				<p th:switch="*{dep_id}" class="confirm-form">
-					<span th:case="'10'">営業</span>
-					<span th:case="'20'">開発</span>
-					<span th:case="'30'">総務</span>
+					<span th:case="10">営業</span>
+					<span th:case="20">開発</span>
+					<span th:case="30">総務</span>
 					<span th:case="*">未設定</span> <!-- 予期しない値のとき -->
 				</p>
 			</div>
@@ -76,8 +76,8 @@
 
 				<form th:action="@{/return-regist-user}" method="POST" th:object="${loginUser}">
 					<input type="hidden" th:field="*{login_emp_id}">
-					<input type="hidden" th:field="*{dep_id}">
-					<input type="hidden" th:field="*{permission}">
+					<input type="hidden" th:field="*{login_dep_id}">
+					<input type="hidden" th:field="*{login_permission}">
 					<input type="hidden" th:field="${registUserForm.emp_id}">
 					<input type="hidden" th:field="${registUserForm.emp_name}">
 					<input type="hidden" th:field="${registUserForm.dep_id}">

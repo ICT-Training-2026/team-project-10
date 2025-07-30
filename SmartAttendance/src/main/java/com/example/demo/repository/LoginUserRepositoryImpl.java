@@ -41,8 +41,8 @@ public class LoginUserRepositoryImpl implements LoginUserRepository{
 			List<Map<String, Object>> users = jdbcTemplate.queryForList(sql_getUser, emp_id);
 			Map<String, Object> userMap = users.get(0);
 			findUser.setLogin_emp_id((String)userMap.get("emp_id"));
-			findUser.setDep_id((Integer)userMap.get("dep_id"));
-			findUser.setPermission((Boolean)userMap.get("permission"));
+			findUser.setLogin_dep_id((Integer)userMap.get("dep_id"));
+			findUser.setLogin_permission((Boolean)userMap.get("permission"));
 		} else {
 			findUser.setLogin_emp_id(emp_id);
 			findUser.setMsgflag(true);

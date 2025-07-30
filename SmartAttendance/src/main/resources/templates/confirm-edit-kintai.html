@@ -18,8 +18,8 @@
 		<div class="head-btn">
 			<form th:action="@{/menu}" method="POST" th:object="${loginUser}">
 				<input type="hidden" th:field="*{login_emp_id}">
-				<input type="hidden" th:field="*{dep_id}">
-				<input type="hidden" th:field="*{permission}">
+				<input type="hidden" th:field="*{login_dep_id}">
+				<input type="hidden" th:field="*{login_permission}">
 				<input type="submit" value="Menu" class="h-btn">
 			</form>
 
@@ -129,8 +129,8 @@
 				<input type="hidden" th:field="${editKintaiForm.excessTime}">
 				<div th:object="${loginUser}">
 					<input type="hidden" th:name="login_emp_id" th:value="${loginUser.login_emp_id}">
-					<input type="hidden" th:name="dep_id" th:value="${loginUser.dep_id}">
-					<input type="hidden" th:name="permission" th:value="${loginUser.permission}">
+					<input type="hidden" th:name="dep_id" th:value="${loginUser.login_dep_id}">
+					<input type="hidden" th:name="permission" th:value="${loginUser.login_permission}">
 				</div>
 				<input type="submit" value="戻る" class="btn" id="return-btn">
 			</form>
