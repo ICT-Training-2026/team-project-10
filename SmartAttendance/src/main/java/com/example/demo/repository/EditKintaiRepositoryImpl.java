@@ -46,4 +46,17 @@ public class EditKintaiRepositoryImpl implements EditKintaiRepository {
 		
 		jdbcTemplate.update(sql_deleteKintai, form.getEmp_id(), form.getRecord_date());
 	}
+	
+	public void addDays(EditKintaiForm form) {
+		String sql_addSubDayString = "update pto_info set subHolidays_left = subHolidays_left + 1 where emp_id = ?";
+		String sql_addPaidDays = "update pto_info set paidHolidays_left = paidHolidays_left + 1 where emp_id = ?";
+		
+		switch (form.getShift_ID()) {
+		case 80: 
+			jdbcTemplate.update(sql_addPaidDays, form.getEmp_id());
+		
+		case 90:
+			jdbcTemplate.update(sql_addSubDayString, form.getEmp_id());
+		}
+	}
 }
