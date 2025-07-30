@@ -47,11 +47,11 @@
 	<div class="page-main">
 		<div class="remaining-days">
 			<p>
-				残り有給休暇日数 : 
+				残り有給休暇日数:
 			</p>
 			<p th:text="${remaining}"></p>
 		</div>
-
+		
 		<h2>対象日</h2>
 		<form th:action="@{/confirm-regist-paidHoliday}" method="POST" th:object="${registPaidHolidayForm}"
 			class="Holiday-form">

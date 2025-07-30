@@ -103,6 +103,7 @@ img {
 	margin-left: 2vw;
 	margin-right: 2vw;
 	align-content: center;
+	margin-bottom: 30px;
 }
 
 
@@ -172,7 +173,7 @@ img {
 }
 
 .select-line {
-	width: 77vw;
+	width: 76vw;
 }
 
 .input-line {
@@ -273,7 +274,7 @@ h2 {
 
 /*フォーム確認*/
 .confirm-form {
-	padding: 15px;
+	padding: 	5px;
 	border: 1px solid #ccc;
 	margin-left: 20px;
 	margin-right: 20px;
@@ -307,6 +308,7 @@ label {
 
 
 /* テーブルのクラス名 */
+.edit-kintai,
 .regist-kintai {
 	width: 100%;
 	border-collapse: collapse;
@@ -317,17 +319,19 @@ tr,
 th,
 td,
 input {
-	width: 8vw;
+	width: 6vw;
 	text-align: center;
 	align-items: center;
 	font-size: 15px;
+	padding: 0;
 }
 
 select {
-	width: 8vw;
+	width: 7vw;
 	text-align: center;
 	align-items: center;
 	font-size: 15px;
+	padding: 0;
 
 }
 
@@ -346,6 +350,11 @@ th {
 	margin-top: 140px;
 }
 
+.td-text {
+	width: 6vw;	
+	white-space: normal;
+	word-wrap: break-word;
+}
 
 
 /*検索条件フォーム*/
@@ -367,3 +376,4 @@ th {
 	flex-direction: row;
 	justify-content: end;
 }
+
