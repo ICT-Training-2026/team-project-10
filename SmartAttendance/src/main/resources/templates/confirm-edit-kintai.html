@@ -129,8 +129,8 @@
 				<input type="hidden" th:field="${editKintaiForm.excessTime}">
 				<div th:object="${loginUser}">
 					<input type="hidden" th:name="login_emp_id" th:value="${loginUser.login_emp_id}">
-					<input type="hidden" th:name="dep_id" th:value="${loginUser.login_dep_id}">
-					<input type="hidden" th:name="permission" th:value="${loginUser.login_permission}">
+					<input type="hidden" th:name="login_dep_id" th:value="${loginUser.login_dep_id}">
+					<input type="hidden" th:name="login_permission" th:value="${loginUser.login_permission}">
 				</div>
 				<input type="submit" value="戻る" class="btn" id="return-btn">
 			</form>
