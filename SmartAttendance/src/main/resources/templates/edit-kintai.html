@@ -14,7 +14,7 @@
 		if (!form.reportValidity()) {
 			return;
 		}
-		
+
 		// アクションと操作を設定して送信
 		form.action = action;
 		document.getElementById('operation').value = operation;
@@ -83,7 +83,8 @@
 								<option value="99">99:休日</option>
 							</select>
 						</td>
-						<td><input type="number" th:field="*{start_H}" min="8" max="22" required></td>
+						<td><input type="number" th:field="*{start_H}" min="8" max="22" required
+								oninput="this.value = this.value.replace(/\.0$/, '')"></td>
 						<td>
 							<select th:field="*{start_M}" required>
 								<option value="0">00</option>
@@ -92,7 +93,8 @@
 								<option value="45">45</option>
 							</select>
 						</td>
-						<td><input type="number" th:field="*{end_H}" min="8" max="22" required></td>
+						<td><input type="number" th:field="*{end_H}" min="8" max="22" required
+								oninput="this.value = this.value.replace(/\.0$/, '')"></td>
 						<td>
 							<select th:field="*{end_M}" required>
 								<option value="0">00</option>
@@ -102,8 +104,10 @@
 							</select>
 						</td>
 						<td><input type="number" th:field="*{total_workingTime}" step="0.25" min="0" required></td>
-						<td><input type="number" name="break_time" th:field="*{breakTime}" min="0" required></td>
-						<td><input type="number" name="excess_time" th:field="*{excessTime}" min="0" required></td>
+						<td><input type="number" name="break_time" th:field="*{breakTime}" min="0" required
+								oninput="this.value = this.value.replace(/\.0$/, '')"></td>
+						<td><input type="number" name="excess_time" th:field="*{excessTime}" min="0" required
+								oninput="this.value = this.value.replace(/\.0$/, '')"></td>
 					</tr>
 				</tbody>
 			</table>

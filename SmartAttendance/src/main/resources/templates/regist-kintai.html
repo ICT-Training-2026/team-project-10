@@ -64,9 +64,10 @@
 
 						<!-- 始業 -->
 						<td><input type="number" id="start_hour" name="start_hour" th:field="*{start_H}" min="8"
-								max="22" required></td>
+								max="22" required oninput="this.value = this.value.replace(/\.0$/, '')"></td>
 						<td>
-							<select id="start_minute" name="start_minute" th:field="*{start_M}" required>
+							<select id="start_minute" name="start_minute" th:field="*{start_M}" required
+								oninput="this.value = this.value.replace(/\.0$/, '')">
 								<option value="0">00</option>
 								<option value="15">15</option>
 								<option value="30">30</option>
@@ -76,7 +77,7 @@
 
 						<!-- 終業 -->
 						<td><input type="number" id="end_hour" name="end_hour" th:field="*{end_H}" min="8" max="22"
-								required></td>
+								required oninput="this.value = this.value.replace(/\.0$/, '')"></td>
 						<td>
 							<select id="end_minute" name="end_minute" th:field="*{end_M}" required>
 								<option value="0">00</option>
@@ -89,8 +90,10 @@
 						<!-- 数値（小数）入力 -->
 						<td><input type="number" name="work_time" th:field="*{total_workingTime}" step="0.25" min="0"
 								required></td>
-						<td><input type="number" name="break_time" th:field="*{breakTime}" min="0" required></td>
-						<td><input type="number" name="excess_time" th:field="*{excessTime}" min="0" required></td>
+						<td><input type="number" name="break_time" th:field="*{breakTime}" min="0" required
+								oninput="this.value = this.value.replace(/\.0$/, '')"></td>
+						<td><input type="number" name="excess_time" th:field="*{excessTime}" min="0" required
+								oninput="this.value = this.value.replace(/\.0$/, '')"></td>
 					</tr>
 				</tbody>
 			</table>
