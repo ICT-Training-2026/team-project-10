@@ -89,10 +89,10 @@
 
 						<!-- 数値（小数）入力 -->
 						<td><input type="number" name="work_time" th:field="*{total_workingTime}" step="0.25" min="0"
-								required></td>
-						<td><input type="number" name="break_time" th:field="*{breakTime}" min="0" required
+								max="24" required></td>
+						<td><input type="number" name="break_time" th:field="*{breakTime}" min="0" max="9" required
 								oninput="this.value = this.value.replace(/\.0$/, '')"></td>
-						<td><input type="number" name="excess_time" th:field="*{excessTime}" min="0" required
+						<td><input type="number" name="excess_time" th:field="*{excessTime}" min="0" max="9" required
 								oninput="this.value = this.value.replace(/\.0$/, '')"></td>
 					</tr>
 				</tbody>
