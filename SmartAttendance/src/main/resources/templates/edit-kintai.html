@@ -83,7 +83,7 @@
 								<option value="99">99:休日</option>
 							</select>
 						</td>
-						<td><input type="number" th:field="*{start_H}" min="8" max="22" required
+						<td><input type="number" th:field="*{start_H}" required
 								oninput="this.value = this.value.replace(/\.0$/, '')"></td>
 						<td>
 							<select th:field="*{start_M}" required>
@@ -93,7 +93,7 @@
 								<option value="45">45</option>
 							</select>
 						</td>
-						<td><input type="number" th:field="*{end_H}" min="8" max="22" required
+						<td><input type="number" th:field="*{end_H}" required
 								oninput="this.value = this.value.replace(/\.0$/, '')"></td>
 						<td>
 							<select th:field="*{end_M}" required>
