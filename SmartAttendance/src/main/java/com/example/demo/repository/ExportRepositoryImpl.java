@@ -29,7 +29,7 @@ public class ExportRepositoryImpl implements ExportRepository {
 
 		List<SearchResult> results = new ArrayList<SearchResult>();
 
-		LocalDate currentDate = LocalDate.now();
+		LocalDate currentDate = LocalDate.now().minusMonths(1);;
 		String currentYearMonth = currentDate.format(DateTimeFormatter.ofPattern("yyyy-MM"));
 		System.out.println(currentDate);
 
@@ -46,8 +46,6 @@ public class ExportRepositoryImpl implements ExportRepository {
 		for (Map<String, Object> one : list) {
 			results.add(ssr.setresult(one));
 		}
-
-		System.out.println(results);
 
 	}
 

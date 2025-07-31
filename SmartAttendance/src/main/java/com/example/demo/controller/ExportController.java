@@ -32,7 +32,7 @@ public class ExportController {
 	public String export(@ModelAttribute LoginUser loginUser, Model model) {
 		mainController.setter("勤怠情報エクスポート", loginUser);
 		service.export();
-		String fileName = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM")) + ".csv";
+		String fileName = LocalDate.now().minusMonths(1).format(DateTimeFormatter.ofPattern("yyyy-MM")) + ".csv";
 		return "redirect:/complete?from=export&file=" + fileName;
 	}
 	
